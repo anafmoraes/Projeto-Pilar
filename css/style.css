@@ -44,7 +44,7 @@ a {
 }
 a:hover {
 	text-decoration: none;
-	color:#eee;	
+	color:#eee;
 	}
 
 .btn-primary {
@@ -264,14 +264,18 @@ a:hover {
 	margin-bottom:40px;
 	border-radius:50%;
 }
-.services-box i.fa-rocket {
-	background-color: #00abf0;	
+.services-box i.fa-plus-circle {
+	background-color: #ED502E;
 }
 .services-box i.fa-cogs {
-	background-color: #02FE7C;	
+	background-color: #02FE7C;
 }
-.services-box i.fa-eye {
-	background-color: #0077b5;	
+.services-box i.fa-user {
+	background-color: #0077b5;
+}
+
+.services-box a {
+    color: #eee;
 }
 
 .services-box h4 {
