@@ -7,6 +7,7 @@ class Inicio_Controller extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+        //Caso o usuário não estiver logado ele é redirecionado para a página de login
         if(!$this->session->userdata('logado')){
             redirect(base_url('login'));
         }
@@ -15,6 +16,6 @@ class Inicio_Controller extends CI_Controller {
     }
 
     public function index() {
-        $this->load->view('backend/Inicio_View');
+        $this->load->view('Inicio_View');
     }
 }

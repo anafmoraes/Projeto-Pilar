@@ -1,17 +1,19 @@
-<h1> Pré Visualização </h1><br>
+<h1> Pré Visualização Obra</h1><br>
 
+<!-- Código do botão de voltar ao início-->
 <?php echo form_open('inicio'); ?>
     <button type="submit" > Voltar inicio </button>
 <?php echo form_close();?>
 
 <br>
 <br>
-<br>
 
+<!-- Código que leva para o form de cadasttro de obra -->
 <?php echo form_open('Obra_Controller/cadastrar_obra'); ?>
-    <button type="submit" > Nova Obra </button>
+    <button type="submit" > Cadastrar Obra </button>
 <?php echo form_close();?>
 
+<!-- Lista todas as obras registradas no banco de dados -->
 <div>
     <?php
     foreach ($obras as $obra){ ?>
