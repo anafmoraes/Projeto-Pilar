@@ -17,7 +17,6 @@ class Obra_Model extends CI_Model{
 
     // Responsável por gerar a pré-visualização na view
     public function pre_visualizacao(){
-
         // get_compiled_select() deve ser usado para a pesquisa funcionar corretamente
     	$this->db->select('id_obra', 'num_atual', 'num_anterior', 'nome_objeto', 'titulo',
             'imagem')->get_compiled_select();

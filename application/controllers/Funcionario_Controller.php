@@ -9,18 +9,19 @@ class Funcionario_Controller extends CI_Controller {
         $this->load->model('Funcionario_Model');
     }
 
-    public function index() {
+    public function index(){
     }
 
     public function cadastrar_funcionario() {
 
         // verifica se o usuário esta logado no sistema
         if($this->session->userdata('logado')){
-            // verifica se o usuário possui permissão de administrador
-            if($this->session->userdata('usuariologado')->id_tipoFuncionario != 1) {
+            // verifica se o usuário possui permissão de administrador (id_tipoFuncionario == 1 == administrador )
+            if($this->session->userdata('usuariologado')->id_tipoFuncionario != 1){
+                //Não seria melhor redirecionar para um modal ou página falando que ele nao tem esta permissao?
                 redirect(base_url('inicio'));
             }
-            $this->load->view('backend/cadastrar_funcionario');
+            $this->load->view('backend/funcionario/cadastrar_funcionario');
         } else { // usuário não esta logado, é direcionado para o login
             redirect(base_url('login'));
         }
@@ -32,7 +33,8 @@ class Funcionario_Controller extends CI_Controller {
         if(!$this->session->userdata('logado')){
             redirect(base_url('login'));
 
-        } else {
+        }
+        else{
             // verifica se o usuário possui permissão de administrador
             if ($this->session->userdata('usuariologado')->id_tipoFuncionario != 1) {
                 redirect(base_url('inicio'));
@@ -48,8 +50,7 @@ class Funcionario_Controller extends CI_Controller {
 
             if ($this->form_validation->run() == FALSE) {
                 $this->cadastrar_funcionario();
-            } else {
-
+            } else{
                 $user['nome'] = $this->input->post('txt-nome');
                 $user['senha'] = md5($this->input->post('txt-senha'));
                 $user['email'] = $this->input->post('txt-email');
@@ -58,10 +59,96 @@ class Funcionario_Controller extends CI_Controller {
                 $user['situacao'] = 1;
 
                 if ($this->Funcionario_Model->cadastrar($user)) {
-                    redirect(base_url('cadastrar_funcionario'));
+                    redirect(base_url('pre_visualizacao_funcionario'));
                 } else {
                     echo "Houve um erro no sistema";
                 }
+            }
+        }
+    }
+
+    // Envia para a view dados específicos de cada funcionario cadastrada no sistema
+    public function pre_visualizacao(){
+        $this->resultado = $this->Funcionario_Model->pre_visualizacao();
+        $dados['funcionarios'] = $this->resultado;
+        $this->load->view('frontend/funcionario/Pre_Visualizacao_Func_View', $dados);
+    }
+
+    public function pesquisar_funcionario(){
+        $chave = $this->input->post('txt-id_funcionario');
+        $this->pesquisa_unitaria = $this->Funcionario_Model->pesquisa_unitaria($chave);
+        $dados['resultado'] = $this->pesquisa_unitaria;
+        $this->load->view('frontend/funcionario/Registro_View', $dados);
+    }
+
+    // Busca os dados do funcionario no BD e renderiza na tela para serem atualizados
+    public function atualizar_perfil(){
+        //Pega o valor do form para renderizar no form de atualização
+        $chave = $this->input->post('txt-id');
+
+        //Realiza a busca pelo registro a ser atualizada no banco de dados
+        $this->pesquisa_unitaria = $this->Funcionario_Model->pesquisa_unitaria($chave);
+        $dados['resultado'] = $this->pesquisa_unitaria;
+        $this->load->view('backend/funcionario/Atualizar_Funcionario_View',$dados);
+    }
+
+    //Realiza a operação de Update do CRUD
+    public function salvar_atualizacao(){
+        $this->load->library('form_validation');
+
+        // Recebe o id_funcionario vindo do form para validar e usar no método update
+        $this->form_validation->set_rules('txt-id', 'ID', 'required');
+        $this->form_validation->set_rules('txt-tipo', 'TIPO', 'required');
+        $this->form_validation->set_rules('txt-situacao', 'SITUACAO', 'required');
+        $this->form_validation->set_rules('txt-nome', 'Nome do usuário', 'required|min_length[5]|max_length[80]');
+        $this->form_validation->set_rules('txt-senha', 'Senha do usuário', 'required|min_length[6]|max_length[20]');
+        $this->form_validation->set_rules('txt-confirmar-senha', 'Confirmar senha', 'required|matches[txt-senha]');
+        $this->form_validation->set_rules('txt-cpf', 'CPF', 'required');
+        $this->form_validation->set_rules('txt-email', 'Email', 'required|valid_email');
+
+        // Verifica se a validação de dados obteve sucesso
+        if ($this->form_validation->run() == FALSE){
+                $this->atualizar_perfil();
+        }
+        else{
+            $chave = $this->input->post('txt-id');
+            $user['nome'] = $this->input->post('txt-nome');
+            $user['senha'] = md5($this->input->post('txt-senha'));
+            $user['email'] = $this->input->post('txt-email');
+            $user['cpf'] = $this->input->post('txt-cpf');
+            $user['id_tipoFuncionario'] = $this->input->post('txt-tipo');
+            $user['situacao'] = $this->input->post('txt-situacao');
+
+            if($this->Funcionario_Model->atualizar_funcionario($chave, $user)){
+                redirect(base_url('pre_visualizacao_funcionario'));
+            }
+            else{
+                echo "Validação de dados na atualização do perfil falhou.";
+            }
+        }
+    }
+
+    // Realiza a validação de dados para a exclusão lógica de um usuário do sistema
+    public function exclusao_logica(){
+        $this->load->library('form_validation');
+
+        // Recebe o id_funcionario vindo do form para validar e usar no método update
+        $this->form_validation->set_rules('txt-id', 'ID', 'required');
+        $this->form_validation->set_rules('txt-situacao', 'SITUACAO', 'required');
+
+        // Verifica se a validação de dados obteve sucesso
+        if ($this->form_validation->run() == FALSE){
+                $this->atualizar_perfil();
+        }
+        else{
+            $chave = $this->input->post('txt-id');
+            $user['situacao'] = $this->input->post('txt-situacao');
+
+            if($this->Funcionario_Model->atualizar_funcionario($chave, $user)){
+                redirect(base_url('pre_visualizacao_funcionario'));
+            }
+            else{
+                echo "Validação de dados na atualização do perfil falhou.";
             }
         }
     }
@@ -71,7 +158,7 @@ class Funcionario_Controller extends CI_Controller {
         if($this->session->userdata('logado')){
             redirect(base_url('inicio'));
         }
-        $this->load->view('backend/login');
+        $this->load->view('login');
     }
 
     public function login() {
@@ -83,33 +170,35 @@ class Funcionario_Controller extends CI_Controller {
 
         if($this->form_validation->run() == FALSE) {
             $this->pagina_login();
-        } else {
+        }
+        else {
+            // Recebe as variáveis do form
             $email = $this->input->post('txt-email');
             $senha =  md5($this->input->post('txt-senha'));
 
+            // Compara valores passados no login com valores salvos no banco de dados
             $this->db->where('email', $email);
             $this->db->where('senha', $senha);
 
+            //Guarda todos os dados buscados no banco de dados
             $usuariologado = $this->db->get('funcionario')->result();
-
-            if(count($usuariologado) == 1) {
+            // 1 == true ou $usuariologado == 1?
+            if(count($usuariologado) == 1){
+                // Esse if redireciona para uma página especifica conforme a situalçao do usuário?
+                //Se for, deve ter um redirecionamento (visão do sistema) para cada tipo de funcionario?
                 if($usuariologado[0]->situacao == 1) {
                     $this->session->set_userdata('usuariologado', $usuariologado[0]);
                     $this->session->set_userdata('logado', TRUE);
-
                     redirect(base_url('inicio'));
                 } else {
-
                     $this->session->set_userdata('usuariologado', NULL);
                     $this->session->set_userdata('logado', FALSE);
-
                     redirect(base_url('login'));
                 }
             } else {
-
+                // Este else é chamado quando os dados de login não batem?
                 $this->session->set_userdata('usuariologado', NULL);
                 $this->session->set_userdata('logado', FALSE);
-
                 redirect(base_url('login'));
             }
         }

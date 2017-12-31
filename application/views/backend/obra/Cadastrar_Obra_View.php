@@ -1,4 +1,4 @@
-<?php echo form_open('pre_visualizacao'); ?>
+<?php echo form_open('pre_visualizacao_obra'); ?>
     <button type="submit" > Voltar </button>
 <?php echo form_close();?>
 

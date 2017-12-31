@@ -1,6 +1,6 @@
 <?php echo form_open('inicio'); ?>
     <button type="submit" > Voltar inicio </button>
-<?php echo form_close();?>
+<?php echo form_close();?>pre_visualizacao_funcionario
 <br>
 <br>
 <br>

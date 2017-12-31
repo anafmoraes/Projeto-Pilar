@@ -49,22 +49,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+/*Rotas padrão*/
 $route['default_controller'] = 'Funcionario_Controller/pagina_login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['operacao_realizada_sucesso'] = 'Wellcome/operacao_bem_sucedida';
 $route['inicio'] = 'Inicio_Controller';
 
+/*Rotas relacionadas às obras*/
 $route['cadastrar_obra'] = 'Obra_Controller/cadastrar_obra';
-$route['pre_visualizacao'] = 'Obra_Controller/pre_visualizacao';
+$route['pre_visualizacao_obra'] = 'Obra_Controller/pre_visualizacao';
 $route['visualizar_registro'] = 'Obra_Controller/pesquisar_obra';
+$route['cadastrar_exposicao'] = 'Exposicao_Controller/cadastrar_exposicao';
+$route['cadastrar_restauracao'] = 'Restauracao_Controller/cadastrar_restauracao';
+
+/*Rotas relacionadas à sessão*/
 $route['entrar'] = 'Funcionario_Controller/pagina_login';
 $route['login'] = 'Funcionario_Controller/login';
 $route['logout'] = 'Funcionario_Controller/logout';
 
-
-$route['cadastrar_exposicao'] = 'Exposicao_Controller/cadastrar_exposicao';
-$route['cadastrar_restauracao'] = 'Restauracao_Controller/cadastrar_restauracao';
+/*Rotas relacionadas à usuários*/
 $route['cadastrar_funcionario'] = 'Funcionario_Controller/cadastrar_funcionario';
-
+$route['atualizar'] = 'Funcionario_Controller/atualizar_perfil';
+$route['pre_visualizacao_funcionario'] = 'Funcionario_Controller/pre_visualizacao';
+$route['perfil'] = 'Funcionario_Controller/pesquisar_funcionario';
+$route['salvar'] = 'Funcionario_Controller/salvar_atualizacao';
+$route['excuirL'] = 'Funcionario_Controller/exclusao_logica';
 

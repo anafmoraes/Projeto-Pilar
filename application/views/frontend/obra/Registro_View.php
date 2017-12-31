@@ -4,11 +4,11 @@
 
 <div>
 
-    <!--  Botão para voltar para a pré-visualização  -->
-    <?php echo form_open('Obra_Controller/pre_visualizacao'); ?>
-        <button type="submit"> Voltar a pré-visualização </button>
-    <?php echo form_close();?>
-    <!--  FIM  -->
+  <!--  Botão para voltar para a pré-visualização  -->
+  <?php echo form_open('pre_visualizacao_obra'); ?>
+      <button type="submit"> Voltar a pré-visualização </button>
+  <?php echo form_close();?>
+  <!--  FIM  -->
 
 	<?php
     foreach ($resultado as $obra){ ?>

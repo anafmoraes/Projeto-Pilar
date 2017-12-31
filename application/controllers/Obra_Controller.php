@@ -7,6 +7,7 @@ class Obra_Controller extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+        //Caso o usuário não estiver logado ele é redirecionado para a página de login
         if(!$this->session->userdata('logado')){
             redirect(base_url('login'));
         }
@@ -130,11 +131,9 @@ class Obra_Controller extends CI_Controller {
 
     // Envia para a view dados específicos de cada obra cadastrada no sistema
     public function pre_visualizacao() {
-        $this->pre_visualizacao = $this->Obra_Model->pre_visualizacao();
-        
+        $this->pre_visualizacao = $this->Obra_Model->pre_visualizacao();        
         $dados['obras'] = $this->pre_visualizacao;
-
-        $this->load->view('frontend/obra/Pre_Visualizacao_View', $dados);
+        $this->load->view('frontend/obra/Pre_Visualizacao_Obra_View', $dados);
     }
 
     // Envia para a view uma obra específica de acordo com o id que é passado na view
@@ -496,7 +495,7 @@ class Obra_Controller extends CI_Controller {
     public function excluir_restauracao() {
         $id = $this->input->post('txt-id-rest');
         $id_obra = $this->input->post('txt-id-obra');
-//      Exclui um registro de uma restauração especifica do banco passando o id para a pesquisa
+        //Exclui um registro de uma restauração especifica do banco passando o id para a pesquisa
         if($this->Restauracao_Model->exclusao_unitaria($id)) {
             $dados['id'] = $id_obra;
 

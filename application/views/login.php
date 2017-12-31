@@ -8,7 +8,9 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-
+ <!-- Criei esse H4 só para teste -->
+<h4 align="center"> Página Inicial </h4>
+<p> Esta será a página principal do sistema, aquela que tem o frontend bonitinho doprojeto antigo </p>
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -18,8 +20,8 @@
                 </div>
                 <div class="panel-body">
                     <?php
-                        echo validation_errors('<div class="alert alert-danger">','</div>');
-                        echo form_open('login');
+                    echo validation_errors('<div class="alert alert-danger">','</div>');
+                    echo form_open('login');
                     ?>
                         <fieldset>
                             <div class="form-group">
@@ -32,7 +34,7 @@
                             <button class="btn btn-lg btn-success btn-block">Entrar</button>
                         </fieldset>
                     <?php
-                        echo form_close();
+                    echo form_close();
                     ?>
                 </div>
             </div>
