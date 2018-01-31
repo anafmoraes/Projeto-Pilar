@@ -4,21 +4,21 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<h1> Exposições </h1>
+<h1> Restaurações </h1>
 
 
 <div >
 
     <!-- Botão para voltar a visualização da obra -->
-    <?php echo form_open('Obra_Controller/pesquisar_obra'); ?>
-        <input  type="hidden" name="txt-id" value="<?php echo $id ?>"/>
+    <?php echo form_open('Obra_Controller/pesquisar_obra/'.$id_obra); ?>
+        <!-- <input  type="hidden" name="txt-id" value="<?php echo $id ?>"/> -->
         <button type="submit"> Voltar </button>
     <?php echo form_close();?>
     <!-- FIM -->
 
     <!-- Botão que direciona para a página de cadastro de restauração -->
-    <?php echo form_open('Obra_Controller/cadastrar_restauracao'); ?>
-        <input  type="hidden" name="txt-id" value="<?php echo $id ?>"/>
+    <?php echo form_open('Obra_Controller/cadastrar_restauracao/'.$id_obra); ?>
+        <!-- <input  type="hidden" name="txt-id" value="<?php echo $id_obra ?>"/> -->
         <button type="submit"> Cadastrar restauração </button>
     <?php echo form_close();?>
     <!-- FIM -->

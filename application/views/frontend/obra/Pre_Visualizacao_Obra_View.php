@@ -1,6 +1,6 @@
 <h1> Pré Visualização Obra</h1><br>
 
-<!-- Código do botão de voltar ao início-->
+<!-- Código do botão de voltar ao início, deve ser implementado no menu principal-->
 <?php echo form_open('inicio'); ?>
     <button type="submit" > Voltar inicio </button>
 <?php echo form_close();?>
@@ -35,15 +35,13 @@
                <?php echo $obra->imagem ?>
             </p>
 
-            <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
-            <?php echo form_open('Obra_Controller/pesquisar_obra'); ?>
-
-            <input  type="hidden" name="txt-id" value="<?php echo $obra->id_obra ?>"/><br>
-            <button type="submit" name="txt-visualizar" value=""> Visualizar Registro </button>
-
+            <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD
+                 via GET
+            -->
+            <?php echo form_open('Obra_Controller/pesquisar_obra/'.$obra->id_obra); ?>
+                <button type="submit" name="txt-visualizar" value=""> Visualizar Registro </button>
             <?php echo form_close();?>            
         </fieldset>
     <?php
     }?>
-</div>
 </div>

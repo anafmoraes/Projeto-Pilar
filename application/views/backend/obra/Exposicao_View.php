@@ -6,16 +6,14 @@
 
 <div>
     <!-- Botão para voltar a visualização da obra -->
-    <?php echo form_open('Obra_Controller/pesquisar_obra'); ?>
-        <input  type="hidden" name="txt-id" value="<?php echo $id ?>"/>
+    <?php echo form_open('Obra_Controller/pesquisar_obra/'.$id_obra); ?>
         <button type="submit"> Voltar </button>
     <?php echo form_close();?>
     <!-- FIM -->
 
     <!-- Botão que direciona para a página de cadastro de exposição -->
-    <?php echo form_open('Obra_Controller/cadastrar_exposicao'); ?>
-        <input  type="hidden" name="txt-id" value="<?php echo $id ?>"/>
-        <button type="submit"> Cadastrar exposição </button>
+    <?php echo form_open('Obra_Controller/cadastrar_exposicao/'.$id_obra); ?>
+        <button type="submit"> Cadastrar Exposição </button>
     <?php echo form_close();?>
     <!-- FIM -->
 

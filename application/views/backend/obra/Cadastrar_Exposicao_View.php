@@ -8,13 +8,18 @@
             <?php if(isset($error)):?>
                 <div><?=$error?></div>
             <?php endif; ?>
+
+            <!-- Botão para voltar a visualização das exposicoes -->
+            <?php echo form_open('Obra_Controller/visualizar_exposicoes/'.$id_obra); ?>
+                <button type="submit"> Voltar </button>
+            <?php echo form_close();?>
+            <!-- FIM -->
+
             <div class="col-md-8">
                 <?php
                     echo validation_errors('<div class="alert alert-danger">','</div>');
-                    echo form_open('Obra_Controller/salvar_exposicao');
+                    echo form_open('Obra_Controller/salvar_exposicao/'.$id_obra);
                 ?>
-
-                    <input  type="hidden" name="txt-id" value="<?php echo $obra ?>"/>
 
                     <div class="form-group">
                         <label id="nome-exposicao">Nome da Exposição</label>
