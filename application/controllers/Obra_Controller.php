@@ -129,7 +129,7 @@ class Obra_Controller extends CI_Controller {
         }
     }
 
-    // Envia para a view dados específicos de cada obra cadastrada no sistema
+    // Envia, para a view, dados específicos de cada obra cadastrada no sistema
     public function pre_visualizacao() {
         $this->pre_visualizacao = $this->Obra_Model->pre_visualizacao();        
         $dados['obras'] = $this->pre_visualizacao;
@@ -137,11 +137,8 @@ class Obra_Controller extends CI_Controller {
     }
 
     // Envia para a view uma obra específica de acordo com o id que é passado na view
-    public function pesquisar_obra() {
-
-        $chave = $this->input->post('txt-id');
-
-        $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($chave);
+    public function pesquisar_obra($id) {
+        $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
         $dados['resultado'] = $this->pesquisa_unitaria;
 
         $this->load->view('frontend/obra/Registro_View', $dados);
@@ -294,25 +291,26 @@ class Obra_Controller extends CI_Controller {
 /*######################################Métodos referentes as exposições#############################################-*/
 
     // Pesquisa e retorna todas as exposiçoes ligadas a uma determinada obra
-    public function visualizar_exposicoes() {
-        $id = $this->input->post('txt-id');
-        $dados['id'] = $id;
+    public function visualizar_exposicoes($id) {
+        //$id = $this->input->post('txt-id');
+        $dados['id_obra'] = $id;
 
         if($dados['exposicoes'] = $this->Exposicao_Model->exposicoes($id)) {
             $this->load->view('backend/obra/Exposicao_View', $dados);
-        } else {
+        }
+        else{
             $this->load->view('backend/obra/Exposicao_View', $dados);
         }
     }
 
     // Carrega a página de cadastro de exposições
-    public function cadastrar_exposicao() {
-        $dados['obra'] = $this->input->post('txt-id');
+    public function cadastrar_exposicao($id_obra){
+        $dados['id_obra'] = $id_obra;
         $this->load->view('backend/obra/Cadastrar_Exposicao_View', $dados);
     }
 
     // Salva as exposições no banco e relaciona com a obra
-    public function salvar_exposicao() {
+    public function salvar_exposicao($id_obra) {
         /*Valida o preenchimento dos campos do formulário*/
         $this->load->library('form_validation');
 
@@ -326,21 +324,24 @@ class Obra_Controller extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             /*Se verificação de dados falhar renderiza o formulario para nov preenchimento*/
             $this->cadastrar_exposicao();
-        } else {
-            /*Envia os dados para a função do model que irá grava-los no BD*/
+        }
+        else {
+            /*Passa os dados do cadastro para uma vaŕiável apenas*/
             $exposicao['nome_exposicao'] = $this->input->post('nome-exposicao');
             $exposicao['descricao'] = $this->input->post('descricao-exposicao');
             $exposicao['local_realizacao'] = $this->input->post('local-realizacao');
             $exposicao['data_inicio'] = $this->input->post('data-inicio-exp');
             $exposicao['data_fim'] = $this->input->post('data-fim-exp');
-            $exposicao['id_obra'] = $this->input->post('txt-id');
+            $exposicao['id_obra'] = $id_obra;
 
-
-            if($this->Exposicao_Model->cadastrar_exposicao($exposicao)) {
-                $dados['exposicoes'] = $this->Exposicao_Model->exposicoes($this->input->post('txt-id'));
-                $dados['id'] = $this->input->post('txt-id');
+            /*Envia os dados para função do model que registrará os dados na tabela de exposicoes*/
+            if($this->Exposicao_Model->cadastrar_exposicao($exposicao)){
+                /*Busca todas as exposições registradas na tabela*/
+                $dados['exposicoes'] = $this->Exposicao_Model->exposicoes($id_obra);
+                $dados['id_obra'] = $id_obra;
                 $this->load->view('backend/obra/Exposicao_View', $dados);
-            } else {
+            }
+            else {
                 echo "Houve um erro inesperado, as informações não foram salvas.";
             }
         }
@@ -407,24 +408,25 @@ class Obra_Controller extends CI_Controller {
 
     /*######################################Métodos referentes as restaurações######################################*/
 
-    public function visualizar_restauracoes() {
-        $id = $this->input->post('txt-id');
+    public function visualizar_restauracoes($id_obra) {
+        //$id = $id_obra;
 
-        if($dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id)) {
-            $dados['id'] = $id;
+        if($dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id_obra)) {
+            $dados['id_obra'] = $id_obra;
             $this->load->view('backend/obra/Restauracao_View', $dados);
-        } else {
-            $dados['id'] = $id;
+        }
+        else{
+            $dados['id_obra'] = $id_obra;
             $this->load->view('backend/obra/Restauracao_View', $dados);
         }
     }
 
-    public function cadastrar_restauracao() {
-        $dados['obra'] = $this->input->post('txt-id');
+    public function cadastrar_restauracao($id_obra){
+        $dados['id_obra'] = $id_obra;
         $this->load->view('backend/obra/Cadastrar_Restauracao_View', $dados);
     }
 
-    public function salvar_restauracao() {
+    public function salvar_restauracao($id_obra) {
 
         $this->load->library('form_validation');
 
@@ -434,18 +436,19 @@ class Obra_Controller extends CI_Controller {
 
         if($this->form_validation->run() == FALSE) {
             $this->cadastrar_restauracao();
-        } else {
+        }
+        else {
             $restauracao['intervencao'] = $this->input->post('tipo-intervencao');
             $restauracao['nome_restaurador'] = $this->input->post('nome-restaurador');
             $restauracao['data_restauracao'] = $this->input->post('data-restauracao');
-            $restauracao['id_obra'] = $this->input->post('txt-id');
+            $restauracao['id_obra'] = $id_obra;
 
             if($this->Restauracao_Model->cadastrar_restauracao($restauracao)) {
-                $dados['restauracoes'] = $this->Restauracao_Model->restauracoes($this->input->post('txt-id'));
-                $dados['id'] = $this->input->post('txt-id');
+                $dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id_obra);
+                $dados['id_obra'] = $id_obra;
                 $this->load->view('backend/obra/Restauracao_View', $dados);
             }
-            else {
+            else{
                 echo "Houve um erro inesperado, as informações não foram salvas.";
             }
         }

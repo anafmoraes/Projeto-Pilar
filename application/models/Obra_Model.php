@@ -15,7 +15,7 @@ class Obra_Model extends CI_Model{
         return $this->db->get('obra')->result();
     }
 
-    // Responsável por gerar a pré-visualização na view
+    // Responsável por gerar a pré-visualização de TODAS as obras cadastradas na view
     public function pre_visualizacao(){
         // get_compiled_select() deve ser usado para a pesquisa funcionar corretamente
     	$this->db->select('id_obra', 'num_atual', 'num_anterior', 'nome_objeto', 'titulo',

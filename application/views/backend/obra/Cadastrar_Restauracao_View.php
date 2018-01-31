@@ -12,10 +12,10 @@
             <div class="col-md-8">
                 <?php
                 echo validation_errors('<div class="alert alert-danger">','</div>');
-                echo form_open_multipart('Obra_Controller/salvar_restauracao');
+                echo form_open_multipart('Obra_Controller/salvar_restauracao/'.$id_obra);
                 ?>
 
-                <input  type="hidden" name="txt-id" value="<?php echo $obra ?>"/>
+                <!-- <input  type="hidden" name="txt-id" value="<?php echo $id_obra ?>"/> -->
 
                 <div class="form-group">
                     <label id="tipo-intervencao">Tipo de Intervenção</label>

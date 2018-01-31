@@ -4,6 +4,12 @@
     <div><?=$error?></div>
 <?php endif;?>
 
+<!-- Botão para voltar a visualização das exposicoes -->
+<?php echo form_open('Obra_Controller/visualizar_exposicoes/'.$id_obra); ?>
+    <button type="submit"> Voltar </button>
+<?php echo form_close();?>
+<!-- FIM -->
+
 <div>
     <?php
     foreach ($exposicoes as $exposicao) {?>

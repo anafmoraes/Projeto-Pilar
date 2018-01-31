@@ -17,16 +17,14 @@
 
             <!-- Inicio do codigo de visualizar exposições -->
             <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
-            <?php echo form_open('Obra_Controller/visualizar_exposicoes'); ?>
-                <input  type="hidden" name="txt-id" value="<?php echo $obra->id_obra ?>"/>
+            <?php echo form_open('Obra_Controller/visualizar_exposicoes/'.$obra->id_obra); ?>
                 <button type="submit"> Visualizar exposições </button>
             <?php echo form_close();?>
             <!-- Fim do codigo de visualizar exposições -->
 
             <!-- Inicio do codigo de visualizar restaurações -->
             <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
-            <?php echo form_open('Obra_Controller/visualizar_restauracoes'); ?>
-                <input  type="hidden" name="txt-id" value="<?php echo $obra->id_obra ?>"/>
+            <?php echo form_open('Obra_Controller/visualizar_restauracoes/'.$obra->id_obra); ?>
                 <button type="submit"> Visualizar restaurações </button>
             <?php echo form_close();?>
             <!-- Fim do codigo de visualizar restaurações -->
@@ -207,5 +205,4 @@
         </fieldset>
     <?php
     }?>
-
 </div>
