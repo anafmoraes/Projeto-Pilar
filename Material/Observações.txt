@@ -1,6 +1,7 @@
 Favor colocar todas as observações referentes ao projeto aqui, e apagar as que forem resolvidas.
 
 Credenciais de acesso ao sistema{
+    /*Qualquer dúvida entre em contato com o Fagner*/
     email de usuario: bernardo.fagner@hotmail.com
     Senha de usuario: nve7a3ez
 }
