@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -6,15 +5,13 @@
 
 <h1> Restaurações </h1>
 
+<!-- Botão para voltar a visualização da obra -->
+<?php echo form_open('Obra_Controller/pesquisar_obra/'.$id_obra); ?>
+    <button type="submit"> Voltar </button>
+<?php echo form_close();?>
+<!-- FIM -->
 
 <div >
-
-    <!-- Botão para voltar a visualização da obra -->
-    <?php echo form_open('Obra_Controller/pesquisar_obra/'.$id_obra); ?>
-        <!-- <input  type="hidden" name="txt-id" value="<?php echo $id ?>"/> -->
-        <button type="submit"> Voltar </button>
-    <?php echo form_close();?>
-    <!-- FIM -->
 
     <!-- Botão que direciona para a página de cadastro de restauração -->
     <?php echo form_open('Obra_Controller/cadastrar_restauracao/'.$id_obra); ?>
@@ -48,8 +45,6 @@
         <!-- Botão para excluir uma restauração -->
         <!-- Botão de exclusão que chama um modal para verificar se o usuário deseja mesmo excluir a obra-->
         <button type="button" data-toggle="modal" data-target="#myModal">Excluir restauração</button>
-
-
 
         <!-- Modal de exclusão de obra -->
         <div class="modal fade" id="myModal" role="dialog">

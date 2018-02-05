@@ -4,13 +4,13 @@
 
 <h1> Exposições </h1>
 
-<div>
-    <!-- Botão para voltar a visualização da obra -->
-    <?php echo form_open('Obra_Controller/pesquisar_obra/'.$id_obra); ?>
-        <button type="submit"> Voltar </button>
-    <?php echo form_close();?>
-    <!-- FIM -->
+<!-- Botão para voltar a visualização da obra -->
+<?php echo form_open('Obra_Controller/pesquisar_obra/'.$id_obra); ?>
+    <button type="submit"> Voltar </button>
+<?php echo form_close();?>
+<!-- FIM -->
 
+<div>
     <!-- Botão que direciona para a página de cadastro de exposição -->
     <?php echo form_open('Obra_Controller/cadastrar_exposicao/'.$id_obra); ?>
         <button type="submit"> Cadastrar Exposição </button>

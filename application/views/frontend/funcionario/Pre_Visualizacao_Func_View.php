@@ -1,15 +1,13 @@
 <h1> Pré Visualização Funcionario</h1>
 
-<br>
-
 <?php echo form_open('inicio'); ?>
     <button type="submit" > Voltar inicio </button>
 <?php echo form_close();?>
 
-<br>
-
 <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 1) { ?>
-    <p>Este usuário é um Administrador</p>
+
+    <p>Este usuário logado é um Administrador de id_tipoFuncionario == 1</p>
+
     <a type="button" href= "<?php echo base_url('cadastrar_funcionario') ?>" >Cadastrar funcionário</a>
     <br>
 
@@ -27,7 +25,11 @@
                 <p> Tipo: <?php  echo $funcionario->id_tipoFuncionario ?> </p>
                 <p> Situação: <?php  echo $funcionario->situacao ?> </p>
                 <p> Id: <?php  echo $funcionario->id_funcionario ?> </p>
-                <p> Gustavo/Tristeza vejam se é interessante colocar os dados acima um na frente do outro, para ocupar menos espaço. Esta é uma mensagem do programador do passado Fagner ^^.</p>
+                <p> Gustavo/Tristeza vejam se é interessante colocar os dados acima um na frente do outro, para ocupar menos espaço.<br>
+                    Esta é uma mensagem do programador do passado Fagner ^^. <br>
+                    Reparem também que a situação do funcionário pode ser 0 ou 1,<br>
+                    então criem um boxmodel para funcionarios ativos e inativos ok? <br>
+                    QQ dúvida me perguntem</p>
             
                 <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
                 <?php echo form_open('perfil'); ?>

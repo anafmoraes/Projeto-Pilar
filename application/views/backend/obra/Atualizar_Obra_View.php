@@ -4,6 +4,12 @@
     <div><?=$error?></div>
 <?php endif;?>
 
+<!-- Botão para voltar a visualização da obra -->
+<?php echo form_open('Obra_Controller/pesquisar_obra/'.$id_obra); ?>
+    <button type="submit"> Voltar </button>
+<?php echo form_close();?>
+<!-- FIM -->
+
 <div>
     <?php
     foreach ($resultado as $obra) {?>
