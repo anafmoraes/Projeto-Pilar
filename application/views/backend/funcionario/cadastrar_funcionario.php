@@ -1,9 +1,11 @@
-<?php echo form_open('inicio'); ?>
-    <button type="submit" > Voltar inicio </button>
-<?php echo form_close();?>pre_visualizacao_funcionario
-<br>
-<br>
-<br>
+<h3>Cadastrar Novo Funcionário</h3>
+
+<!--  Botão para voltar para a pré-visualização  -->
+<?php echo form_open('pre_visualizacao_funcionario'); ?>
+    <button type="submit"> Voltar </button>
+<?php echo form_close();?>
+<!--  FIM  -->
+
 <div >
     <?php
         echo validation_errors('<div class="alert alert-danger">','</div>');

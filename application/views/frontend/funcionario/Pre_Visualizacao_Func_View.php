@@ -4,17 +4,23 @@
     <button type="submit" > Voltar inicio </button>
 <?php echo form_close();?>
 
-<?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 1) { ?>
+<!-- Pega o id do funcionario atualmente logado -->
+    <?php $id_func_Logado = $this->session->userdata('usuariologado')->id_funcionario; ?>
 
-    <p>Este usuário logado é um Administrador de id_tipoFuncionario == 1</p>
-
-    <a type="button" href= "<?php echo base_url('cadastrar_funcionario') ?>" >Cadastrar funcionário</a>
-    <br>
-
-    <?php echo form_open('perfil'); ?>
-        <input  type="hidden" name="txt-id_funcionario" value="<?php echo $this->session->userdata('usuariologado')->id_funcionario ?>" /> <br>
+    <!-- Passa o id do funcionario atualmente logado para a função de busca -->
+    <?php echo form_open('Funcionario_Controller/pesquisar_funcionario/'.$id_func_Logado); ?>
         <button type="submit" name="txt-visualizar" value=""> Visualizar Próprio Perfil </button>
     <?php echo form_close();?> 
+
+<!-- Permite todas as operações do CRUD para um administrador -->
+<?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 1) { ?>
+
+    <p>Este usuário logado é um Administrador de id_tipoFuncionario == 1 </p>
+
+    <a type="button" href= "<?php echo base_url('cadastrar_funcionario') ?>" >Cadastrar funcionário</a>
+    
+    <br>
+    <br>
 
     <fieldset>
         <legend> Gerenciar Usuários</legend>
@@ -32,24 +38,24 @@
                     QQ dúvida me perguntem</p>
             
                 <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
-                <?php echo form_open('perfil'); ?>
-                    <input  type="hidden" name="txt-id_funcionario" value="<?php echo $funcionario->id_funcionario ?>"/><br>
+                <?php echo form_open('Funcionario_Controller/pesquisar_funcionario/'.$funcionario->id_funcionario); ?>
                     <button type="submit" name="txt-visualizar" value=""> Visualizar Registro </button>
                 <?php echo form_close();?> 
             </fieldset>
         <?php }?>
     </fieldset>
+
     <!-- Colocar um código c link para gerenciar usuários. CRUD -->
 <?php }?>
 
 <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 2) { ?>
-    <p>Este usuário é Supervisor</p>
+    <p>Este usuário logado é um Supervisor</p>
     <a type="button" href= "<?php echo base_url('perfil') ?>" >Editar Perfil</a>
     
 <?php }?>
 
 <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 3) { ?>
-    <p>Este usuário é Auxiliar</p>
+    <p>Este usuário logado é um Auxiliar</p>
     <a type="button" href= "<?php echo base_url('perfil') ?>" >Editar Perfil</a>
 
 <?php }?>
