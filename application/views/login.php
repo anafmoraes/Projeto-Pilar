@@ -10,7 +10,7 @@
 
  <!-- Criei esse H4 só para teste -->
 <h4 align="center"> Página Inicial </h4>
-<p> Esta será a página principal do sistema, aquela que tem o frontend bonitinho doprojeto antigo </p>
+<p> Esta será a página principal do sistema, aquela que tem o frontend bonitinho do projeto antigo </p>
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
