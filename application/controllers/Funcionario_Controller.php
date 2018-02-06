@@ -74,30 +74,32 @@ class Funcionario_Controller extends CI_Controller {
         $this->load->view('frontend/funcionario/Pre_Visualizacao_Func_View', $dados);
     }
 
-    public function pesquisar_funcionario(){
-        $chave = $this->input->post('txt-id_funcionario');
-        $this->pesquisa_unitaria = $this->Funcionario_Model->pesquisa_unitaria($chave);
+    public function pesquisar_funcionario($id){
+        /*Recebe o id do funcionario a ser persquisado no BD*/
+        $id_func = $id;
+
+        $this->pesquisa_unitaria = $this->Funcionario_Model->pesquisa_unitaria($id_func);
         $dados['resultado'] = $this->pesquisa_unitaria;
         $this->load->view('frontend/funcionario/Registro_View', $dados);
     }
 
     // Busca os dados do funcionario no BD e renderiza na tela para serem atualizados
-    public function atualizar_perfil(){
+    public function atualizar_perfil($id){
         //Pega o valor do form para renderizar no form de atualização
-        $chave = $this->input->post('txt-id');
+        $id_func = $id;
 
         //Realiza a busca pelo registro a ser atualizada no banco de dados
-        $this->pesquisa_unitaria = $this->Funcionario_Model->pesquisa_unitaria($chave);
+        $this->pesquisa_unitaria = $this->Funcionario_Model->pesquisa_unitaria($id_func);
         $dados['resultado'] = $this->pesquisa_unitaria;
+        $dados['id_funcionario'] = $id_func;
         $this->load->view('backend/funcionario/Atualizar_Funcionario_View',$dados);
     }
 
     //Realiza a operação de Update do CRUD
-    public function salvar_atualizacao(){
+    public function salvar_atualizacao($id){
         $this->load->library('form_validation');
 
-        // Recebe o id_funcionario vindo do form para validar e usar no método update
-        $this->form_validation->set_rules('txt-id', 'ID', 'required');
+        /*Valida os outros campos do formulário*/
         $this->form_validation->set_rules('txt-tipo', 'TIPO', 'required');
         $this->form_validation->set_rules('txt-situacao', 'SITUACAO', 'required');
         $this->form_validation->set_rules('txt-nome', 'Nome do usuário', 'required|min_length[5]|max_length[80]');
@@ -108,10 +110,10 @@ class Funcionario_Controller extends CI_Controller {
 
         // Verifica se a validação de dados obteve sucesso
         if ($this->form_validation->run() == FALSE){
-                $this->atualizar_perfil();
+            $this->atualizar_perfil();
         }
         else{
-            $chave = $this->input->post('txt-id');
+            $chave = $id;
             $user['nome'] = $this->input->post('txt-nome');
             $user['senha'] = md5($this->input->post('txt-senha'));
             $user['email'] = $this->input->post('txt-email');

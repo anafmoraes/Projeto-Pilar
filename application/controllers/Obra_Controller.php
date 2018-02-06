@@ -17,7 +17,7 @@ class Obra_Controller extends CI_Controller {
         $this->load->model('Restauracao_Model');
     }
 
-    public function index() {
+    public function index(){
         $this->load->view('backend/obra/Obra_View');
     }
 
@@ -145,14 +145,15 @@ class Obra_Controller extends CI_Controller {
     }
 
     // Valida e atualiza os dados de uma determinada obra
-    public function atualizar_obra() {
+    public function atualizar_obra($id) {
 
-        // Pega o valor do form e passa para a variável $Chave
-        $chave = $this->input->post('txt-id');
+        // Pega o ID da obra a ser atualziada
+        $id_obra = $id;
 
         //Realiza a busca pela obra a ser atualizada no banco de dados
-        $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($chave);
-        $dados['resultado'] = $this->pesquisa_unitaria;        
+        $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id_obra);
+        $dados['resultado'] = $this->pesquisa_unitaria;
+        $dados['id_obra'] = $id_obra;       
 
         // Carrega o formulário de atualização da obra
         $this->load->view('backend/obra/Atualizar_Obra_View', $dados);
@@ -267,21 +268,29 @@ class Obra_Controller extends CI_Controller {
         }
     }
 
-    // Exclui uma obra e as exposições e restaurações relacionadas a ela
-    public function remover_obra() {
-        $id = $this->input->post('txt-id');
+    // Exclui uma obra e as exposições e restaurações relacionadas a ela (Propagação)
+    public function remover_obra($id){
 
-        if($this->Exposicao_Model->excluir_exposicoes_obras($id)) {
-            if($this->Restauracao_Model->excluir_restauracoes_obras($id)) {
-                if($this->Obra_Model->excluir_obra($id)) {
+        /*Recebe o id da obra*/
+        $id_obra = $id;
+
+        /*Acessa o BD para excluir todas as exposições associadas à obra*/
+        if($this->Exposicao_Model->excluir_exposicoes_obras($id_obra)){
+            /*Acessa o BD para excluir todas as restaurações associadas à obra*/
+            if($this->Restauracao_Model->excluir_restauracoes_obras($id_obra)){
+                /*Acessa o BD para excluir todas aobra selecionada*/
+                if($this->Obra_Model->excluir_obra($id_obra)) {
                     redirect(base_url('Obra_Controller/pre_visualizacao'));
-                } else {
-                    echo "Houve um erro inesperado na exclusão das restaurações ligadas a obra.";
                 }
-            } else {
+                else{
+                    echo "Houve um erro inesperado na exclusão da obra selecionada";
+                }
+            }
+            else{
                 echo "Houve um erro inesperado na exclusão das restaurações ligadas a obra.";
             }
-        } else {
+        }
+        else {
             echo "Houve um erro inesperado na exclusão das exposições ligadas a obra.";
         }
     }
