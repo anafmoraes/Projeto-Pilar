@@ -19,9 +19,11 @@
 
     <?php
     foreach ($exposicoes as $exposicao){ ?>
-
         <div>
-            <?php echo $exposicao->nome_exposicao?>
+            ID: <?php echo $exposicao->id_exposicao ?>
+        </div>        
+        <div>
+            Nome: <?php echo $exposicao->nome_exposicao?>
         </div>
         <div>
             <?php echo $exposicao->descricao?>
@@ -37,9 +39,9 @@
         </div>
 
         <!-- Botão para atualizar uma exposição -->
-        <?php echo form_open('Obra_Controller/atualizar_exposicao'); ?>
-            <input  type="hidden" name="txt-id-exp" value="<?php echo $exposicao->id_exposicao ?>"/>
-            <input  type="hidden" name="txt-id-obra" value="<?php echo $exposicao->id_obra ?>"/>
+        <?php echo form_open('Obra_Controller/atualizar_exposicao/'.$id_obra.'/'.$exposicao->id_exposicao); ?>
+            <!-- <input  type="hidden" name="txt-id-exp" value="<?php echo $exposicao->id_exposicao ?>"/> -->
+            <!-- <input  type="hidden" name="txt-id-obra" value="<?php echo $exposicao->id_obra ?>"/> -->
             <button type="submit" name="txt-visualizar" value=""> Atualizar exposição </button>
         <?php echo form_close();?>
         <!-- FIM -->

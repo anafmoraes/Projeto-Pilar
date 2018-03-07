@@ -23,9 +23,12 @@
     <?php
     foreach ($restauracoes as $restauracao){ ?>
 
-        <input  type="hidden" name="txt-id" value="<?php echo $restauracao->id_obra ?>"/>
+        <!-- <input  type="hidden" name="txt-id" value="<?php echo $restauracao->id_obra ?>"/> -->
         <div>
-            <?php echo $restauracao->intervencao?>
+            ID: <?php echo $restauracao->id_restauracao?>
+        </div>
+        <div>
+            Tipo de Intervenção: <?php echo $restauracao->intervencao?>
         </div>
         <div>
             <?php echo $restauracao->nome_restaurador?>
@@ -35,9 +38,9 @@
         </div>
 
         <!-- Botão para atualizar uma restauração -->
-        <?php echo form_open('Obra_Controller/atualizar_restauracao'); ?>
-            <input  type="hidden" name="txt-id-rest" value="<?php echo $restauracao->id_restauracao ?>"/>
-            <input  type="hidden" name="txt-id-obra" value="<?php echo $restauracao->id_obra ?>"/>
+        <?php echo form_open('Obra_Controller/atualizar_restauracao/'.$id_obra.'/'.$restauracao->id_restauracao); ?>
+            <!-- <input  type="hidden" name="txt-id-rest" value="<?php echo $restauracao->id_restauracao ?>"/> -->
+            <!-- <input  type="hidden" name="txt-id-obra" value="<?php echo $restauracao->id_obra ?>"/> -->
             <button type="submit" name="txt-restauracao" value=""> Atualizar restauracão </button>
         <?php echo form_close();?>
         <!-- FIM -->

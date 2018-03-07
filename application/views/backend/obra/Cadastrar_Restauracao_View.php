@@ -9,6 +9,13 @@
             <?php if(isset($error)):?>
                 <div><?=$error?></div>
             <?php endif; ?>
+
+            <!-- Botão para voltar a visualização das exposicoes -->
+            <?php echo form_open('Obra_Controller/visualizar_restauracoes/'.$id_obra); ?>
+                <button type="submit"> Voltar </button>
+            <?php echo form_close();?>
+            <!-- FIM -->
+
             <div class="col-md-8">
                 <?php
                 echo validation_errors('<div class="alert alert-danger">','</div>');

@@ -159,11 +159,14 @@ class Obra_Controller extends CI_Controller {
         $this->load->view('backend/obra/Atualizar_Obra_View', $dados);
     }
 
-    public function salvar_atualizacao() {
+    public function salvar_atualizacao($id) {
+
+        $id_obra = $id;
+
         $this->load->library('form_validation');
 
-        // Recebe o id_obra vindo do form para validar e usar no método update
-        $this->form_validation->set_rules('id-obra', 'ID', 'required');
+        //Não funciona colocando a variável $id_obra como parametro do metodo na forma de string
+        //$this->form_validation->set_rules('$id_obra', 'ID', 'required');
 
         //Realiza a validação dos demais campos do form
         $this->form_validation->set_rules('localizacao','Localização da obra','required');
@@ -211,10 +214,9 @@ class Obra_Controller extends CI_Controller {
 
         if($this->form_validation->run() == FALSE) {
             // Se a validação falhar chama o método de atualização novamente. '$this' indica que o método pertence a esta classe
-            $this->atualizar_obra();
-        } else {
-            $chave = $this->input->post('id-obra');
-
+            $this->atualizar_obra($id);
+        }
+        else {
             $obra['num_atual'] = $this->input->post('numero-atual');
             $obra['num_anterior'] = $this->input->post('numero-anterior');
             $obra['fichas_relacionadas'] = $this->input->post('fichas-relacionadas');
@@ -258,11 +260,11 @@ class Obra_Controller extends CI_Controller {
             $obra['data_aquisicao'] = $this->input->post('data-aquisicao');
             $obra['id_funcionario'] = $this->session->userdata('usuariologado')->id_funcionario;
 
-            if($this->Obra_Model->atualizar_obra($chave, $obra)) {
-                $dados['resultado'] = $this->Obra_Model->pesquisa_unitaria($chave);
-
+            if($this->Obra_Model->atualizar_obra($id, $obra)) {
+                $dados['resultado'] = $this->Obra_Model->pesquisa_unitaria($id);
                 $this->load->view('frontend/obra/Registro_View', $dados);
-            } else {
+            }
+            else {
                 echo "Houve um erro no sistema";
             }
         }
@@ -356,17 +358,16 @@ class Obra_Controller extends CI_Controller {
         }
     }
 
-    public function atualizar_exposicao() {
-        $id = $this->input->post('txt-id-exp');
+    public function atualizar_exposicao($id_obra, $id_exposicao) {
 
-        $dados['exposicoes'] = $this->Exposicao_Model->pesquisa_unitaria($id);
-        $dados['id'] = $id;
-        $dados['idObra'] = $this->input->post('txt-id-obra');
+        $dados['exposicoes'] = $this->Exposicao_Model->pesquisa_unitaria($id_exposicao);
+        $dados['id_exposicao'] = $id_exposicao;
+        $dados['id_obra'] = $id_obra;
 
         $this->load->view('backend/obra/Atualizar_Exposicao_View', $dados);
     }
 
-    public function salvar_atualizacao_exposicao() {
+    public function salvar_atualizacao_exposicao($id_obra, $id_exposicao) {
 
         /*Valida o preenchimento dos campos do formulário*/
         $this->load->library('form_validation');
@@ -379,9 +380,10 @@ class Obra_Controller extends CI_Controller {
 
         /*Verifica se a validação obteve sucesso*/
         if ($this->form_validation->run() == FALSE) {
-            /*Se verificação de dados falhar renderiza o formulario para nov preenchimento*/
-            $this->atualizar_exposicao();
-        } else {
+            /*Se verificação de dados falhar renderiza o formulario para novo preenchimento*/
+            $this->atualizar_exposicao($id_obra, $id_exposicao);
+        }
+        else {
             /*Envia os dados para a função do model que irá grava-los no BD*/
             $exposicao['nome_exposicao'] = $this->input->post('nome-exposicao');
             $exposicao['descricao'] = $this->input->post('descricao-exposicao');
@@ -389,9 +391,9 @@ class Obra_Controller extends CI_Controller {
             $exposicao['data_inicio'] = $this->input->post('data-inicio-exp');
             $exposicao['data_fim'] = $this->input->post('data-fim-exp');
 
-            if($this->Exposicao_Model->atualizar($this->input->post('txt-id-exp'),$exposicao)) {
-                $dados['exposicoes'] = $this->Exposicao_Model->exposicoes($this->input->post('txt-id-obra'));
-                $dados['id'] = $this->input->post('txt-id-obra');
+            if($this->Exposicao_Model->atualizar($id_exposicao, $exposicao)) {
+                $dados['exposicoes'] = $this->Exposicao_Model->exposicoes($id_obra);
+                $dados['id_obra'] = $id_obra;
                 $this->load->view('backend/obra/Exposicao_View', $dados);
             } else {
                 echo "Houve um erro inesperado, as informações não foram salvas.";
@@ -463,17 +465,16 @@ class Obra_Controller extends CI_Controller {
         }
     }
 
-    public function atualizar_restauracao() {
-        $id = $this->input->post('txt-id-rest');
+    public function atualizar_restauracao($id_obra, $id_restauracao) {
 
-        $dados['restauracoes'] = $this->Restauracao_Model->pesquisa_unitaria($id);
-        $dados['id'] = $id;
-        $dados['idObra'] = $this->input->post('txt-id-obra');
+        $dados['restauracoes'] = $this->Restauracao_Model->pesquisa_unitaria($id_restauracao);
+        $dados['id_restauracao'] = $id_restauracao;
+        $dados['id_obra'] = $id_obra;
 
         $this->load->view('backend/obra/Atualizar_Restauracao_View', $dados);
     }
 
-    public function salvar_atualizacao_restauracao() {
+    public function salvar_atualizacao_restauracao($id_obra, $id_restauracao) {
 
         /*Valida o preenchimento dos campos do formulário*/
         $this->load->library('form_validation');
@@ -485,7 +486,7 @@ class Obra_Controller extends CI_Controller {
         /*Verifica se a validação obteve sucesso*/
         if ($this->form_validation->run() == FALSE) {
             /*Se verificação de dados falhar renderiza o formulario para nov preenchimento*/
-            $this->atualizar_restauracao();
+            $this->atualizar_restauracao($id_obra, $id_restauracao);
         }
         else {
             /*Envia os dados para a função do model que irá grava-los no BD*/
@@ -493,9 +494,9 @@ class Obra_Controller extends CI_Controller {
             $restauracao['nome_restaurador'] = $this->input->post('nome-restaurador');
             $restauracao['data_restauracao'] = $this->input->post('data-restauracao');
 
-            if($this->Restauracao_Model->atualizar($this->input->post('txt-id-rest'),$restauracao)) {
-                $dados['restauracoes'] = $this->Restauracao_Model->restauracoes($this->input->post('txt-id-obra'));
-                $dados['id'] = $this->input->post('txt-id-obra');
+            if($this->Restauracao_Model->atualizar($id_restauracao, $restauracao)) {
+                $dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id_obra);
+                $dados['id_obra'] = $id_obra;
                 $this->load->view('backend/obra/Restauracao_View', $dados);
             }
             else {

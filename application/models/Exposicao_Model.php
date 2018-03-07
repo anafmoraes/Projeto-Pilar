@@ -2,8 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Exposicao_Model extends CI_Model
-{
+class Exposicao_Model extends CI_Model{
 
     public function __construct(){
         parent::__construct();
@@ -13,7 +12,7 @@ class Exposicao_Model extends CI_Model
         return $this->db->insert('exposicao', $exposicao);
     }
 
-    public function exposicoes($id) {
+    public function exposicoes($id){
 
         $this->db->select();
 
