@@ -16,11 +16,12 @@
 
         <?php
             echo validation_errors('<div class="alert alert-danger">','</div>');
-            echo form_open('Obra_Controller/salvar_atualizacao_exposicao');
+            echo form_open('Obra_Controller/salvar_atualizacao_exposicao/'.$exposicao->id_obra.'/'.$exposicao->id_exposicao);
         ?>
+
         <!-- Inputs não visiveis para manter a referencia da obra e da exposição-->
-        <input  type="hidden" name="txt-id-exp" value="<?php echo $exposicao->id_exposicao ?>"/>
-        <input  type="hidden" name="txt-id-obra" value="<?php echo $exposicao->id_obra ?>"/>
+        <!-- <input  type="hidden" name="txt-id-exp" value="<?php echo $exposicao->id_exposicao ?>"/> -->
+        <!-- <input  type="hidden" name="txt-id-obra" value="<?php echo $exposicao->id_obra ?>"/> -->
         <!-- FIM -->
         <div class="form-group">
             <label id="nome-exposicao">Nome da Exposição</label>

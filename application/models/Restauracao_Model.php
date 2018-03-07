@@ -2,11 +2,9 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Restauracao_Model extends CI_Model
-{
+class Restauracao_Model extends CI_Model{
 
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
     }
 
@@ -25,7 +23,7 @@ class Restauracao_Model extends CI_Model
         return $this->db->get()->result();
     }
 
-    public function pesquisa_unitaria($id) {
+    public function pesquisa_unitaria($id){
         $this->db->select();
 
         $this->db->from('restauracao');
@@ -36,7 +34,7 @@ class Restauracao_Model extends CI_Model
     }
 
     public function atualizar($id_restauracao, $dados){
-        // Informa que a obra que será atualizada será a que contém o id_obra = $id
+        // Informa que a obra que será atualizada será a que contém o id_obra = id_restauracao
         $this->db->where('id_restauracao', $id_restauracao);
 
         //Define quais dados serão inseridos na tabela

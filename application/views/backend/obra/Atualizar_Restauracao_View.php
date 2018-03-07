@@ -4,17 +4,23 @@
     <div><?=$error?></div>
 <?php endif;?>
 
+    <!-- Botão para voltar a visualização das restauracoes -->
+    <?php echo form_open('Obra_Controller/visualizar_restauracoes/'.$id_obra); ?>
+        <button type="submit"> Voltar </button>
+    <?php echo form_close();?>
+    <!-- FIM -->
+
 <div>
     <?php
     foreach ($restauracoes as $restauracao) {?>
 
         <?php
         echo validation_errors('<div class="alert alert-danger">','</div>');
-        echo form_open('Obra_Controller/salvar_atualizacao_restauracao');
+        echo form_open('Obra_Controller/salvar_atualizacao_restauracao/'.$restauracao->id_obra.'/'.$restauracao->id_restauracao);
         ?>
         <!-- Passa o id da obra que será atualizada para o controller usar-->
-        <input  type="hidden" name="txt-id-rest" value="<?php echo $restauracao->id_restauracao ?>"/>
-        <input  type="hidden" name="txt-id-obra" value="<?php echo $restauracao->id_obra ?>"/>
+        <!-- <input  type="hidden" name="txt-id-rest" value="<?php echo $restauracao->id_restauracao ?>"/> -->
+        <!-- <input  type="hidden" name="txt-id-obra" value="<?php echo $restauracao->id_obra ?>"/> -->
         <!-- FIM -->
         <div class="form-group">
             <label id="tipo-intervencao">Tipo de Intervenção</label>

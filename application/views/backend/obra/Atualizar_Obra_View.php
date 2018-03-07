@@ -16,10 +16,11 @@
 
         <?php
         echo validation_errors('<div class="alert alert-danger">','</div>');
-        echo form_open('Obra_Controller/salvar_atualizacao');
+        // Passa o id da obra que será atualizada para o controller usar
+        echo form_open('Obra_Controller/salvar_atualizacao/'.$obra->id_obra);
         ?>
             <!-- Passa o id da obra que será atualizada para o controller usar-->
-            <input type="hidden" id="txt-id" name="id-obra" class="form-control" value="<?php echo $obra->id_obra ?>">
+            <!--<input type="hidden" id="txt-id" name="id-obra" class="form-control" value="<?php echo $obra->id_obra ?>">-->
 
             <h1>Localização</h1>
             <div class="form-group">

@@ -5,3 +5,10 @@ Credenciais de acesso ao sistema{
     email de usuario: bernardo.fagner@hotmail.com
     Senha de usuario: nve7a3ez
 }
+
+Falta passar parametros via URL para os metodos do controller de Obra:
+cadastrar_exposicao
+excluir_exposicao
+
+
+excluir_restauracao
