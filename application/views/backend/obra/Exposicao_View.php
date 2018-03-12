@@ -65,9 +65,7 @@
                         <div class="col-md-2"></div>
                         <div class="col-md-2">
                             <!-- Botão para excluir uma exposição -->
-                            <?php echo form_open('Obra_Controller/excluir_exposicao'); ?>
-                                <input  type="hidden" name="txt-id-obra" value="<?php echo $exposicao->id_obra ?>"/>
-                                <input  type="hidden" name="txt-id-exp" value="<?php echo $exposicao->id_exposicao ?>"/>
+                            <?php echo form_open('Obra_Controller/excluir_exposicao/'.$exposicao->id_obra.'/'.$exposicao->id_exposicao); ?>
                                 <button type="submit" name="txt-visualizar" class="btn btn-secondary" value=""> Sim </button>
                             <?php echo form_close();?>
                             <!-- FIM -->

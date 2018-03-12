@@ -22,7 +22,7 @@
 <?php echo form_open('excuirL'); ?>
     <input  type="hidden" name="txt-id" value="<?php echo $funcionario->id_funcionario ?>"/>
     <input  type="hidden" name="txt-situacao" value="0"/>
-    <button type="submit"> Excluir Usuário </button>
+    <button type="submit"> Excluir Usuário do Sistema </button>
 <?php echo form_close();?>
 
 <?php }?>

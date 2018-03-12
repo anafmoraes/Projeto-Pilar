@@ -8,8 +8,7 @@
 
 <?php foreach($resultado as $funcionario){?>
     <?php
-        echo validation_errors('<div class="alert alert-danger">','</div>');
-        
+        echo validation_errors('<div class="alert alert-danger">','</div>');        
         echo form_open('Funcionario_Controller/salvar_atualizacao/'.$id_funcionario);
         ?>
         <div class="form-group col-md-6">

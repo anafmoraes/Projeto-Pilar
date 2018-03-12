@@ -75,4 +75,5 @@ $route['pre_visualizacao_funcionario'] = 'Funcionario_Controller/pre_visualizaca
 $route['perfil'] = 'Funcionario_Controller/pesquisar_funcionario';
 $route['salvar'] = 'Funcionario_Controller/salvar_atualizacao';
 $route['excuirL'] = 'Funcionario_Controller/exclusao_logica';
+$route['incluirL'] = 'Funcionario_Controller/inclusao_logica';
 
