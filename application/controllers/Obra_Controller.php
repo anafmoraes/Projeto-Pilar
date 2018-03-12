@@ -334,7 +334,7 @@ class Obra_Controller extends CI_Controller {
         /*Verifica se a validação obteve sucesso*/
         if ($this->form_validation->run() == FALSE) {
             /*Se verificação de dados falhar renderiza o formulario para nov preenchimento*/
-            $this->cadastrar_exposicao();
+            $this->cadastrar_exposicao($id_obra);
         }
         else {
             /*Passa os dados do cadastro para uma vaŕiável apenas*/
