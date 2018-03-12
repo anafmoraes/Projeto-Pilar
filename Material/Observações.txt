@@ -7,8 +7,7 @@ Credenciais de acesso ao sistema{
 }
 
 Falta passar parametros via URL para os metodos do controller de Obra:
+
 cadastrar_exposicao
-excluir_exposicao
-
-
-excluir_restauracao
+excluir_exposicao (erro ao executar este método)
+excluir_restauracao (erro ao executar este método)
