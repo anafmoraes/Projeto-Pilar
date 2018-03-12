@@ -406,7 +406,7 @@ class Obra_Controller extends CI_Controller {
         $id_obra = $this->input->post('txt-id-obra');
 
         if($this->Exposicao_Model->exclusao_unitaria($id)) {
-            $dados['id'] = $id_obra;
+            $dados['id_obra'] = $id_obra;
             if($dados['exposicoes'] = $this->Exposicao_Model->exposicoes($id_obra)) {
                 $this->load->view('backend/obra/Exposicao_View', $dados);
             } else {
@@ -510,7 +510,7 @@ class Obra_Controller extends CI_Controller {
         $id_obra = $this->input->post('txt-id-obra');
         //Exclui um registro de uma restauração especifica do banco passando o id para a pesquisa
         if($this->Restauracao_Model->exclusao_unitaria($id)) {
-            $dados['id'] = $id_obra;
+            $dados['id_obra'] = $id_obra;
 
             if($dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id_obra)) {
                 $this->load->view('backend/obra/Restauracao_View', $dados);
