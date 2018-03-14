@@ -1,4 +1,4 @@
-	<!-- Fim do Modal de Login e início do body1 (Corpo da página) -->
+	<!-- Fim do header e início do body1 (Corpo da página) -->
 	<div class="slider">
 		<div class="img-responsive">
 			<ul class="bxslider">
@@ -29,13 +29,21 @@
 		<div class="col-lg-6 wow fadeInRight">
 			<div class="text-left">
 				<div class="tx">
-					<p>O Museu de Arte Sacra de Ouro Preto, inaugurado em 2000, localiza-se na Basílica de Nossa Senhora do Pilar. Fica na cripta da Basílica, que é um espaço sob a sacristia, encontrado durante a última reforma do monumento e onde, acredita-se, funcionava uma mina de ouro.</p>
+					<p>
+						O Museu de Arte Sacra de Ouro Preto, inaugurado em 2000, localiza-se na Basílica de Nossa Senhora do Pilar. Fica na cripta da Basílica, que é um espaço sob a sacristia, encontrado durante a última reforma do monumento e onde, acredita-se, funcionava uma mina de ouro.
+					</p>
 
-					<p>O acervo do museu conta com 400 peças produzidas entre os séculos XVII e XIX. São peças religiosas e profanas dos períodos Maneirista, Barroco, Rococó e Neoclássico e abrangem a história da antiga Vila Rica durante o período áureo da mineração do ouro.</p>
+					<p>
+						O acervo do museu conta com 400 peças produzidas entre os séculos XVII e XIX. São peças religiosas e profanas dos períodos Maneirista, Barroco, Rococó e Neoclássico e abrangem a história da antiga Vila Rica durante o período áureo da mineração do ouro.
+					</p>
 
-					<p>Elas estão distribuídas em oito vitrines temáticas. São imagens santas, resplendores, banquetas, documentos e até vestimentas dos moradores da época.</p>
+					<p>
+						Elas estão distribuídas em oito vitrines temáticas. São imagens santas, resplendores, banquetas, documentos e até vestimentas dos moradores da época.
+					</p>
 
-					<p>Os visitantes têm acesso não só às peças, mas à informações sobre o contexto histórico As peças estão dispostas em uma sala, em vitrines com legendas em português.</p>
+					<p>
+						Os visitantes têm acesso não só às peças, mas à informações sobre o contexto histórico As peças estão dispostas em uma sala, em vitrines com legendas em português.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -50,9 +58,10 @@
 				<div class="wow bounceInDown" data-wow-offset="0" data-wow-delay="0.6s">
 					<p>Bras urna felis accumsan at ultrde cesid posuere masa socis nautoque<br>
 						penat bus maecenas ultrices sed ipsum lorem
-						dolor sit amet sed ipsum consectetur<br></p>
+						dolor sit amet sed ipsum consectetur<br>
+					</p>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Fim do body1 e início do footer (rodapé da página) -->
+	<!-- Fim do header e início do Modal de Login(rodapé da página) -->

@@ -10,6 +10,7 @@ class Funcionario_Controller extends CI_Controller {
     }
 
     public function index(){
+
     }
 
     public function cadastrar_funcionario() {
@@ -188,10 +189,15 @@ class Funcionario_Controller extends CI_Controller {
             redirect(base_url('inicio'));
         }
 
+        //Chama o modelo de cabeçalho
         $this->load->view('template/html-header');
         $this->load->view('template/header');
-        $this->load->view('login');
-        $this->load->view('template/body1');
+
+        //Chama o corpo da página
+        $this->load->view('inicio/body1');
+        $this->load->view('inicio/login');        
+
+        //Chama o rodapé da página
         $this->load->view('template/footer');
         $this->load->view('template/html-footer');
     }
@@ -228,7 +234,7 @@ class Funcionario_Controller extends CI_Controller {
                 } else {
                     $this->session->set_userdata('usuariologado', NULL);
                     $this->session->set_userdata('logado', FALSE);
-                    redirect(base_url('login'));
+                    redirect(base_url('inicio/login'));
                 }
             } else {
                 // Este else é chamado quando os dados de login não batem?

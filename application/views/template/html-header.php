@@ -7,7 +7,7 @@
 
 		<title>Paróquia do Pilar</title>
 
-		<!-- Bootstrap -->
+		<!-- Bootstrap -->		
 		<link href="<?php echo base_url('assets/frontend/css/bootstrap.min.css') ?>" rel="stylesheet" >
 		<link rel="stylesheet" href="<?php echo base_url('assets/frontend/css/font-awesome.min.css')?>" >
 		<link rel="stylesheet" href="<?php echo base_url('assets/frontend/css/jquery.bxslider.css') ?>">
@@ -17,10 +17,7 @@
 		<link href="<?php echo base_url('assets/frontend/css/prettyPhoto.css') ?>" rel="stylesheet" />
 		<link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet" />
 
-		<!-- Modal de Cadastro na página Inicio -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
 
 		<!-- =======================================================
 			Theme Name: Multi
@@ -31,4 +28,4 @@
 	</head>
 
 	<!-- Início do Header (Barra de Menus) -->
-<body>
+	<body>

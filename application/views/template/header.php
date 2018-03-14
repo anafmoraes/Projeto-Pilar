@@ -18,11 +18,11 @@
 					<div class="navbar-collapse collapse">
 						<div class="menu">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation"><a href="#" class="active">Página Inicial</a></li>
-								<li role="presentation"><a href="#">Eventos</a></li>
-								<li role="presentation"><a href="#">Celebrações</a></li>
-								<li role="presentation"><a href="#">Galeria</a></li>
-								<li role="presentation"><a href="#">Contatos</a></li>
+								<!-- <li role="presentation"><a href="#" class="active">Página Inicial</a></li> -->
+								<!-- <li role="presentation"><a href="#">Eventos</a></li> -->
+								<!-- <li role="presentation"><a href="#">Celebrações</a></li> -->
+								<!-- <li role="presentation"><a href="#">Galeria</a></li> -->
+								<!-- <li role="presentation"><a href="#">Contatos</a></li> -->
 								<li class="mp" role="presentation" data-toggle="modal" data-target="#myModal"><a href="#"><span class="fa fa-home fa-2x"></span> Minha Paróquia</a></li>
 							</ul>
 						</div>
