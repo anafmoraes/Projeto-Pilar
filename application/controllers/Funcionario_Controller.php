@@ -181,12 +181,19 @@ class Funcionario_Controller extends CI_Controller {
         }
     }
 
+    //Método que chama a página inicial do sistema
     public function pagina_login() {
         // verifica se o usuário esta logado no sistema
         if($this->session->userdata('logado')){
             redirect(base_url('inicio'));
         }
+
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
         $this->load->view('login');
+        $this->load->view('template/body1');
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     public function login() {

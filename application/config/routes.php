@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 /*Rotas padrão*/
 $route['default_controller'] = 'Funcionario_Controller/pagina_login';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['operacao_realizada_sucesso'] = 'Wellcome/operacao_bem_sucedida';
