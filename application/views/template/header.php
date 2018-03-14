@@ -23,8 +23,7 @@
 								<li role="presentation"><a href="#">Celebrações</a></li>
 								<li role="presentation"><a href="#">Galeria</a></li>
 								<li role="presentation"><a href="#">Contatos</a></li>
-								<li <button class="btn btn-default" type="button"  data-toggle="modal" data-target="#myModal"> Minha Paróquia </button></li>
-								<li class="mp" role="presentation"><a href="#"><span class="fa fa-home fa-2x"></span> Minha Paróquia</a></li>
+								<li class="mp" role="presentation" data-toggle="modal" data-target="#myModal"><a href="#"><span class="fa fa-home fa-2x"></span> Minha Paróquia</a></li>
 							</ul>
 						</div>
 					</div>
