@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 /*Rotas padrão*/
 $route['default_controller'] = 'Funcionario_Controller/pagina_login';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['operacao_realizada_sucesso'] = 'Wellcome/operacao_bem_sucedida';
@@ -75,4 +76,5 @@ $route['pre_visualizacao_funcionario'] = 'Funcionario_Controller/pre_visualizaca
 $route['perfil'] = 'Funcionario_Controller/pesquisar_funcionario';
 $route['salvar'] = 'Funcionario_Controller/salvar_atualizacao';
 $route['excuirL'] = 'Funcionario_Controller/exclusao_logica';
+$route['incluirL'] = 'Funcionario_Controller/inclusao_logica';
 

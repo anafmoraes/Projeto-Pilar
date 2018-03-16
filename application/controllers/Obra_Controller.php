@@ -271,10 +271,7 @@ class Obra_Controller extends CI_Controller {
     }
 
     // Exclui uma obra e as exposições e restaurações relacionadas a ela (Propagação)
-    public function remover_obra($id){
-
-        /*Recebe o id da obra*/
-        $id_obra = $id;
+    public function remover_obra($id_obra) {
 
         /*Acessa o BD para excluir todas as exposições associadas à obra*/
         if($this->Exposicao_Model->excluir_exposicoes_obras($id_obra)){
@@ -334,7 +331,7 @@ class Obra_Controller extends CI_Controller {
         /*Verifica se a validação obteve sucesso*/
         if ($this->form_validation->run() == FALSE) {
             /*Se verificação de dados falhar renderiza o formulario para nov preenchimento*/
-            $this->cadastrar_exposicao();
+            $this->cadastrar_exposicao($id_obra);
         }
         else {
             /*Passa os dados do cadastro para uma vaŕiável apenas*/
@@ -401,15 +398,14 @@ class Obra_Controller extends CI_Controller {
         }
     }
 
-    public function excluir_exposicao() {
-        $id = $this->input->post('txt-id-exp');
-        $id_obra = $this->input->post('txt-id-obra');
+    public function excluir_exposicao($id_obra, $id_exposicao) {
+        if($this->Exposicao_Model->exclusao_unitaria($id_exposicao)){
+            $dados['id_obra'] = $id_obra;
 
-        if($this->Exposicao_Model->exclusao_unitaria($id)) {
-            $dados['id'] = $id_obra;
-            if($dados['exposicoes'] = $this->Exposicao_Model->exposicoes($id_obra)) {
+            if($dados['exposicoes'] = $this->Exposicao_Model->exposicoes($id_obra)){
                 $this->load->view('backend/obra/Exposicao_View', $dados);
-            } else {
+            }
+            else{
                 $this->load->view('backend/obra/Exposicao_View', $dados);
             }
         } else {
@@ -505,12 +501,10 @@ class Obra_Controller extends CI_Controller {
         }
     }
 
-    public function excluir_restauracao() {
-        $id = $this->input->post('txt-id-rest');
-        $id_obra = $this->input->post('txt-id-obra');
+    public function excluir_restauracao($id_obra, $id_restauracao) {
         //Exclui um registro de uma restauração especifica do banco passando o id para a pesquisa
-        if($this->Restauracao_Model->exclusao_unitaria($id)) {
-            $dados['id'] = $id_obra;
+        if($this->Restauracao_Model->exclusao_unitaria($id_restauracao)) {
+            $dados['id_obra'] = $id_obra;
 
             if($dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id_obra)) {
                 $this->load->view('backend/obra/Restauracao_View', $dados);

@@ -10,6 +10,7 @@ class Funcionario_Controller extends CI_Controller {
     }
 
     public function index(){
+
     }
 
     public function cadastrar_funcionario() {
@@ -22,7 +23,8 @@ class Funcionario_Controller extends CI_Controller {
                 redirect(base_url('inicio'));
             }
             $this->load->view('backend/funcionario/cadastrar_funcionario');
-        } else { // usuário não esta logado, é direcionado para o login
+        }
+        else { // usuário não esta logado, é direcionado para o login
             redirect(base_url('login'));
         }
     }
@@ -32,16 +34,14 @@ class Funcionario_Controller extends CI_Controller {
         // verifica se o usuário esta logado no sistema
         if(!$this->session->userdata('logado')){
             redirect(base_url('login'));
-
         }
         else{
             // verifica se o usuário possui permissão de administrador
             if ($this->session->userdata('usuariologado')->id_tipoFuncionario != 1) {
-                redirect(base_url('inicio'));
-            }
+            redirect(base_url('inicio'));
+        }
 
             $this->load->library('form_validation');
-
             $this->form_validation->set_rules('txt-nome', 'Nome do usuário', 'required|min_length[5]|max_length[80]');
             $this->form_validation->set_rules('txt-senha', 'Senha do usuário', 'required|min_length[6]|max_length[20]');
             $this->form_validation->set_rules('txt-confirmar-senha', 'Confirmar senha', 'required|matches[txt-senha]');
@@ -50,7 +50,8 @@ class Funcionario_Controller extends CI_Controller {
 
             if ($this->form_validation->run() == FALSE) {
                 $this->cadastrar_funcionario();
-            } else{
+            }
+            else{
                 $user['nome'] = $this->input->post('txt-nome');
                 $user['senha'] = md5($this->input->post('txt-senha'));
                 $user['email'] = $this->input->post('txt-email');
@@ -60,7 +61,8 @@ class Funcionario_Controller extends CI_Controller {
 
                 if ($this->Funcionario_Model->cadastrar($user)) {
                     redirect(base_url('pre_visualizacao_funcionario'));
-                } else {
+                }
+                else {
                     echo "Houve um erro no sistema";
                 }
             }
@@ -155,12 +157,52 @@ class Funcionario_Controller extends CI_Controller {
         }
     }
 
+        // Realiza a validação de dados para a exclusão lógica de um usuário do sistema
+    public function inclusao_logica(){
+        $this->load->library('form_validation');
+
+        // Recebe o id_funcionario vindo do form para validar e usar no método update
+        $this->form_validation->set_rules('txt-id', 'ID', 'required');
+        $this->form_validation->set_rules('txt-situacao', 'SITUACAO', 'required');
+
+        // Verifica se a validação de dados obteve sucesso
+        if ($this->form_validation->run() == FALSE){
+                $this->atualizar_perfil();
+        }
+        else{
+            $chave = $this->input->post('txt-id');
+            $user['situacao'] = $this->input->post('txt-situacao');
+
+            if($this->Funcionario_Model->atualizar_funcionario($chave, $user)){
+                redirect(base_url('pre_visualizacao_funcionario'));
+            }
+            else{
+                echo "Validação de dados na atualização do perfil falhou.";
+            }
+        }
+    }
+
+    //Método que chama a página inicial do sistema
     public function pagina_login() {
         // verifica se o usuário esta logado no sistema
         if($this->session->userdata('logado')){
             redirect(base_url('inicio'));
         }
-        $this->load->view('login');
+
+        //Chama o modelo de cabeçalho
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
+
+        //Chama o corpo da página
+        $this->load->view('inicio/body1');
+        $this->load->view('inicio/login');        
+
+        //Chama o rodapé da página
+        $this->load->view('template/header');        
+        $this->load->view('inicio/body1');
+        $this->load->view('inicio/login');
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     public function login() {
@@ -184,6 +226,7 @@ class Funcionario_Controller extends CI_Controller {
 
             //Guarda todos os dados buscados no banco de dados
             $usuariologado = $this->db->get('funcionario')->result();
+            
             // 1 == true ou $usuariologado == 1?
             if(count($usuariologado) == 1){
                 // Esse if redireciona para uma página especifica conforme a situalçao do usuário?
@@ -195,7 +238,7 @@ class Funcionario_Controller extends CI_Controller {
                 } else {
                     $this->session->set_userdata('usuariologado', NULL);
                     $this->session->set_userdata('logado', FALSE);
-                    redirect(base_url('login'));
+                    redirect(base_url('inicio/login'));
                 }
             } else {
                 // Este else é chamado quando os dados de login não batem?
