@@ -64,8 +64,4 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD:application/views/inicio/body1.php
 	<!-- Fim do header e início do Modal de Login(rodapé da página) -->
-=======
-	<!-- Fim do body1 e início Modal de Login  -->
->>>>>>> sprint_4.2:application/views/template/body1.php
