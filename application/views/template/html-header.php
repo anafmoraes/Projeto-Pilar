@@ -17,7 +17,13 @@
 		<link href="<?php echo base_url('assets/frontend/css/prettyPhoto.css') ?>" rel="stylesheet" />
 		<link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet" />
 
+<<<<<<< HEAD
 		
+=======
+		<!-- Modal de Cadastro na página Inicio -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+>>>>>>> sprint_4.2
 
 		<!-- =======================================================
 			Theme Name: Multi
