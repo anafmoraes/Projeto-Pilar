@@ -191,6 +191,7 @@ class Funcionario_Controller extends CI_Controller {
 
         //Chama o modelo de cabeçalho
         $this->load->view('template/html-header');
+<<<<<<< HEAD
         $this->load->view('template/header');
 
         //Chama o corpo da página
@@ -198,6 +199,11 @@ class Funcionario_Controller extends CI_Controller {
         $this->load->view('inicio/login');        
 
         //Chama o rodapé da página
+=======
+        $this->load->view('template/header');        
+        $this->load->view('inicio/body1');
+        $this->load->view('inicio/login');
+>>>>>>> sprint_4.2
         $this->load->view('template/footer');
         $this->load->view('template/html-footer');
     }
@@ -223,6 +229,7 @@ class Funcionario_Controller extends CI_Controller {
 
             //Guarda todos os dados buscados no banco de dados
             $usuariologado = $this->db->get('funcionario')->result();
+            
             // 1 == true ou $usuariologado == 1?
             if(count($usuariologado) == 1){
                 // Esse if redireciona para uma página especifica conforme a situalçao do usuário?
