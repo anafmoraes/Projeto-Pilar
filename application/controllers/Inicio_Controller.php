@@ -16,6 +16,6 @@ class Inicio_Controller extends CI_Controller {
     }
 
     public function index() {
-        $this->load->view('Inicio_View');
+        $this->load->view('inicio/Inicio_View');
     }
 }
