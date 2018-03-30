@@ -190,16 +190,16 @@ class Funcionario_Controller extends CI_Controller {
         }
 
         //Chama o modelo de cabeçalho
-        $this->load->view('template/html-header');
-        $this->load->view('template/header');
+        $this->load->view('frontend/template/html-header');
+        $this->load->view('frontend/template/header');
 
         //Chama o corpo da página
         $this->load->view('inicio/body1');
         $this->load->view('inicio/login');        
 
         //Chama o rodapé da página
-        $this->load->view('template/footer');
-        $this->load->view('template/html-footer');
+        $this->load->view('frontend/template/footer');
+        $this->load->view('frontend/template/html-footer');
     }
 
     public function login() {
