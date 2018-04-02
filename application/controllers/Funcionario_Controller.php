@@ -112,7 +112,7 @@ class Funcionario_Controller extends CI_Controller {
 
         // Verifica se a validação de dados obteve sucesso
         if ($this->form_validation->run() == FALSE){
-            $this->atualizar_perfil();
+            $this->atualizar_perfil($id);
         }
         else{
             $chave = $id;

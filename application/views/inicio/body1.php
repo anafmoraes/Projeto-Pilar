@@ -3,8 +3,8 @@
 		<div class="img-responsive">
 			<ul class="bxslider">
 				<li><img src="<?php echo base_url('assets/frontend/images/slider/1.jpg') ?>" /></li>
-				<li><img src="<?php echo base_url('assets/frontend/images/slider/2.jpg') ?>" /></li>
-				<li><img src="<?php echo base_url('assets/frontend/images/slider/3.jpg') ?>" /></li>
+				<!-- <li><img src="<?php echo base_url('assets/frontend/images/slider/2.jpg') ?>" /></li> -->
+				<!-- <li><img src="<?php echo base_url('assets/frontend/images/slider/3.jpg') ?>" /></li> -->
 			</ul>
 		</div>
 	</div>

@@ -16,7 +16,6 @@
 <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 1) { ?>
 
     <p>Este usuário logado é um Administrador de id_tipoFuncionario == 1 </p>
-    <p> Criar função para reinserir o funcionario no sistema </p>
 
     <a type="button" href= "<?php echo base_url('cadastrar_funcionario') ?>" >Cadastrar funcionário</a>
     
@@ -70,13 +69,9 @@
 <?php }?>
 
 <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 2) { ?>
-    <p>Este usuário logado é um Supervisor</p>
-    <a type="button" href= "<?php echo base_url('perfil') ?>" >Editar Perfil</a>
-    
+    <p>Este usuário logado é um Supervisor de id_tipoFuncionario == 2 </p>
 <?php }?>
 
 <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 3) { ?>
-    <p>Este usuário logado é um Auxiliar</p>
-    <a type="button" href= "<?php echo base_url('perfil') ?>" >Editar Perfil</a>
-
+    <p>Este usuário logado é um Auxiliar de id_tipoFuncionario == 3 </p>
 <?php }?>
