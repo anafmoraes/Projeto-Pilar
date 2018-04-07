@@ -73,7 +73,17 @@ class Funcionario_Controller extends CI_Controller {
     public function pre_visualizacao(){
         $this->resultado = $this->Funcionario_Model->pre_visualizacao();
         $dados['funcionarios'] = $this->resultado;
+
+        //Chama o modelo de cabeçalho
+        $this->load->view('frontend/template/html-header');
+        $this->load->view('frontend/template/header');
+
+        //Chama o corpo da página
         $this->load->view('frontend/funcionario/Pre_Visualizacao_Func_View', $dados);
+
+        //Chama o rodapé da página
+        $this->load->view('frontend/template/footer');
+        $this->load->view('frontend/template/html-footer');
     }
 
     public function pesquisar_funcionario($id){
@@ -186,7 +196,7 @@ class Funcionario_Controller extends CI_Controller {
     public function pagina_login() {
         // verifica se o usuário esta logado no sistema
         if($this->session->userdata('logado')){
-            redirect(base_url('inicio'));
+            redirect(base_url('Inicio_Controller/index'));
         }
 
         //Chama o modelo de cabeçalho
@@ -230,7 +240,7 @@ class Funcionario_Controller extends CI_Controller {
                 if($usuariologado[0]->situacao == 1) {
                     $this->session->set_userdata('usuariologado', $usuariologado[0]);
                     $this->session->set_userdata('logado', TRUE);
-                    redirect(base_url('inicio'));
+                    redirect(base_url('Inicio_Controller/index'));
                 } else {
                     $this->session->set_userdata('usuariologado', NULL);
                     $this->session->set_userdata('logado', FALSE);
