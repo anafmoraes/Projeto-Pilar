@@ -92,7 +92,16 @@ class Funcionario_Controller extends CI_Controller {
 
         $this->pesquisa_unitaria = $this->Funcionario_Model->pesquisa_unitaria($id_func);
         $dados['resultado'] = $this->pesquisa_unitaria;
+
+        //Chama o modelo de cabeçalho
+        $this->load->view('frontend/template/html-header');
+        $this->load->view('frontend/template/header');
+
         $this->load->view('frontend/funcionario/Registro_View', $dados);
+
+        //Chama o rodapé da página
+        $this->load->view('frontend/template/footer');
+        $this->load->view('frontend/template/html-footer');
     }
 
     // Busca os dados do funcionario no BD e renderiza na tela para serem atualizados
@@ -104,7 +113,16 @@ class Funcionario_Controller extends CI_Controller {
         $this->pesquisa_unitaria = $this->Funcionario_Model->pesquisa_unitaria($id_func);
         $dados['resultado'] = $this->pesquisa_unitaria;
         $dados['id_funcionario'] = $id_func;
+
+        //Chama o modelo de cabeçalho
+        $this->load->view('frontend/template/html-header');
+        $this->load->view('frontend/template/header');
+
         $this->load->view('backend/funcionario/Atualizar_Funcionario_View',$dados);
+
+        //Chama o rodapé da página
+        $this->load->view('frontend/template/footer');
+        $this->load->view('frontend/template/html-footer');
     }
 
     //Realiza a operação de Update do CRUD
@@ -194,6 +212,7 @@ class Funcionario_Controller extends CI_Controller {
 
     //Método que chama a página inicial do sistema
     public function pagina_login() {
+
         // verifica se o usuário esta logado no sistema
         if($this->session->userdata('logado')){
             redirect(base_url('Inicio_Controller/index'));

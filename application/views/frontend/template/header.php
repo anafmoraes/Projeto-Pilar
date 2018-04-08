@@ -22,6 +22,12 @@
 								<!-- Controla a exibição das opções do menu -->
 								<?php if($this->session->userdata('logado')){ ?>
 									<li role="presentation">									
+										<a href="<?php echo base_url('entrar') ?>" class="active">Inicio</a>
+									</li>
+								<?php }?>
+
+								<?php if($this->session->userdata('logado')){ ?>
+									<li role="presentation">									
 										<a href="<?php echo base_url('pre_visualizacao_obra') ?>" class="active">Obras</a>
 									</li>
 								<?php }?>
