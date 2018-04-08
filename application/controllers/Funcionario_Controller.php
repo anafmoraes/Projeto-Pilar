@@ -22,7 +22,18 @@ class Funcionario_Controller extends CI_Controller {
                 //Não seria melhor redirecionar para um modal ou página falando que ele nao tem esta permissao?
                 redirect(base_url('inicio'));
             }
+
+            //Chama o modelo de cabeçalho
+            $this->load->view('frontend/template/html-header');
+            $this->load->view('frontend/template/header');
+
             $this->load->view('backend/funcionario/cadastrar_funcionario');
+
+            //Chama o rodapé da página
+            $this->load->view('frontend/template/footer');
+            $this->load->view('frontend/template/html-footer');
+        
+            
         }
         else { // usuário não esta logado, é direcionado para o login
             redirect(base_url('login'));
@@ -73,7 +84,17 @@ class Funcionario_Controller extends CI_Controller {
     public function pre_visualizacao(){
         $this->resultado = $this->Funcionario_Model->pre_visualizacao();
         $dados['funcionarios'] = $this->resultado;
+
+        //Chama o modelo de cabeçalho
+        $this->load->view('frontend/template/html-header');
+        $this->load->view('frontend/template/header');
+
+        //Chama o corpo da página
         $this->load->view('frontend/funcionario/Pre_Visualizacao_Func_View', $dados);
+
+        //Chama o rodapé da página
+        $this->load->view('frontend/template/footer');
+        $this->load->view('frontend/template/html-footer');
     }
 
     public function pesquisar_funcionario($id){
@@ -82,7 +103,16 @@ class Funcionario_Controller extends CI_Controller {
 
         $this->pesquisa_unitaria = $this->Funcionario_Model->pesquisa_unitaria($id_func);
         $dados['resultado'] = $this->pesquisa_unitaria;
+
+        //Chama o modelo de cabeçalho
+        $this->load->view('frontend/template/html-header');
+        $this->load->view('frontend/template/header');
+
         $this->load->view('frontend/funcionario/Registro_View', $dados);
+
+        //Chama o rodapé da página
+        $this->load->view('frontend/template/footer');
+        $this->load->view('frontend/template/html-footer');
     }
 
     // Busca os dados do funcionario no BD e renderiza na tela para serem atualizados
@@ -94,7 +124,16 @@ class Funcionario_Controller extends CI_Controller {
         $this->pesquisa_unitaria = $this->Funcionario_Model->pesquisa_unitaria($id_func);
         $dados['resultado'] = $this->pesquisa_unitaria;
         $dados['id_funcionario'] = $id_func;
+
+        //Chama o modelo de cabeçalho
+        $this->load->view('frontend/template/html-header');
+        $this->load->view('frontend/template/header');
+
         $this->load->view('backend/funcionario/Atualizar_Funcionario_View',$dados);
+
+        //Chama o rodapé da página
+        $this->load->view('frontend/template/footer');
+        $this->load->view('frontend/template/html-footer');
     }
 
     //Realiza a operação de Update do CRUD
@@ -112,7 +151,7 @@ class Funcionario_Controller extends CI_Controller {
 
         // Verifica se a validação de dados obteve sucesso
         if ($this->form_validation->run() == FALSE){
-            $this->atualizar_perfil();
+            $this->atualizar_perfil($id);
         }
         else{
             $chave = $id;
@@ -184,9 +223,10 @@ class Funcionario_Controller extends CI_Controller {
 
     //Método que chama a página inicial do sistema
     public function pagina_login() {
+
         // verifica se o usuário esta logado no sistema
         if($this->session->userdata('logado')){
-            redirect(base_url('inicio'));
+            redirect(base_url('Inicio_Controller/index'));
         }
 
         //Chama o modelo de cabeçalho
@@ -230,7 +270,7 @@ class Funcionario_Controller extends CI_Controller {
                 if($usuariologado[0]->situacao == 1) {
                     $this->session->set_userdata('usuariologado', $usuariologado[0]);
                     $this->session->set_userdata('logado', TRUE);
-                    redirect(base_url('inicio'));
+                    redirect(base_url('Inicio_Controller/index'));
                 } else {
                     $this->session->set_userdata('usuariologado', NULL);
                     $this->session->set_userdata('logado', FALSE);

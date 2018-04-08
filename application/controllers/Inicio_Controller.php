@@ -9,13 +9,22 @@ class Inicio_Controller extends CI_Controller {
 
         //Caso o usuário não estiver logado ele é redirecionado para a página de login
         if(!$this->session->userdata('logado')){
-            redirect(base_url('login'));
+            redirect(base_url('Funcionario_Controller/login'));
         }
 
         $this->load->model('Funcionario_Model');
     }
 
     public function index() {
+        //Chama o modelo de cabeçalho
+        $this->load->view('frontend/template/html-header');
+        $this->load->view('frontend/template/header');
+
+        // Chama a página inicial após o login
         $this->load->view('inicio/Inicio_View');
+
+        //Chama o rodapé da página
+        $this->load->view('frontend/template/footer');
+        $this->load->view('frontend/template/html-footer');
     }
 }
