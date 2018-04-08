@@ -22,7 +22,18 @@ class Funcionario_Controller extends CI_Controller {
                 //Não seria melhor redirecionar para um modal ou página falando que ele nao tem esta permissao?
                 redirect(base_url('inicio'));
             }
+
+            //Chama o modelo de cabeçalho
+            $this->load->view('frontend/template/html-header');
+            $this->load->view('frontend/template/header');
+
             $this->load->view('backend/funcionario/cadastrar_funcionario');
+
+            //Chama o rodapé da página
+            $this->load->view('frontend/template/footer');
+            $this->load->view('frontend/template/html-footer');
+        
+            
         }
         else { // usuário não esta logado, é direcionado para o login
             redirect(base_url('login'));

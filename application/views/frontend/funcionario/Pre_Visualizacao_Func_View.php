@@ -17,7 +17,7 @@
                 
                      <h2> Gerenciar Usuários </h2>
 
-                <a type="button" href= "<?php echo base_url('cadastrar_funcionario') ?>" >Cadastrar funcionário</a>
+                <a type="button" href= "<?php echo base_url('Funcionario_Controller/cadastrar_funcionario') ?>" >Cadastrar funcionário</a>
                     <?php foreach ($funcionarios as $funcionario){ ?>
                         <div class="row">
                             <div class="col-md-6">
