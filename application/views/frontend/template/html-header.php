@@ -28,20 +28,3 @@
 
 	<!-- Início do Header (Barra de Menus) -->
 	<body>
-
-	<!-- Script para atualizar a página atual 1 vez (evita erro de reenvio de formulário) -->
-	<!-- You can call this via the body tag if desired -->
-	<script language="JavaScript" type="text/javascript">
-
-		var reloaded = false;
-		var loc=""+document.location;
-		loc = loc.indexOf("?reloaded=")!=-1?loc.substring(loc.indexOf("?reloaded=")+10,loc.length):"";
-		loc = loc.indexOf("&")!=-1?loc.substring(0,loc.indexOf("&")):loc;
-		reloaded = loc!=""?(loc=="true"):reloaded;
-
-		function reloadOnceOnly() {
-			if (!reloaded)
-			window.location.replace(window.location+"?reloaded=true");
-		}
-		reloadOnceOnly();
-	</script>
