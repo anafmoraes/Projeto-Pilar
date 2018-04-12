@@ -1,18 +1,18 @@
 <div class="container">
     <div class="col-md-12">
+        <!-- 
         <div class="col-md-4">
             <div class="row">
                 <h2>Perfil De Usuário</h2>
 
-                <!-- Pega o id do funcionario atualmente logado -->
                 <?php $id_func_Logado = $this->session->userdata('usuariologado')->id_funcionario; ?>
                 
-                <!-- Passa o id do funcionario atualmente logado para a função de busca -->
                 <?php echo form_open('Funcionario_Controller/pesquisar_funcionario/'.$id_func_Logado); ?>
                     <button type="submit" name="txt-visualizar" value=""> Visualizar Próprio Perfil </button>
                 <?php echo form_close();?> 
             </div>            
         </div>
+         -->
     
         <div class="col-md-8">
             <!-- Permite todas as operações do CRUD para um administrador -->

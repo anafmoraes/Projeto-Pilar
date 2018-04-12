@@ -27,4 +27,17 @@ class Inicio_Controller extends CI_Controller {
         $this->load->view('frontend/template/footer');
         $this->load->view('frontend/template/html-footer');
     }
+
+    public function admin(){
+         //Chama o modelo de cabeçalho
+        $this->load->view('frontend/template/html-header');
+        $this->load->view('frontend/template/header');
+
+        // Chama a página inicial da área administrativa
+        $this->load->view('admin/painel_de_controle');
+
+        //Chama o rodapé da página
+        $this->load->view('frontend/template/footer');
+        $this->load->view('frontend/template/html-footer');
+    }
 }

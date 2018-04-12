@@ -44,14 +44,21 @@
 								<?php }?>
 
 								<?php if($this->session->userdata('logado')){ ?>
+									<li role="presentation">
+										<!-- Gostaria que eesse link levasse ao perfil do usuário logado -->
+										 <a href="<?php echo base_url('Funcionario_Controller/pesquisar_funcionario/'.$this->session->userdata('usuariologado')->id_funcionario) ?>" >Perfil</a> 
+									</li>
+								<?php }?>
+
+								<?php if($this->session->userdata('logado')){ ?>
 									<li role="presentation">									
 										<a href="<?php echo base_url('pre_visualizacao_obra') ?>" class="active">Obras</a>
 									</li>
 								<?php }?>
 
-								<?php if($this->session->userdata('logado')){ ?>
+								<?php if($this->session->userdata('logado') && $this->session->userdata('usuariologado')->id_tipoFuncionario == 1){ ?>
 									<li role="presentation">
-									
+										<!-- Gostaria que esse link levasse ao perfil do usuário logado -->
 										<a href="<?php echo base_url('pre_visualizacao_funcionario') ?>">Funcionarios</a>
 									</li>
 								<?php }?>
@@ -60,7 +67,7 @@
 									 onde o administrador ou supervisor possa gerenciar funcionarios e obras (a definir) -->
 								<?php if($this->session->userdata('logado') && $this->session->userdata('usuariologado')->id_tipoFuncionario == 1){ ?>
 										<li role="presentation">									
-											<a href="#">Administrar</a>
+											<a href="<?php echo base_url('admin') ?>">Administrar</a>
 										</li>
 								<?php }?>
 
