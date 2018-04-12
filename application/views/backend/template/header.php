@@ -1,3 +1,8 @@
+	<!-- Script para atualizar a página atual 1 vez (evita erro de reenvio de formulário) -->
+	<script>
+		window.location = document.URL;
+	</script>
+	
 	<!-- Início do Header (Barra de Menus) -->
 	<header>
 		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
