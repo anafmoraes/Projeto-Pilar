@@ -133,7 +133,17 @@ class Obra_Controller extends CI_Controller {
     public function pre_visualizacao() {
         $this->pre_visualizacao = $this->Obra_Model->pre_visualizacao();        
         $dados['obras'] = $this->pre_visualizacao;
+
+        //Chama o modelo de cabeçalho
+        $this->load->view('frontend/template/html-header');
+        $this->load->view('frontend/template/header');
+
         $this->load->view('frontend/obra/Pre_Visualizacao_Obra_View', $dados);
+
+        //Chama o rodapé da página
+        $this->load->view('frontend/template/footer');
+        $this->load->view('frontend/template/html-footer');
+        
     }
 
     // Envia para a view uma obra específica de acordo com o id que é passado na view
@@ -141,7 +151,15 @@ class Obra_Controller extends CI_Controller {
         $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
         $dados['resultado'] = $this->pesquisa_unitaria;
 
+        //Chama o modelo de cabeçalho
+        $this->load->view('frontend/template/html-header');
+        $this->load->view('frontend/template/header');
+
         $this->load->view('frontend/obra/Registro_View', $dados);
+
+        //Chama o rodapé da página
+        $this->load->view('frontend/template/footer');
+        $this->load->view('frontend/template/html-footer');
     }
 
     // Valida e atualiza os dados de uma determinada obra
@@ -155,8 +173,18 @@ class Obra_Controller extends CI_Controller {
         $dados['resultado'] = $this->pesquisa_unitaria;
         $dados['id_obra'] = $id_obra;       
 
+        //Chama o modelo de cabeçalho
+        $this->load->view('frontend/template/html-header');
+        $this->load->view('frontend/template/header');
+
         // Carrega o formulário de atualização da obra
         $this->load->view('backend/obra/Atualizar_Obra_View', $dados);
+
+        //Chama o rodapé da página
+        $this->load->view('frontend/template/footer');
+        $this->load->view('frontend/template/html-footer');
+            
+        
     }
 
     public function salvar_atualizacao($id) {
