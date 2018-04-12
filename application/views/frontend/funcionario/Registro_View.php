@@ -27,7 +27,6 @@
                 <button type="submit"> Excluir Usuário do Sistema </button>
             <?php echo form_close();?>
         <?php }?>
-
     <?php }?>
 </div>
 
