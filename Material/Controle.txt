@@ -1,0 +1,37 @@
+FLAGS QUE CONTROLAM AS PERMISSOES PARA A REALIZAÇÃO DE OPERAÇÕES DO CRUD
+
+Flags são atributos das tabelas a eles relacionadas.
+
+Permissões{
+	Com relação a Obras:
+		administrador = {Cadastrar, Visualizar, Atualizar, Remover};
+			Toda obra cadastrada ou atualizada por um administrador deve ter seu flag alterado para "obra validada". Toda obra pode ser deletada por um administrador sem aprovação de nenhum outro usuário do sistema.
+		supervisor = {Cadastrar, Visualizar, Atualizar, Remover};
+			Toda obra cadastrada ou atualizada por um supervisor deve ter seu flag alterado para "obra validada". Toda obra pode ser deletada por um supervisor sem aprovação de nenhum outro usuário do sistema.
+		Auxiliar = {Cadastrar, Visualizar, Atualizar};
+			Toda obra cadastrada ou atualizada pelo Auxiliar deve ter seu flag de status alterado para "aguardando validacao" e a mudança so será efetivada quando for aprovada pelo supervisor ou um administrador, tendo seu status alterado para "obra validada".
+
+	Com relação a Usuários:
+		Administrador = {Cadastrar, Visualizar, Atualizar, Remover};
+			Todos os administradores têm permissão para realizar as 4 operações do CRUD com qualquer outro usuário.
+		Supervisor = {Visualizar, Atualizar};
+			Todo supervisor pode visualizar, editar informações relacionadas a si mesmo.
+		Auxiliar = {Visualizar, Atualizar};
+			Todo auxiliar pode visualizar e editar informações relacionadas a si mesmo.
+}
+
+Flags 'situacao' das obras{
+	"obra validada" 		// Obra validada e disponível para todos os usuários.
+	"obra nao validada"		// Obra não foi avaliada ou reprovada, visível para todos os usuários.
+}
+
+Flag 'status' dos usuários{
+	"ativo" 				// Indica que um usuário está ativo no sistema
+	"inativo"				// Indica que um usuário está inativo no sistema
+}
+
+Flag 'permissao' dos usuários{
+	"administrador"			// Indica que um usuário tem permissões de administrador dentro do sistema
+	"supervisor"			// Indica que um usuário tem permissões de supervisor dentro do sistema
+	"auxiliar"				// Indica que um usuário tem permissões de auxiliar dentro do sistema
+}

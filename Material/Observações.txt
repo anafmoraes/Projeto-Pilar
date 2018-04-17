@@ -5,6 +5,3 @@ Credenciais de acesso ao sistema{
     email de usuario: bernardo.fagner@hotmail.com
     Senha de usuario: nve7a3ez
 }
- Arquivo Pre_Visualizacao_Func{
- 	Dados do funcionario não estao aparecendo
- }
