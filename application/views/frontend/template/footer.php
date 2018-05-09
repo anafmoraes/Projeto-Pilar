@@ -69,7 +69,10 @@
 					</div>
 				</div>
 				<div class="pull-right">
-					<a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+					<!-- Podemos usar um javascript ou bootstrap p subir mais suave -->
+					<a href="#menu" class="scrollup">
+						<i class="fa fa-angle-up fa-3x"></i>
+					</a>
 				</div>
 			</div>
 		</div>
