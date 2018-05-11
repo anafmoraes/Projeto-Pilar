@@ -2,7 +2,7 @@
 	<footer>
 		<div class="footer">
 			<div class="container">
-				<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.2s">
+				<div class="col-md-6 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.2s">
 					<h2><RP>REDES SOCIAIS</RP></h2>
 					<p>
 						In a elit in lorem congue varius. Sed nec arcu.
@@ -21,17 +21,7 @@
 					</ul>
 				</div>
 
-				<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.4s">
-					<h3>ATIVIDADES RECENTES</h3>
-					<ul>
-						<li>Awesome Design with Overviews</li><hr>
-						<li>Great Design with Features </li><hr>
-						<li>Limitless functions & Works </li><hr>
-						<li>Multi is simple and clean design</li>
-					</ul>
-				</div>
-
-				<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
+				<div class="col-md-6 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
 					<h3>INFORMAÇÕES</h3>
 					<ul>
 						<li><i class="fa fa-home fa-2x"></i> Office # 38, Suite 54 Elizebth Street, Victoria State Newyork, USA 33026</li><hr>
@@ -59,4 +49,4 @@
 			</div>
 		</div>
 	</footer>
-	<!-- Fim do footer (rodapé da página) e início do html-footer-->	
+	<!-- Fim do footer (rodapé da página) e início do html-footer-->

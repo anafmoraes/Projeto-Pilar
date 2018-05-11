@@ -9,7 +9,7 @@
 		<script src="<?php echo base_url('assets/frontend/js/jquery.bxslider.min.js') ?>"></script>
 		<script src="<?php echo base_url('assets/frontend/js/jquery.prettyPhoto.js') ?>"></script>
 		<script src="<?php echo base_url('assets/frontend/js/jquery.isotope.min.js') ?>"></script>
-		<script src="<?php echo base_url('assets/frontend/js/functions.js') ?>"></script> -->
+		<script src="<?php echo base_url('assets/frontend/js/functions.js') ?>"></script>
 		<script>wow = new WOW({}).init();</script>
 
 		<!-- Modal de Cadastro na página login.php -->
