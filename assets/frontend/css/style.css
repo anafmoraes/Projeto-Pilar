@@ -77,14 +77,19 @@ a:hover {
   border-color: #fff;
   text-transform:uppercase;
   font-size:18px;
-  border-radius:30px;
-  margin-left:-10px;
+  border-radius: 8px;
+  margin-left:0px;
+  border: 1px solid;
+  border-color: #ccc;
+  width: 8vw;
+  margin: auto;
 }
 
 .btn-default:hover {
 	background-color:#f9f9f9;
 	color:#ED502E;
-	border-color: #fff;	
+  border: 1px solid;
+  border-color: #ccc;
 }
 
 /*===========================
@@ -210,8 +215,7 @@ a:hover {
 }
 
 .main-feature .text-center h2,p {
-	/*color:#fff;*/
-  color:#333;
+	color:#fff;
 }
 
 .main-feature .text-center p {
@@ -918,8 +922,9 @@ ul.sidebar-gallery {
 
 .form-group .form-control {
   padding: 7px 12px;
-  border-color:#ddd;
+  border-color:#ccc;
   box-shadow: none;
+  border-radius: 8px;
 }
 
 textarea.form-control {
@@ -1048,6 +1053,7 @@ ul.social-network li a {
 .sub-footer {
 	background:#090909;
 	padding:30px;
+  text-align: center;
 }
 .sub-footer ul {
 	list-style: none;
@@ -1115,4 +1121,60 @@ a.scrollup:hover{
 
  .form-login > .wrapper {
     text-align: center;
+}
+
+.modal-dialog-subscribed{
+    width: 34vw;
+    margin: 27vh auto;
+}
+
+@media screen and (max-width: 768px){
+  .modal-dialog.modal-dialog-subscribed {
+    width: 59vw;
+    margin-top: 12vh;
+  }
+
+  button.btn.btn-lg.btn-default.btn-block {
+    width: 13vw;
+  }
+
+  .footer{
+    padding: 0px;
+  }
+
+  .slider {
+    margin-top: -20px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+}
+
+@media screen and (max-width: 360px){
+  .navbar-brand h1 {
+      font-size: 15px;
+  }
+
+  .menu {
+    width: 100%;
+    padding-left: 17vw;
+  }
+
+  .navbar-collapse.collapse.in {
+    margin: 0;
+  }
+
+  button.btn.btn-lg.btn-default.btn-block {
+    width: 27vw;
+  }
+
+  .navbar-inverse .navbar-toggle {
+    border-color: #333;
+    background-color: #333;
+  }
+
+  .navbar-header{
+    margin-right: 0vw;
+    margin-left: -3vw;
+  }
 }

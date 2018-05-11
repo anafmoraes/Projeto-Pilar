@@ -4,7 +4,7 @@
         <!-- Modal -->
         <div class="container">
             <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-subscribed">
                     <!-- Modal content-->
                     <div class="modal-content">
                         <div class="modal-header">
@@ -25,14 +25,11 @@
                                         <input class="form-control" placeholder="Senha" name="txt-senha" type="password" value="">
                                     </div>
                                     <!-- Change this to a button or input when using this as a form -->
-                                    <button class="btn btn-lg btn-success btn-block">Entrar</button>
+                                    <button class="btn btn-lg btn-default btn-block"> Entrar </button>
                                 </fieldset>
                             <?php
                             echo form_close();
                             ?>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
