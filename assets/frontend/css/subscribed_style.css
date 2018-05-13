@@ -1,0 +1,62 @@
+/*  Arquivo que sobrescreve oa folha de estilos do template.
+    Este arquivo deve ser chamado no projeto logo após o arquivo style.css
+    Toda nova classe deve ser implementada aqui e toda modificaçõa das classes
+    padrão do tema també devem ser feitas aqui para preservar as características
+    originais do tema no arquivo style.css.
+*/
+
+.modal-dialog-subscribed{
+    width: 34vw;
+    margin: 27vh auto;
+}
+
+@media screen and (max-width: 768px){
+  .modal-dialog.modal-dialog-subscribed {
+    width: 59vw;
+    margin-top: 12vh;
+  }
+
+  button.btn.btn-lg.btn-default.btn-block {
+    width: 13vw;
+  }
+
+  .footer{
+    padding: 0px;
+  }
+
+  .slider {
+    margin-top: -20px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+}
+
+@media screen and (max-width: 360px){
+  .navbar-brand h1 {
+      font-size: 15px;
+  }
+
+  .menu {
+    width: 100%;
+    padding-left: 17vw;
+  }
+
+  .navbar-collapse.collapse.in {
+    margin: 0;
+  }
+
+  button.btn.btn-lg.btn-default.btn-block {
+    width: 27vw;
+  }
+
+  .navbar-inverse .navbar-toggle {
+    border-color: #333;
+    background-color: #333;
+  }
+
+  .navbar-header{
+    margin-right: 0vw;
+    margin-left: -3vw;
+  }
+}

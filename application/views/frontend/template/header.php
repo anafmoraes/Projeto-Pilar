@@ -78,6 +78,7 @@
 									</li>
 								<?php }?>
 
+								<!-- Aciona o modal de login -->
 								<?php if(!$this->session->userdata('logado')){ ?>
 									<li class="mp" role="presentation" data-toggle="modal" data-target="#myModal">
 										<a href="#"><span class="fa fa-home fa-2x"></span> Minha Paróquia</a>
