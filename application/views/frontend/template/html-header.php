@@ -23,6 +23,7 @@
 		<!-- Folha de estilos que sobrescreve o tema padrão -->
 		<link href="<?php echo base_url('assets/frontend/css/subscribed_style.css') ?>" rel="stylesheet" />
 
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 		<!--
 		=======================================================
 		Theme Name: Multi
@@ -31,6 +32,8 @@
 		Author URL: https://bootstrapmade.com
 		=======================================================
 		-->
+		<script src="<?php echo base_url('assets/backend/js/formObras.js')?>"></script>
+
 	
 	</head>
 

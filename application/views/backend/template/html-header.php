@@ -16,7 +16,10 @@
 		<link rel="stylesheet" href="<?php echo base_url('assets/frontend/css/animate.css') ?>">
 		<link rel="stylesheet" href="<?php echo base_url('assets/frontend/js/fancybox/jquery.fancybox.css') ?>" type="text/css" media="screen" />
 		<link href="<?php echo base_url('assets/frontend/css/prettyPhoto.css') ?>" rel="stylesheet" />
-		<link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet" />		
+		<link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet" />	
+
+		<link href="<?php echo base_url('assets/backend/css/subscribed_style.css') ?>" rel="stylesheet" />
+
 
 		<!-- =======================================================
 			Theme Name: Multi
