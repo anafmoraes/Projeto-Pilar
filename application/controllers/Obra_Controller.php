@@ -24,14 +24,14 @@ class Obra_Controller extends CI_Controller {
     /*######################################Métodos referentes as obras######################################*/
 
     public function cadastrar_obra() {
-        $this->load->view('frontend/template/html-header');
-        $this->load->view('frontend/template/header');
+        $this->load->view('backend/template/html-header');
+        $this->load->view('backend/template/header');
 
         $dados['info'] = 'Cadastrar Obra';
         $this->load->view('backend/obra/Cadastrar_Obra_View', $dados);
 
-        $this->load->view('frontend/template/footer');
-        $this->load->view('frontend/template/html-footer');
+        $this->load->view('backend/template/footer');
+        $this->load->view('backend/template/html-footer');
     }
 
     /*Salva todos os dados do formulário nas respepctivas tabelas e retorna para a tela de cadastro*/
