@@ -15,15 +15,23 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/frontend/css/isotope.css') ?>" media="screen" />
 		<link rel="stylesheet" href="<?php echo base_url('assets/frontend/css/animate.css') ?>">
 		<link rel="stylesheet" href="<?php echo base_url('assets/frontend/js/fancybox/jquery.fancybox.css') ?>" type="text/css" media="screen" />
-		<link href="<?php echo base_url('assets/frontend/css/prettyPhoto.css') ?>" rel="stylesheet" />
-		<link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet" />		
 
-		<!-- =======================================================
-			Theme Name: Multi
-			Theme URL: https://bootstrapmade.com/multi-responsive-bootstrap-template/
-			Author: BootstrapMade
-			Author URL: https://bootstrapmade.com
-		======================================================= -->
+		<!-- Tema Bootstrap -->
+		<link href="<?php echo base_url('assets/frontend/css/prettyPhoto.css') ?>" rel="stylesheet" />
+		<link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet" />
+
+		<!-- Folha de estilos que sobrescreve o tema padrão -->
+		<link href="<?php echo base_url('assets/frontend/css/subscribed_style.css') ?>" rel="stylesheet" />
+
+		<!--
+		=======================================================
+		Theme Name: Multi
+		Theme URL: https://bootstrapmade.com/multi-responsive-bootstrap-template/
+		Author: BootstrapMade
+		Author URL: https://bootstrapmade.com
+		=======================================================
+		-->
+	
 	</head>
 
 	<!-- Início do Header (Barra de Menus) -->

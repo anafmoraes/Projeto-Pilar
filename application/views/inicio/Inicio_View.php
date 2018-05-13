@@ -1,4 +1,4 @@
-<!-- Inicio controller monta essa página -->
+<!-- Página após o login, Inicio_Controller monta essa página -->
 
 <div class="container">
 	<div class="text-center">
