@@ -45,7 +45,7 @@
 
 								<?php if($this->session->userdata('logado')){ ?>
 									<li role="presentation">									
-										<a href="<?php echo base_url('pre_visualizacao_obra') ?>" class="active">Obras</a>
+										<a href="<?php echo base_url('pre_visualizacao_obra') ?>">Obras</a>
 									</li>
 								<?php }?>
 
