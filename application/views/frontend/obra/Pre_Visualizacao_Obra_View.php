@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-4">
+        <div class="col-sm-offset-10">
             <!-- Código que leva para o form de cadasttro de obra -->
             <a style="width: 200px" class="btn btn-default" type="button" href= "<?php echo base_url('Obra_Controller/cadastrar_obra') ?>" >Cadastrar Obra</a>
         </div>
