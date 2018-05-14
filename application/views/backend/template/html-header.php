@@ -27,6 +27,9 @@
 			Author: BootstrapMade
 			Author URL: https://bootstrapmade.com
 		======================================================= -->
+
+		<!-- Folha de estilos que sobrescreve o tema padrão -->
+		<link href="<?php echo base_url('assets/backend/css/subscribed_style.css') ?>" rel="stylesheet" />
 	</head>
 
 	<!-- Início do Header (Barra de Menus) -->
