@@ -6,7 +6,7 @@
 
         <div class="text-center">
             <div class="wow bounceInDown" data-wow-offset="0" data-wow-delay="0.3s">
-                <h2><?php echo $info ?></h2>                  
+                <h1><?php echo $info ?></h1>                  
             </div>
         </div>
     </div>
@@ -23,7 +23,6 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
 ?>
 
   <!-- One "tab" for each step in the form: -->
-
     <div class="tab">Localização
         <h1>Localização</h1>
         <h6 class="text-center">Insira abaixo as informações da <strong> LOCALIZAÇÃO </strong> do objeto que deseja registrar</h6>

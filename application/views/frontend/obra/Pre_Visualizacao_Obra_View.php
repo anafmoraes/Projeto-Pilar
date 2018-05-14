@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-4">
+        <div class="col-sm-offset-10">
             <!-- Código que leva para o form de cadasttro de obra -->
             <a style="width: 200px" class="btn btn-default" type="button" href= "<?php echo base_url('Obra_Controller/cadastrar_obra') ?>" >Cadastrar Obra</a>
         </div>
@@ -8,15 +8,15 @@
     <div class="row text-center">
         <h1> Obras registradas </h1>
     </div>
-</div>
+</div><br>
 
 <div class="container">
     <!-- Lista todas as obras registradas no banco de dados -->
     <?php
         foreach ($obras as $obra){ ?>
     <div class="row">
-        <div class="col-12">
-            <div class="card">
+        <div class="col-sm-offset-2">
+            <div class="card" style="width: 75rem">
                 <div class="card-header">
                     <h4> <?php echo $obra->nome_objeto ?> </h4>
                 </div>
@@ -30,15 +30,13 @@
                     <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD
                      via GET-->
                     <?php echo form_open('Obra_Controller/pesquisar_obra/'.$obra->id_obra); ?>
-                        <button class="btn btn-default" type="submit" name="txt-visualizar" value=""> Visualizar Registro </button>
-                    <?php echo form_close();?></a>
+                        <button class="btn btn-default" type="submit" name="txt-visualizar" value="" style="width: 250px"> Visualizar Registro </button>
+                    <?php echo form_close();?>
                 </div>
             </div>
         </div>
     </div>
     <?php
     }?>
-    </div>        
-</div>
-
-    
+</div>        
+<br>   
