@@ -10,17 +10,12 @@
     margin: 27vh auto;
 }
 
-<<<<<<< HEAD
-p {
-  color:#151515;
-=======
 .icon{
   width: 20px;
 }
 
 p{
   color: #151515;
->>>>>>> sprint_11
 }
 
 @media screen and (max-width: 768px){
