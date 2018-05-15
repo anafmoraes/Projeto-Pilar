@@ -23,6 +23,8 @@
 		<!-- Folha de estilos que sobrescreve o tema padrão -->
 		<link href="<?php echo base_url('assets/frontend/css/subscribed_style.css') ?>" rel="stylesheet" />
 
+		<link href="<?php echo base_url('assets/iconic/font/css/open-iconic-bootstrap.css') ?>" rel="stylesheet">
+
 		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 		<!--
 		=======================================================

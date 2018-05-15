@@ -16,10 +16,17 @@
 		<link rel="stylesheet" href="<?php echo base_url('assets/frontend/css/animate.css') ?>">
 		<link rel="stylesheet" href="<?php echo base_url('assets/frontend/js/fancybox/jquery.fancybox.css') ?>" type="text/css" media="screen" />
 		<link href="<?php echo base_url('assets/frontend/css/prettyPhoto.css') ?>" rel="stylesheet" />
+<<<<<<< HEAD
 		<link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet" />	
 
 		<link href="<?php echo base_url('assets/backend/css/subscribed_style.css') ?>" rel="stylesheet" />
 
+=======
+		<link href="<?php echo base_url('assets/frontend/css/style.css') ?>" rel="stylesheet" />
+
+		<link href="<?php echo base_url('assets/iconic/font/css/open-iconic-bootstrap.css') ?>" rel="stylesheet">
+			
+>>>>>>> sprint_11
 
 		<!-- =======================================================
 			Theme Name: Multi
@@ -27,6 +34,9 @@
 			Author: BootstrapMade
 			Author URL: https://bootstrapmade.com
 		======================================================= -->
+
+		<!-- Folha de estilos que sobrescreve o tema padrão -->
+		<link href="<?php echo base_url('assets/backend/css/subscribed_style.css') ?>" rel="stylesheet" />
 	</head>
 
 	<!-- Início do Header (Barra de Menus) -->

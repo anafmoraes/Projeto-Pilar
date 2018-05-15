@@ -1,52 +1,60 @@
-  <div class="container">
-    <div class="row">
-      <!--  Botão para voltar para a pré-visualização  -->
-      <?php echo form_open('pre_visualizacao_obra'); ?>
-          <button type="submit"> Voltar a pré-visualização </button>
-      <?php echo form_close();?>
-      <!--  FIM  -->
-    </div>
-      
-
-    <div class="row">
-      <?php
+  <?php
       foreach ($resultado as $obra){
       ?>
-        <div class="col-md-12">
-          <h4> <?php echo $obra->nome_objeto ?> </h4>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <!--  Botão para voltar para a pré-visualização  -->
+        <?php echo form_open('pre_visualizacao_obra'); ?>
+            <button class="btn btn-default" type="submit"> Voltar </button>
+        <?php echo form_close();?>
+        <!--  FIM  -->
+      </div>
 
-          <div class="col-md-2">
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar de botões">
+          <div class="btn-group mr-2" role="group">
             <!-- Inicio do codigo de Update -->
             <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
             <?php echo form_open('Obra_Controller/atualizar_obra/'.$obra->id_obra); ?>
-                <!-- <input  type="hidden" name="txt-id" value="<?php echo $obra->id_obra ?>"/> -->
-                <button type="submit" name="txt-atualizar" value=""> Editar Obra </button>
+              <!-- <input  type="hidden" name="txt-id" value="<?php echo $obra->id_obra ?>"/> -->
+              <button class="btn btn-default btn-block" style="width: 170px" type="submit" name="txt-atualizar" value="">
+              <span class="oi oi-pencil" aria-hidden="true" title="Editar"></span>
+                Editar Obra
+              </button>
             <?php echo form_close();?>
             <!-- Fim do codigo de Update -->
           </div>
 
-          <div class="col-md-4">
+          <div class="btn-group mr-2" role="group">
             <!-- Inicio do codigo de visualizar exposições -->
-              <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
-              <?php echo form_open('Obra_Controller/visualizar_exposicoes/'.$obra->id_obra); ?>
-                  <button type="submit"> Visualizar exposições </button>
-              <?php echo form_close();?>
-              <!-- Fim do codigo de visualizar exposições -->
+            <!-- Passa o id_obra para o form que será usado lá no controller para realizar a buscaBD -->
+            <?php echo form_open('Obra_Controller/visualizar_exposicoes/'.$obra->id_obra); ?>
+                <button style="width: 290px" class="btn btn-default btn-block" type="submit"> <span class="oi oi-home" aria-hidden="true" title="Esposições"></span> Visualizar exposições </button>
+            <?php echo form_close();?>
+            <!-- Fim do codigo de visualizar exposições -->
           </div>
-          
-          <div class="col-md-4">
+
+          <div class="btn-group mr-2" role="group">
             <!-- Inicio do codigo de visualizar restaurações -->
             <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
             <?php echo form_open('Obra_Controller/visualizar_restauracoes/'.$obra->id_obra); ?>
-                <button type="submit"> Visualizar restaurações </button>
+                <button style="width: 290px" class="btn btn-default btn-block" type="submit"> <span class="oi oi-wrench" aria-hidden="true" title="Restaurações"></span> Visualizar restaurações </button>
             <?php echo form_close();?>
             <!-- Fim do codigo de visualizar restaurações -->
           </div>
 
-          <div class="col-md-2">
+          <div class="btn-group mr-2" role="group">
             <!-- Botão de exclusão que chama um modal para verificar se o usuário deseja mesmo excluir a obra-->
-           <button type="button" data-toggle="modal" data-target="#myModal">Excluir obra</button>
+            <button style="width: 170px" class="btn btn-default btn-block" type="button" data-toggle="modal" data-target="#myModal"><span class="oi oi-trash" aria-hidden="true" title="Excluir"></span> Excluir obra</button>
           </div>
+      </div>
+    </div>
+      
+
+    <div class="row">
+      
+        <div class="col-md-12">
+          <h1 class="text-center"> <?php echo "Obra ". $obra->nome_objeto ?> </h1><br>
         </div>
 
         <p>
