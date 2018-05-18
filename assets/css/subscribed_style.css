@@ -10,63 +10,100 @@
     margin: 27vh auto;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .icon{
   width: 20px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 p{
   color: #151515;
 }
 
-@media screen and (max-width: 768px){
-  .modal-dialog.modal-dialog-subscribed {
-    width: 59vw;
-    margin-top: 12vh;
-  }
+/*body {
+  background-color: #f1f1f1;
+}*/
 
-  button.btn.btn-lg.btn-default.btn-block {
-    width: 13vw;
-  }
-
-  .footer{
-    padding: 0px;
-  }
-
-  .slider {
-    margin-top: -20px;
-    margin-right: 0px;
-    margin-left: 0px;
-  }
-
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
 }
 
-@media screen and (max-width: 360px){
-  .navbar-brand h1 {
-      font-size: 15px;
-  }
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
 
-  .menu {
-    width: 100%;
-    padding-left: 17vw;
-  }
+h1 {
+  text-align: center;  
+}
 
-  .navbar-collapse.collapse.in {
-    margin: 0;
-  }
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  border: 1px solid #aaaaaa;
+  color: #151515;
+}
 
-  button.btn.btn-lg.btn-default.btn-block {
-    width: 27vw;
-  }
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
 
-  .navbar-inverse .navbar-toggle {
-    border-color: #333;
-    background-color: #333;
-  }
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
 
-  .navbar-header{
-    margin-right: 0vw;
-    margin-left: -3vw;
-  }
+button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
 }
 
 .card {
@@ -197,6 +234,57 @@ p{
 
 .card-deck .card {
   margin-bottom: 15px;
+}
+
+@media screen and (max-width: 768px){
+  .modal-dialog.modal-dialog-subscribed {
+    width: 59vw;
+    margin-top: 12vh;
+  }
+
+  button.btn.btn-lg.btn-default.btn-block {
+    width: 13vw;
+  }
+
+  .footer{
+    padding: 0px;
+  }
+
+  .slider {
+    margin-top: -20px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+}
+
+@media screen and (max-width: 360px){
+  .navbar-brand h1 {
+      font-size: 15px;
+  }
+
+  .menu {
+    width: 100%;
+    padding-left: 17vw;
+  }
+
+  .navbar-collapse.collapse.in {
+    margin: 0;
+  }
+
+  button.btn.btn-lg.btn-default.btn-block {
+    width: 27vw;
+  }
+
+  .navbar-inverse .navbar-toggle {
+    border-color: #333;
+    background-color: #333;
+  }
+
+  .navbar-header{
+    margin-right: 0vw;
+    margin-left: -3vw;
+  }
 }
 
 @media (min-width: 576px) {
