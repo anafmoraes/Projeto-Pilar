@@ -19,7 +19,7 @@
 
 		<div class="container">
 			<div class="col-lg-6 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.5s">
-				<img img src="<?php echo base_url('assets/frontend/images/history/museu.jpg') ?>" class="img-responsive" >
+				<img img src="<?php echo base_url('assets/images/history/museu.jpg') ?>" class="img-responsive" >
 			</div>
 
 			<div class="col-lg-6 wow fadeInRight">
