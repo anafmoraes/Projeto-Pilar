@@ -5,11 +5,10 @@
 				<div class="col-md-6 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.2s">
 					<h2><RP>REDES SOCIAIS</RP></h2>
 					<p>
-						In a elit in lorem congue varius. Sed nec arcu.
-						Etiam sit amet augue.
-						Fusce fermen tum neque a rutrum varius odio pede
-						ullamcorp-er tellus ut dignissim nisi risus non tortor.
-						Aliquam mollis neque.
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat.
 					</p>
 
 					<ul class="social-network">
@@ -24,9 +23,9 @@
 				<div class="col-md-6 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
 					<h3>INFORMAÇÕES</h3>
 					<ul>
-						<li><i class="fa fa-home fa-2x"></i> Office # 38, Suite 54 Elizebth Street, Victoria State Newyork, USA 33026</li><hr>
-						<li><i class="fa fa-phone fa-2x"></i> +38 000 129900</li><hr>
-						<li><i class="fa fa-envelope fa-2x"></i> info@domain.net</li>
+						<li><i class="fa fa-home fa-2x"></i> Endereço da Paróquia </li><hr>
+						<li><i class="fa fa-phone fa-2x"></i> Telefone da Paróquia </li><hr>
+						<li><i class="fa fa-envelope fa-2x"></i> Email de contato </li>
 					</ul>
 				</div>
 
