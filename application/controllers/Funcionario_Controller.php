@@ -58,6 +58,8 @@ class Funcionario_Controller extends CI_Controller {
             $this->form_validation->set_rules('txt-confirmar-senha', 'Confirmar senha', 'required|matches[txt-senha]');
             $this->form_validation->set_rules('txt-cpf', 'CPF', 'required|is_unique[funcionario.cpf]');
             $this->form_validation->set_rules('txt-email', 'Email', 'required|valid_email|is_unique[funcionario.email]');
+            $this->form_validation->set_rules('txt-tipo-func', 'Tipo de Funcionario', 'required');
+            
 
             if ($this->form_validation->run() == FALSE) {
                 $this->cadastrar_funcionario();
@@ -67,7 +69,7 @@ class Funcionario_Controller extends CI_Controller {
                 $user['senha'] = md5($this->input->post('txt-senha'));
                 $user['email'] = $this->input->post('txt-email');
                 $user['cpf'] = $this->input->post('txt-cpf');
-                $user['id_tipoFuncionario'] = 2;
+                $user['id_tipoFuncionario'] = $this->input->post('txt-tipo-func');
                 $user['situacao'] = 1;
 
                 if ($this->Funcionario_Model->cadastrar($user)) {

@@ -38,6 +38,14 @@
                     <label id="txt-email">Email</label>
                     <input type="text" id="txt-email" name="txt-email" class="form-control" placeholder="Email" value="<?php echo set_value('txt-email');?>">
                 </div>
+                <div class="form-group col-md-5">
+                    <label id="txt-tipo-func">Tipo de Funcionario</label><br>
+                    <select class="form-control" name="txt-tipo-func" >
+                        <option value="1">Administrador</option>
+                        <option value="2">Supervisor</option>
+                        <option value="3">Auxiliar</option>
+                    </select>
+                </div>
             </div>
             
             <div class="row">

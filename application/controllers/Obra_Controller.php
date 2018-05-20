@@ -79,6 +79,7 @@ class Obra_Controller extends CI_Controller {
         $this->form_validation->set_rules('data-revisao','Data da revisao','required');
         $this->form_validation->set_rules('responsavel-alteracao','Responsavel pela alteração','required|max_length[60]');
         $this->form_validation->set_rules('data-alteracao','Data da alteração','required');
+        
 
         if($this->form_validation->run() == FALSE) {
             $this->cadastrar_obra();
@@ -156,6 +157,8 @@ class Obra_Controller extends CI_Controller {
     public function pesquisar_obra($id) {
         $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
         $dados['resultado'] = $this->pesquisa_unitaria;
+
+        //$this->pesquisaTipo = 
 
         //Chama o modelo de cabeçalho
         $this->load->view('template/html-header');
