@@ -287,6 +287,10 @@ button:hover {
   }
 }
 
+.footer p {
+    color: #FFF;
+}
+
 @media (min-width: 576px) {
   .card-deck {
     -ms-flex-flow: row wrap;
@@ -388,3 +392,13 @@ button:hover {
     width: 100%;
   }
 }
+
+@media (min-width: 1200px){
+  .container {
+      width: 1170px;
+      margin-bottom: 1vh;
+  }
+}
+
+
+

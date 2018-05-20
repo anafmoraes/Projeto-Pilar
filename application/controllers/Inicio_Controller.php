@@ -17,27 +17,27 @@ class Inicio_Controller extends CI_Controller {
 
     public function index() {
         //Chama o modelo de cabeçalho
-        $this->load->view('frontend/template/html-header');
-        $this->load->view('frontend/template/header');
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
 
         // Chama a página inicial após o login
         $this->load->view('inicio/Inicio_View');
 
         //Chama o rodapé da página
-        $this->load->view('frontend/template/footer');
-        $this->load->view('frontend/template/html-footer');
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     public function admin(){
          //Chama o modelo de cabeçalho
-        $this->load->view('frontend/template/html-header');
-        $this->load->view('frontend/template/header');
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
 
         // Chama a página inicial da área administrativa
         $this->load->view('admin/painel_de_controle');
 
         //Chama o rodapé da página
-        $this->load->view('frontend/template/footer');
-        $this->load->view('frontend/template/html-footer');
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 }

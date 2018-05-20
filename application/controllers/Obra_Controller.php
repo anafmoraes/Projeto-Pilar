@@ -24,14 +24,14 @@ class Obra_Controller extends CI_Controller {
     /*######################################Métodos referentes as obras######################################*/
 
     public function cadastrar_obra() {
-        $this->load->view('frontend/template/html-header');
-        $this->load->view('frontend/template/header');
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
 
         $dados['info'] = 'Cadastrar Obra';
         $this->load->view('backend/obra/Cadastrar_Obra_View', $dados);
 
-        $this->load->view('frontend/template/footer');
-        $this->load->view('frontend/template/html-footer');
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     /*Salva todos os dados do formulário nas respepctivas tabelas e retorna para a tela de cadastro*/
@@ -141,14 +141,14 @@ class Obra_Controller extends CI_Controller {
         $dados['obras'] = $this->pre_visualizacao;
 
         //Chama o modelo de cabeçalho
-        $this->load->view('frontend/template/html-header');
-        $this->load->view('frontend/template/header');
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
 
         $this->load->view('frontend/obra/Pre_Visualizacao_Obra_View', $dados);
 
         //Chama o rodapé da página
-        $this->load->view('frontend/template/footer');
-        $this->load->view('frontend/template/html-footer');
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
         
     }
 
@@ -158,14 +158,14 @@ class Obra_Controller extends CI_Controller {
         $dados['resultado'] = $this->pesquisa_unitaria;
 
         //Chama o modelo de cabeçalho
-        $this->load->view('frontend/template/html-header');
-        $this->load->view('frontend/template/header');
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
 
         $this->load->view('frontend/obra/Registro_View', $dados);
 
         //Chama o rodapé da página
-        $this->load->view('frontend/template/footer');
-        $this->load->view('frontend/template/html-footer');
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     // Valida e atualiza os dados de uma determinada obra
@@ -180,15 +180,15 @@ class Obra_Controller extends CI_Controller {
         $dados['id_obra'] = $id_obra;       
 
         //Chama o modelo de cabeçalho
-        $this->load->view('frontend/template/html-header');
-        $this->load->view('frontend/template/header');
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
 
         // Carrega o formulário de atualização da obra
         $this->load->view('backend/obra/Atualizar_Obra_View', $dados);
 
         //Chama o rodapé da página
-        $this->load->view('frontend/template/footer');
-        $this->load->view('frontend/template/html-footer');
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
             
         
     }
