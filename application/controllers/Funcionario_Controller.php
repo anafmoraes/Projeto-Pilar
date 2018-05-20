@@ -24,14 +24,14 @@ class Funcionario_Controller extends CI_Controller {
             }
 
             //Chama o modelo de cabeçalho
-            $this->load->view('frontend/template/html-header');
-            $this->load->view('frontend/template/header');
+            $this->load->view('template/html-header');
+            $this->load->view('template/header');
 
             $this->load->view('backend/funcionario/cadastrar_funcionario');
 
             //Chama o rodapé da página
-            $this->load->view('frontend/template/footer');
-            $this->load->view('frontend/template/html-footer');
+            $this->load->view('template/footer');
+            $this->load->view('template/html-footer');
         
             
         }
@@ -86,15 +86,15 @@ class Funcionario_Controller extends CI_Controller {
         $dados['funcionarios'] = $this->resultado;
 
         //Chama o modelo de cabeçalho
-        $this->load->view('frontend/template/html-header');
-        $this->load->view('frontend/template/header');
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
 
         //Chama o corpo da página
         $this->load->view('frontend/funcionario/Pre_Visualizacao_Func_View', $dados);
 
         //Chama o rodapé da página
-        $this->load->view('frontend/template/footer');
-        $this->load->view('frontend/template/html-footer');
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     public function pesquisar_funcionario($id){
@@ -105,14 +105,14 @@ class Funcionario_Controller extends CI_Controller {
         $dados['resultado'] = $this->pesquisa_unitaria;
 
         //Chama o modelo de cabeçalho
-        $this->load->view('frontend/template/html-header');
-        $this->load->view('frontend/template/header');
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
 
         $this->load->view('frontend/funcionario/Registro_View', $dados);
 
         //Chama o rodapé da página
-        $this->load->view('frontend/template/footer');
-        $this->load->view('frontend/template/html-footer');
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     // Busca os dados do funcionario no BD e renderiza na tela para serem atualizados
@@ -126,14 +126,14 @@ class Funcionario_Controller extends CI_Controller {
         $dados['id_funcionario'] = $id_func;
 
         //Chama o modelo de cabeçalho
-        $this->load->view('frontend/template/html-header');
-        $this->load->view('frontend/template/header');
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
 
         $this->load->view('backend/funcionario/Atualizar_Funcionario_View',$dados);
 
         //Chama o rodapé da página
-        $this->load->view('frontend/template/footer');
-        $this->load->view('frontend/template/html-footer');
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     //Realiza a operação de Update do CRUD
@@ -230,16 +230,16 @@ class Funcionario_Controller extends CI_Controller {
         }
 
         //Chama o modelo de cabeçalho
-        $this->load->view('frontend/template/html-header');
-        $this->load->view('frontend/template/header');
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
 
         //Chama o corpo da página
         $this->load->view('inicio/body1');
         $this->load->view('inicio/login');        
 
         //Chama o rodapé da página
-        $this->load->view('frontend/template/footer');
-        $this->load->view('frontend/template/html-footer');
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     public function login() {
