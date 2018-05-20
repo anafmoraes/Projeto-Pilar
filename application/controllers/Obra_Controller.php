@@ -38,47 +38,48 @@ class Obra_Controller extends CI_Controller {
     public function salvar_obra() {
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('localizacao','Localização da obra','required');
-        $this->form_validation->set_rules('numero-atual','Numero Atual da obra','required');
-        $this->form_validation->set_rules('numero-anterior','Numero anterior da obra','required');
-        $this->form_validation->set_rules('fichas-relacionadas','Fichas relacionadas a obra','required');
-        $this->form_validation->set_rules('nome-objeto','Nome da obra','required');
-        $this->form_validation->set_rules('titulo','Titulo da obra','required');
-        $this->form_validation->set_rules('classe','Classe da obra','required');
-        $this->form_validation->set_rules('sub-classe','Sub-classe da obra','required');
-        $this->form_validation->set_rules('material','Material da obra','required');
-        $this->form_validation->set_rules('tecnica','Técnica utilizada','required');
-        $this->form_validation->set_rules('inscricoes-marcas','Inscrições/marcas','required');
-        $this->form_validation->set_rules('epoca','Época da obra','required');
-        $this->form_validation->set_rules('autoria','Autoria da obra','required');
-        $this->form_validation->set_rules('origem','Origem da obra','required');
-        $this->form_validation->set_rules('procedencia','Procedência','required');
-        $this->form_validation->set_rules('conservacao','Conservação','required');
-        $this->form_validation->set_rules('altura','Altura da obra','required');
-        $this->form_validation->set_rules('largura','Largura da obra','required');
-        $this->form_validation->set_rules('comprimento','Comprimento da obra','required');
-        $this->form_validation->set_rules('profundidade','Profundidade da obra','required');
-        $this->form_validation->set_rules('diametro','Diâmetro da obra','required');
-        $this->form_validation->set_rules('peso','Peso da obra','required');
-        $this->form_validation->set_rules('circunferencia','Circunferencia da obra','required');
-        $this->form_validation->set_rules('descricao-objeto','Descrição do objeto','required');
-        $this->form_validation->set_rules('carac-tecnicas','Caracteristicas técnicas','required');
-        $this->form_validation->set_rules('carac-inconografica','Caracteristicas iconograficas','required');
-        $this->form_validation->set_rules('carac-estilisticas','Caracteristicas estilisticas','required');
-        $this->form_validation->set_rules('dados-historicos','Dados historicos','required');
-        $this->form_validation->set_rules('publicacao','Publicações','required');
-        $this->form_validation->set_rules('fontes-primarias','Fontes primarias','required');
-        $this->form_validation->set_rules('fontes-bibliograficas','Fontes bibliograficas','required');
-        $this->form_validation->set_rules('modo-aquisicao','Modo de aquisição','required');
+        $this->form_validation->set_rules('localizacao','Localização da obra','required|max_length[1000]');
+        $this->form_validation->set_rules('numero-atual','Numero Atual da obra','required|max_length[45]');
+        $this->form_validation->set_rules('numero-anterior','Numero anterior da obra','required|max_length[45]');
+        $this->form_validation->set_rules('fichas-relacionadas','Fichas relacionadas a obra', 'max_length[1000]');
+        $this->form_validation->set_rules('nome-objeto','Nome da obra','required|max_length[250]');
+        $this->form_validation->set_rules('titulo','Titulo da obra','required|max_length[250]');
+        $this->form_validation->set_rules('classe','Classe da obra','required|max_length[250]');
+        $this->form_validation->set_rules('sub-classe','Sub-classe da obra','required|max_length[250]');
+        $this->form_validation->set_rules('material','Material da obra','required|max_length[250]');
+        $this->form_validation->set_rules('tecnica','Técnica utilizada','required|max_length[250]');
+        $this->form_validation->set_rules('inscricoes-marcas','Inscrições/marcas','required|max_length[500]');
+        $this->form_validation->set_rules('epoca','Época da obra','required|max_length[500]');
+        $this->form_validation->set_rules('autoria','Autoria da obra','required|max_length[250]');
+        $this->form_validation->set_rules('origem','Origem da obra','required|max_length[250]');
+        $this->form_validation->set_rules('procedencia','Procedência','required|max_length[250]');
+        $this->form_validation->set_rules('conservacao','Conservação','required|max_length[50]');
+        $this->form_validation->set_rules('altura','Altura da obra','required|max_length[15]');
+        $this->form_validation->set_rules('largura','Largura da obra','required|max_length[15]');
+        $this->form_validation->set_rules('comprimento','Comprimento da obra','required|max_length[15]');
+        $this->form_validation->set_rules('profundidade','Profundidade da obra','required|max_length[15]');
+        $this->form_validation->set_rules('diametro','Diâmetro da obra','required|max_length[15]');
+        $this->form_validation->set_rules('peso','Peso da obra','required|max_length[15]');
+        $this->form_validation->set_rules('circunferencia','Circunferencia da obra','required|max_length[15]');
+        $this->form_validation->set_rules('descricao-objeto','Descrição do objeto','required|max_length[10000]');
+        $this->form_validation->set_rules('carac-tecnicas','Caracteristicas técnicas','required|max_length[5000]');
+        $this->form_validation->set_rules('carac-inconografica','Caracteristicas iconograficas','required|max_length[5000]');
+        $this->form_validation->set_rules('carac-estilisticas','Caracteristicas estilisticas','required|max_length[5000]');
+        $this->form_validation->set_rules('dados-historicos','Dados historicos','required|max_length[500]');
+        $this->form_validation->set_rules('publicacao','Publicações','required|max_length[1000]');
+        $this->form_validation->set_rules('fontes-primarias','Fontes primarias','required|max_length[500]');
+        $this->form_validation->set_rules('fontes-bibliograficas','Fontes bibliograficas','required|max_length[500]');
+        $this->form_validation->set_rules('modo-aquisicao','Modo de aquisição','required|max_length[250]');
         $this->form_validation->set_rules('data-aquisicao','Data de aquisição','required');
-        $this->form_validation->set_rules('responsavel','Responsável','required');
-        $this->form_validation->set_rules('nome-fotografo','Nome do fotografo','required');
-        $this->form_validation->set_rules('responsavel-digitacao','Responsavel pela digitação','required');
+        $this->form_validation->set_rules('responsavel','Responsável','required|max_length[60]');
+        $this->form_validation->set_rules('nome-fotografo','Nome do fotografo','required|max_length[60]');
+        $this->form_validation->set_rules('responsavel-digitacao','Responsavel pela digitação','required|max_length[60]');
         $this->form_validation->set_rules('data-digitacao','Data da digitação','required');
-        $this->form_validation->set_rules('responsavel-revisao','Responsavel pela revisao','required');
+        $this->form_validation->set_rules('responsavel-revisao','Responsavel pela revisao','required|max_length[60]');
         $this->form_validation->set_rules('data-revisao','Data da revisao','required');
-        $this->form_validation->set_rules('responsavel-alteracao','Responsavel pela alteração','required');
+        $this->form_validation->set_rules('responsavel-alteracao','Responsavel pela alteração','required|max_length[60]');
         $this->form_validation->set_rules('data-alteracao','Data da alteração','required');
+        
 
         if($this->form_validation->run() == FALSE) {
             $this->cadastrar_obra();
@@ -125,6 +126,7 @@ class Obra_Controller extends CI_Controller {
             $obra['modo_aquisicao'] = $this->input->post('modo-aquisicao');
             $obra['data_aquisicao'] = $this->input->post('data-aquisicao');
             $obra['id_funcionario'] = $this->session->userdata('usuariologado')->id_funcionario;
+            $obra['situacao'] = 1;
 
 
             if($dados['obras'] = $this->Obra_Model->cadastrar_obra($obra)) {
@@ -157,6 +159,8 @@ class Obra_Controller extends CI_Controller {
         $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
         $dados['resultado'] = $this->pesquisa_unitaria;
 
+        //$this->pesquisaTipo = 
+
         //Chama o modelo de cabeçalho
         $this->load->view('template/html-header');
         $this->load->view('template/header');
@@ -188,63 +192,59 @@ class Obra_Controller extends CI_Controller {
 
         //Chama o rodapé da página
         $this->load->view('template/footer');
-        $this->load->view('template/html-footer');
-            
-        
+        $this->load->view('template/html-footer');        
     }
 
     public function salvar_atualizacao($id) {
 
         $id_obra = $id;
-
         $this->load->library('form_validation');
 
         //Não funciona colocando a variável $id_obra como parametro do metodo na forma de string
         //$this->form_validation->set_rules('$id_obra', 'ID', 'required');
 
         //Realiza a validação dos demais campos do form
-        $this->form_validation->set_rules('localizacao','Localização da obra','required');
-        $this->form_validation->set_rules('numero-atual','Numero Atual da obra','required');
-        $this->form_validation->set_rules('numero-anterior','Numero anterior da obra','required');
-        $this->form_validation->set_rules('fichas-relacionadas','Fichas relacionadas a obra','required');
-        $this->form_validation->set_rules('nome-objeto','Nome da obra','required');
-        $this->form_validation->set_rules('titulo','Titulo da obra','required');
-        $this->form_validation->set_rules('classe','Classe da obra','required');
-        $this->form_validation->set_rules('sub-classe','Sub-classe da obra','required');
-        $this->form_validation->set_rules('material','Material da obra','required');
-        $this->form_validation->set_rules('tecnica','Técnica utilizada','required');
-        $this->form_validation->set_rules('inscricoes-marcas','Inscrições/marcas','required');
-        $this->form_validation->set_rules('epoca','Época da obra','required');
-        $this->form_validation->set_rules('autoria','Autoria da obra','required');
-        $this->form_validation->set_rules('origem','Origem da obra','required');
-        $this->form_validation->set_rules('procedencia','Procedência','required');
-        $this->form_validation->set_rules('conservacao','Conservação','required');
-        $this->form_validation->set_rules('altura','Altura da obra','required');
-        $this->form_validation->set_rules('largura','Largura da obra','required');
-        $this->form_validation->set_rules('comprimento','Comprimento da obra','required');
-        $this->form_validation->set_rules('profundidade','Profundidade da obra','required');
-        $this->form_validation->set_rules('diametro','Diâmetro da obra','required');
-        $this->form_validation->set_rules('peso','Peso da obra','required');
-        $this->form_validation->set_rules('circunferencia','Circunferencia da obra','required');
-        $this->form_validation->set_rules('descricao-objeto','Descrição do objeto','required');
-        $this->form_validation->set_rules('carac-tecnicas','Caracteristicas técnicas','required');
-        $this->form_validation->set_rules('carac-inconografica','Caracteristicas iconograficas','required');
-        $this->form_validation->set_rules('carac-estilisticas','Caracteristicas estilisticas','required');
-        $this->form_validation->set_rules('dados-historicos','Dados historicos','required');
-        $this->form_validation->set_rules('publicacao','Publicações','required');
-        $this->form_validation->set_rules('fontes-primarias','Fontes primarias','required');
-        $this->form_validation->set_rules('fontes-bibliograficas','Fontes bibliograficas','required');
-        $this->form_validation->set_rules('modo-aquisicao','Modo de aquisição','required');
+        $this->form_validation->set_rules('localizacao','Localização da obra','required|max_length[1000]');
+        $this->form_validation->set_rules('numero-atual','Numero Atual da obra','required|max_length[45]');
+        $this->form_validation->set_rules('numero-anterior','Numero anterior da obra','required|max_length[45]');
+        $this->form_validation->set_rules('fichas-relacionadas','Fichas relacionadas a obra', 'max_length[1000]');
+        $this->form_validation->set_rules('nome-objeto','Nome da obra','required|max_length[250]');
+        $this->form_validation->set_rules('titulo','Titulo da obra','required|max_length[250]');
+        $this->form_validation->set_rules('classe','Classe da obra','required|max_length[250]');
+        $this->form_validation->set_rules('sub-classe','Sub-classe da obra','required|max_length[250]');
+        $this->form_validation->set_rules('material','Material da obra','required|max_length[250]');
+        $this->form_validation->set_rules('tecnica','Técnica utilizada','required|max_length[250]');
+        $this->form_validation->set_rules('inscricoes-marcas','Inscrições/marcas','required|max_length[500]');
+        $this->form_validation->set_rules('epoca','Época da obra','required|max_length[500]');
+        $this->form_validation->set_rules('autoria','Autoria da obra','required|max_length[250]');
+        $this->form_validation->set_rules('origem','Origem da obra','required|max_length[250]');
+        $this->form_validation->set_rules('procedencia','Procedência','required|max_length[250]');
+        $this->form_validation->set_rules('conservacao','Conservação','required|max_length[50]');
+        $this->form_validation->set_rules('altura','Altura da obra','required|max_length[15]');
+        $this->form_validation->set_rules('largura','Largura da obra','required|max_length[15]');
+        $this->form_validation->set_rules('comprimento','Comprimento da obra','required|max_length[15]');
+        $this->form_validation->set_rules('profundidade','Profundidade da obra','required|max_length[15]');
+        $this->form_validation->set_rules('diametro','Diâmetro da obra','required|max_length[15]');
+        $this->form_validation->set_rules('peso','Peso da obra','required|max_length[15]');
+        $this->form_validation->set_rules('circunferencia','Circunferencia da obra','required|max_length[15]');
+        $this->form_validation->set_rules('descricao-objeto','Descrição do objeto','required|max_length[10000]');
+        $this->form_validation->set_rules('carac-tecnicas','Caracteristicas técnicas','required|max_length[5000]');
+        $this->form_validation->set_rules('carac-inconografica','Caracteristicas iconograficas','required|max_length[5000]');
+        $this->form_validation->set_rules('carac-estilisticas','Caracteristicas estilisticas','required|max_length[5000]');
+        $this->form_validation->set_rules('dados-historicos','Dados historicos','required|max_length[500]');
+        $this->form_validation->set_rules('publicacao','Publicações','required|max_length[1000]');
+        $this->form_validation->set_rules('fontes-primarias','Fontes primarias','required|max_length[500]');
+        $this->form_validation->set_rules('fontes-bibliograficas','Fontes bibliograficas','required|max_length[500]');
+        $this->form_validation->set_rules('modo-aquisicao','Modo de aquisição','required|max_length[250]');
         $this->form_validation->set_rules('data-aquisicao','Data de aquisição','required');
-        $this->form_validation->set_rules('responsavel','Responsável','required');
-        $this->form_validation->set_rules('nome-fotografo','Nome do fotografo','required');
-        $this->form_validation->set_rules('responsavel-digitacao','Responsavel pela digitação','required');
+        $this->form_validation->set_rules('responsavel','Responsável','required|max_length[60]');
+        $this->form_validation->set_rules('nome-fotografo','Nome do fotografo','required|max_length[60]');
+        $this->form_validation->set_rules('responsavel-digitacao','Responsavel pela digitação','required|max_length[60]');
         $this->form_validation->set_rules('data-digitacao','Data da digitação','required');
-        $this->form_validation->set_rules('responsavel-revisao','Responsavel pela revisao','required');
+        $this->form_validation->set_rules('responsavel-revisao','Responsavel pela revisao','required|max_length[60]');
         $this->form_validation->set_rules('data-revisao','Data da revisao','required');
-        $this->form_validation->set_rules('responsavel-alteracao','Responsavel pela alteração','required');
+        $this->form_validation->set_rules('responsavel-alteracao','Responsavel pela alteração','required|max_length[60]');
         $this->form_validation->set_rules('data-alteracao','Data da alteração','required');
-
 
         if($this->form_validation->run() == FALSE) {
             // Se a validação falhar chama o método de atualização novamente. '$this' indica que o método pertence a esta classe
@@ -301,6 +301,36 @@ class Obra_Controller extends CI_Controller {
             else {
                 echo "Houve um erro no sistema";
             }
+        }
+    }
+
+    //Realiza a exclusão lógica de uma obra do sistema (Apenas Supervisores)
+    public function exclusao_logica($id) {
+
+        $id_obra = $id;        
+        $obra['situacao'] = 0;
+
+        if($this->Obra_Model->atualizar_obra($id, $obra)) {
+            $dados['resultado'] = $this->Obra_Model->pesquisa_unitaria($id);
+            $this->load->view('frontend/obra/Registro_View', $dados);
+        }
+        else {
+            echo "Houve um erro no sistema";
+        }
+    }
+
+    //Realiza a inclusao lógica de uma obra do sistema (Apenas Supervisores)
+    public function inclusao_logica($id) {
+
+        $id_obra = $id;        
+        $obra['situacao'] = 1;
+        
+        if($this->Obra_Model->atualizar_obra($id, $obra)) {
+            $dados['resultado'] = $this->Obra_Model->pesquisa_unitaria($id);
+            $this->load->view('frontend/obra/Registro_View', $dados);
+        }
+        else {
+            echo "Houve um erro no sistema";
         }
     }
 
