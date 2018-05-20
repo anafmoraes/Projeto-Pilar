@@ -126,6 +126,7 @@ class Obra_Controller extends CI_Controller {
             $obra['modo_aquisicao'] = $this->input->post('modo-aquisicao');
             $obra['data_aquisicao'] = $this->input->post('data-aquisicao');
             $obra['id_funcionario'] = $this->session->userdata('usuariologado')->id_funcionario;
+            $obra['situacao'] = 1;
 
 
             if($dados['obras'] = $this->Obra_Model->cadastrar_obra($obra)) {
@@ -191,22 +192,18 @@ class Obra_Controller extends CI_Controller {
 
         //Chama o rodapé da página
         $this->load->view('template/footer');
-        $this->load->view('template/html-footer');
-            
-        
+        $this->load->view('template/html-footer');        
     }
 
     public function salvar_atualizacao($id) {
 
         $id_obra = $id;
-
         $this->load->library('form_validation');
 
         //Não funciona colocando a variável $id_obra como parametro do metodo na forma de string
         //$this->form_validation->set_rules('$id_obra', 'ID', 'required');
 
         //Realiza a validação dos demais campos do form
-
         $this->form_validation->set_rules('localizacao','Localização da obra','required|max_length[1000]');
         $this->form_validation->set_rules('numero-atual','Numero Atual da obra','required|max_length[45]');
         $this->form_validation->set_rules('numero-anterior','Numero anterior da obra','required|max_length[45]');
@@ -248,8 +245,6 @@ class Obra_Controller extends CI_Controller {
         $this->form_validation->set_rules('data-revisao','Data da revisao','required');
         $this->form_validation->set_rules('responsavel-alteracao','Responsavel pela alteração','required|max_length[60]');
         $this->form_validation->set_rules('data-alteracao','Data da alteração','required');
-
-
 
         if($this->form_validation->run() == FALSE) {
             // Se a validação falhar chama o método de atualização novamente. '$this' indica que o método pertence a esta classe
@@ -306,6 +301,36 @@ class Obra_Controller extends CI_Controller {
             else {
                 echo "Houve um erro no sistema";
             }
+        }
+    }
+
+    //Realiza a exclusão lógica de uma obra do sistema (Apenas Supervisores)
+    public function exclusao_logica($id) {
+
+        $id_obra = $id;        
+        $obra['situacao'] = 0;
+
+        if($this->Obra_Model->atualizar_obra($id, $obra)) {
+            $dados['resultado'] = $this->Obra_Model->pesquisa_unitaria($id);
+            $this->load->view('frontend/obra/Registro_View', $dados);
+        }
+        else {
+            echo "Houve um erro no sistema";
+        }
+    }
+
+    //Realiza a inclusao lógica de uma obra do sistema (Apenas Supervisores)
+    public function inclusao_logica($id) {
+
+        $id_obra = $id;        
+        $obra['situacao'] = 1;
+        
+        if($this->Obra_Model->atualizar_obra($id, $obra)) {
+            $dados['resultado'] = $this->Obra_Model->pesquisa_unitaria($id);
+            $this->load->view('frontend/obra/Registro_View', $dados);
+        }
+        else {
+            echo "Houve um erro no sistema";
         }
     }
 
