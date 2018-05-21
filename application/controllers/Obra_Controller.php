@@ -364,6 +364,10 @@ class Obra_Controller extends CI_Controller {
 
     // Pesquisa e retorna todas as exposiçoes ligadas a uma determinada obra
     public function visualizar_exposicoes($id) {
+
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
+
         //$id = $this->input->post('txt-id');
         $dados['id_obra'] = $id;
 
@@ -373,6 +377,9 @@ class Obra_Controller extends CI_Controller {
         else{
             $this->load->view('backend/obra/Exposicao_View', $dados);
         }
+
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     // Carrega a página de cadastro de exposições
