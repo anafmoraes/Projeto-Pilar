@@ -487,8 +487,10 @@ class Obra_Controller extends CI_Controller {
     /*######################################Métodos referentes as restaurações######################################*/
 
     public function visualizar_restauracoes($id_obra) {
-        //$id = $id_obra;
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
 
+        //$id = $id_obra;
         if($dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id_obra)) {
             $dados['id_obra'] = $id_obra;
             $this->load->view('backend/obra/Restauracao_View', $dados);
@@ -497,6 +499,8 @@ class Obra_Controller extends CI_Controller {
             $dados['id_obra'] = $id_obra;
             $this->load->view('backend/obra/Restauracao_View', $dados);
         }
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     public function cadastrar_restauracao($id_obra){

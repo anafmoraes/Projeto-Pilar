@@ -9,7 +9,7 @@
         <div class="col-md-2">
             <!--  Botão para voltar para a pré-visualização  -->
             <?php echo form_open('Obra_Controller/pesquisar_obra/'.$id_obra); ?>
-                <button class="btn btn-default" type="submit"> Voltar </button>
+                <button style="width: 110px" class="btn btn-default" type="submit"> Voltar </button>
             <?php echo form_close();?>
             <!--  FIM  -->
         </div>
@@ -17,7 +17,7 @@
         <div class="col-sm-offset-10">
             <!-- Botão que direciona para a página de cadastro de exposição -->
             <?php echo form_open('Obra_Controller/cadastrar_exposicao/'.$id_obra); ?>
-                <button style="width: 200px" class="btn btn-default" type="submit"> Cadastrar Exposição </button>
+                <button style="width: 230px" class="btn btn-default" type="submit"> Cadastrar Exposição </button>
             <?php echo form_close();?>
             <!-- FIM -->
         </div>
@@ -35,18 +35,21 @@
                     <h4> Nome da exposição: <?php echo $exposicao->nome_exposicao?> </h4>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">
-                        <div class="col-sm-6">
-                            ID da exposição: <?php echo $exposicao->id_exposicao ?><br>
-                            Descrição da exposição: <?php echo $exposicao->descricao?><br>
-                        </div>
-                        <div class="col-sm-6">
-                            Local da exposição: <?php echo $exposicao->local_realizacao?><br>
-                            Data de início da exposição: <?php echo $exposicao->data_inicio?><br>
-                            Data de término da exposição: <?php echo $exposicao->data_fim?><br>
-                        </div> 
-                    </p>
                     <div class="row">
+                        <p class="card-text">
+                            <div class="col-sm-6">
+                                <b>ID da exposição: </b><?php echo $exposicao->id_exposicao ?><br>
+                                <b>Descrição da exposição: </b><?php echo $exposicao->descricao?><br>
+                            </div>
+                            <div class="col-sm-6">
+                                <b>Local da exposição: </b><?php echo $exposicao->local_realizacao?><br>
+                                <b>Data de início da exposição: </b><?php echo $exposicao->data_inicio?><br>
+                                <b>Data de término da exposição: </b><?php echo $exposicao->data_fim?><br>
+                            </div> 
+                        </p>
+                    </div>                    
+                </div>
+                <div class="card-footer text-muted">
                         <div class="col-sm-6">
                             <!-- Botão para atualizar uma exposição -->
                             <?php echo form_open('Obra_Controller/atualizar_exposicao/'.$id_obra.'/'.$exposicao->id_exposicao); ?>
@@ -87,10 +90,10 @@
                             <!-- Fim modal de exclusão de obra -->  
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
+    <br>
     <?php
     }?>
 </div>
