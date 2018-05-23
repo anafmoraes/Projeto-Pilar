@@ -4,82 +4,96 @@
 
 <h1> Exposições </h1>
 
-<!-- Botão para voltar a visualização da obra -->
-<?php echo form_open('Obra_Controller/pesquisar_obra/'.$id_obra); ?>
-    <button type="submit"> Voltar </button>
-<?php echo form_close();?>
-<!-- FIM -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <!--  Botão para voltar para a pré-visualização  -->
+            <?php echo form_open('Obra_Controller/pesquisar_obra/'.$id_obra); ?>
+                <button style="width: 110px" class="btn btn-default" type="submit"> Voltar </button>
+            <?php echo form_close();?>
+            <!--  FIM  -->
+        </div>
 
-<div>
-    <!-- Botão que direciona para a página de cadastro de exposição -->
-    <?php echo form_open('Obra_Controller/cadastrar_exposicao/'.$id_obra); ?>
-        <button type="submit"> Cadastrar Exposição </button>
-    <?php echo form_close();?>
-    <!-- FIM -->
+        <div class="col-sm-offset-10">
+            <!-- Botão que direciona para a página de cadastro de exposição -->
+            <?php echo form_open('Obra_Controller/cadastrar_exposicao/'.$id_obra); ?>
+                <button style="width: 230px" class="btn btn-default" type="submit"> Cadastrar Exposição </button>
+            <?php echo form_close();?>
+            <!-- FIM -->
+        </div>
+    </div>
+</div>
 
+<div class="container text-center">
+    <!-- Lista todas as obras registradas no banco de dados -->
     <?php
-    foreach ($exposicoes as $exposicao){ ?>
-        <div>
-            ID: <?php echo $exposicao->id_exposicao ?>
-        </div>        
-        <div>
-            Nome: <?php echo $exposicao->nome_exposicao?>
-        </div>
-        <div>
-            <?php echo $exposicao->descricao?>
-        </div>
-        <div>
-            <?php echo $exposicao->local_realizacao?>
-        </div>
-        <div>
-            <?php echo $exposicao->data_inicio?>
-        </div>
-        <div>
-            <?php echo $exposicao->data_fim?>
-        </div>
-
-        <!-- Botão para atualizar uma exposição -->
-        <?php echo form_open('Obra_Controller/atualizar_exposicao/'.$id_obra.'/'.$exposicao->id_exposicao); ?>
-            <!-- <input  type="hidden" name="txt-id-exp" value="<?php echo $exposicao->id_exposicao ?>"/> -->
-            <!-- <input  type="hidden" name="txt-id-obra" value="<?php echo $exposicao->id_obra ?>"/> -->
-            <button type="submit" name="txt-visualizar" value=""> Atualizar exposição </button>
-        <?php echo form_close();?>
-        <!-- FIM -->
-
-        <!-- Botão de exclusão que chama um modal para verificar se o usuário deseja mesmo excluir a obra-->
-        <button type="button" data-toggle="modal" data-target="#myModal">Excluir exposição</button>
-
-        <!-- Modal de exclusão de obra -->
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Tem certeza que deseja excluir a exposicão?</h4>
-                    </div>
-
-                    <div class="modal-footer">
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2">
-                            <!-- Botão para excluir uma exposição -->
-                            <?php echo form_open('Obra_Controller/excluir_exposicao/'.$exposicao->id_obra.'/'.$exposicao->id_exposicao); ?>
-                                <button type="submit" name="txt-visualizar" class="btn btn-secondary" value=""> Sim </button>
+        foreach ($exposicoes as $exposicao){ ?>
+    <div class="row">
+        <div class="col-sm-offset-2">
+            <div class="card" style="width: 75rem">
+                <div class="card-header">
+                    <h4> Nome da exposição: <?php echo $exposicao->nome_exposicao?> </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <p class="card-text">
+                            <div class="col-sm-6">
+                                <b>ID da exposição: </b><?php echo $exposicao->id_exposicao ?><br>
+                                <b>Descrição da exposição: </b><?php echo $exposicao->descricao?><br>
+                            </div>
+                            <div class="col-sm-6">
+                                <b>Local da exposição: </b><?php echo $exposicao->local_realizacao?><br>
+                                <b>Data de início da exposição: </b><?php echo $exposicao->data_inicio?><br>
+                                <b>Data de término da exposição: </b><?php echo $exposicao->data_fim?><br>
+                            </div> 
+                        </p>
+                    </div>                    
+                </div>
+                <div class="card-footer text-muted">
+                        <div class="col-sm-6">
+                            <!-- Botão para atualizar uma exposição -->
+                            <?php echo form_open('Obra_Controller/atualizar_exposicao/'.$id_obra.'/'.$exposicao->id_exposicao); ?>
+                                <!-- <input  type="hidden" name="txt-id-exp" value="<?php echo $exposicao->id_exposicao ?>"/> -->
+                                <!-- <input  type="hidden" name="txt-id-obra" value="<?php echo $exposicao->id_obra ?>"/> -->
+                                <button style="width: 200px" class="btn btn-default" type="submit" name="txt-visualizar" value=""> Atualizar </button>
                             <?php echo form_close();?>
                             <!-- FIM -->
                         </div>
+                        <div class="col-sm-6">
+                            <!-- Botão de exclusão que chama um modal para verificar se o usuário deseja mesmo excluir a obra-->
+                            <button style="width: 200px" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">Excluir</button>
+
+                            <!-- Modal de exclusão de obra -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Tem certeza que deseja excluir a exposicão?</h4>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <div class="col-md-2">
+                                                <!-- Botão para excluir uma exposição -->
+                                                <?php echo form_open('Obra_Controller/excluir_exposicao/'.$exposicao->id_obra.'/'.$exposicao->id_exposicao); ?>
+                                                    <button class="btn btn-default" type="submit" name="txt-visualizar" class="btn btn-secondary" value=""> Sim </button>
+                                                <?php echo form_close();?>
+                                                <!-- FIM -->
+                                            </div>
+                                            <div class="col-md-offset-4">
+                                                <button class="btn btn-default" type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fim modal de exclusão de obra -->  
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
-        <!-- Fim modal de exclusão de obra -->
-
-        <br>
-        <br>
-        <br>
-        <?php
+    </div>
+    <br>
+    <?php
     }?>
-
 </div>

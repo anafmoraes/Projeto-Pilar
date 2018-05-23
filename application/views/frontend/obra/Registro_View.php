@@ -17,9 +17,9 @@
             <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
             <?php echo form_open('Obra_Controller/atualizar_obra/'.$obra->id_obra); ?>
               <!-- <input  type="hidden" name="txt-id" value="<?php echo $obra->id_obra ?>"/> -->
-              <button class="btn btn-default btn-block" style="width: 170px" type="submit" name="txt-atualizar" value="">
+              <button class="btn btn-default btn-block" style="width: 120px" type="submit" name="txt-atualizar" value="">
               <span class="oi oi-pencil" aria-hidden="true" title="Editar"></span>
-                Editar Obra
+                Editar
               </button>
             <?php echo form_close();?>
             <!-- Fim do codigo de Update -->
@@ -29,7 +29,7 @@
             <!-- Inicio do codigo de visualizar exposições -->
             <!-- Passa o id_obra para o form que será usado lá no controller para realizar a buscaBD -->
             <?php echo form_open('Obra_Controller/visualizar_exposicoes/'.$obra->id_obra); ?>
-                <button style="width: 290px" class="btn btn-default btn-block" type="submit"> <span class="oi oi-home" aria-hidden="true" title="Esposições"></span> Visualizar exposições </button>
+                <button style="width: 190px" class="btn btn-default btn-block" type="submit"> <span class="oi oi-home" aria-hidden="true" title="Esposições"></span> Exposições </button>
             <?php echo form_close();?>
             <!-- Fim do codigo de visualizar exposições -->
           </div>
@@ -38,14 +38,14 @@
             <!-- Inicio do codigo de visualizar restaurações -->
             <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
             <?php echo form_open('Obra_Controller/visualizar_restauracoes/'.$obra->id_obra); ?>
-                <button style="width: 290px" class="btn btn-default btn-block" type="submit"> <span class="oi oi-wrench" aria-hidden="true" title="Restaurações"></span> Visualizar restaurações </button>
+                <button style="width: 190px" class="btn btn-default btn-block" type="submit"> <span class="oi oi-wrench" aria-hidden="true" title="Restaurações"></span> Restaurações </button>
             <?php echo form_close();?>
             <!-- Fim do codigo de visualizar restaurações -->
           </div>
 
           <div class="btn-group mr-2" role="group">
             <!-- Botão de exclusão que chama um modal para verificar se o usuário deseja mesmo excluir a obra-->
-            <button style="width: 170px" class="btn btn-default btn-block" type="button" data-toggle="modal" data-target="#myModal"><span class="oi oi-trash" aria-hidden="true" title="Excluir"></span> Excluir obra</button>
+            <button style="width: 120px" class="btn btn-default btn-block" type="button" data-toggle="modal" data-target="#myModal"><span class="oi oi-trash" aria-hidden="true" title="Excluir"></span> Excluir</button>
           </div>
       </div>
     </div>
