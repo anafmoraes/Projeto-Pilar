@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -32,13 +31,12 @@
         <div class="col-sm-offset-2">
             <div class="card" style="width: 75rem">
                 <div class="card-header">
-                    <h4> Nome da exposição: <?php echo $exposicao->nome_exposicao?> </h4>
+                    <h3><?php echo $exposicao->nome_exposicao?> </h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <p class="card-text">
                             <div class="col-sm-6">
-                                <b>ID da exposição: </b><?php echo $exposicao->id_exposicao ?><br>
                                 <b>Descrição da exposição: </b><?php echo $exposicao->descricao?><br>
                             </div>
                             <div class="col-sm-6">
@@ -55,13 +53,13 @@
                             <?php echo form_open('Obra_Controller/atualizar_exposicao/'.$id_obra.'/'.$exposicao->id_exposicao); ?>
                                 <!-- <input  type="hidden" name="txt-id-exp" value="<?php echo $exposicao->id_exposicao ?>"/> -->
                                 <!-- <input  type="hidden" name="txt-id-obra" value="<?php echo $exposicao->id_obra ?>"/> -->
-                                <button style="width: 200px" class="btn btn-default" type="submit" name="txt-visualizar" value=""> Atualizar </button>
+                                <button style="width: 200px" class="btn btn-default" type="submit" name="txt-visualizar" value=""><span class="oi oi-loop-circular"></span> Atualizar </button>
                             <?php echo form_close();?>
                             <!-- FIM -->
                         </div>
                         <div class="col-sm-6">
                             <!-- Botão de exclusão que chama um modal para verificar se o usuário deseja mesmo excluir a obra-->
-                            <button style="width: 200px" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">Excluir</button>
+                            <button style="width: 200px" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal"> <span class="oi oi-trash"></span> Excluir</button>
 
                             <!-- Modal de exclusão de obra -->
                             <div class="modal fade" id="myModal" role="dialog">
