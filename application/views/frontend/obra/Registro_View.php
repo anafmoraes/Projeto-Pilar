@@ -187,7 +187,17 @@
            <?php echo $obra->data_aquisicao ?>
         </p>
         <p>
-           <?php echo $obra->id_funcionario ?>
+           <?php 
+            $this->db->where('id_funcionario', $obra->id_funcionario);
+            $query = $this->db->get('funcionario');
+            foreach ($query->result() as $row) 
+            {
+                $nomefunc = $row->nome;
+                
+            }
+
+           echo $nomefunc ?>
+
         </p>
       <?php
       }?>

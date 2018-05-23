@@ -37,16 +37,26 @@
                         <label id="txt-email">Email</label>
                         <input type="text" id="txt-email" name="txt-email" class="form-control" value="<?php echo $funcionario->email ?>">
                     </div>
-                    <div class="form-group col-md-5">
-                        <input type="hidden" id="txt-tipo" name="txt-tipo" class="form-control" value="<?php echo $funcionario->id_tipoFuncionario ?>">
-                    </div>
-                    <div class="form-group col-md-5">
+                <div class="form-group col-md-5">
                         <input type="hidden" id="txt-situacao" name="txt-situacao" class="form-control" value="<?php echo $funcionario->situacao ?>">
                     </div>
                 </div>
-                
+                    <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 1) { ?>
+                    <div class="form-group col-md-5">
+                    <label id="txt-tipo">Tipo de Funcionario</label><br>
+                    <select class="form-control" value="<?php echo $funcionario->id_tipoFuncionario ?>" name="txt-tipo" >
+                        <option value="0">Escolher Tipo</option>
+                        <option value="1">Administrador</option>
+                        <option value="2">Supervisor</option>
+                        <option value="3">Auxiliar</option>
+                    </select>
+                </div>
+            
+                    
+                 <?php } ?>
+                 <br>
                 <div class="row">
-                    <button type="submit" class="btn btn-default"> Atualizar Informações </button>
+                    <button type="submit" style="width: 19vw;" class="btn btn-default"> Atualizar Informações </button>
                 </div>                
             <?php
             echo form_close();
@@ -54,4 +64,4 @@
         <?php }?>
     </div>    
 </div>
-
+<br><br>

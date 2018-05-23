@@ -158,7 +158,7 @@ class Obra_Controller extends CI_Controller {
     public function pesquisar_obra($id) {
         $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
         $dados['resultado'] = $this->pesquisa_unitaria;
-
+        
         //$this->pesquisaTipo = 
 
         //Chama o modelo de cabeçalho
