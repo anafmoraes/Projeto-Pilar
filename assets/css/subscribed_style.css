@@ -13,6 +13,20 @@ label{
   margin: 1vh;
 }
 
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 0.8px;
+}
+
+#sem_titulo{
+  margin-top: -4rem;
+}
+
 .footer{
     color: #FFF;
 }
@@ -124,7 +138,7 @@ button:hover {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid #ED502E;
   border-radius: 0.25rem;
 }
 
@@ -174,7 +188,7 @@ button:hover {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid #ED502E;
 }
 
 .card-header:first-child {
@@ -187,7 +201,7 @@ button:hover {
 
 .card-footer {
   padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: #ED502E;
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 

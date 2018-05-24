@@ -34,13 +34,19 @@
                 <div class="card-header">
                     <h3> Restauração de número <?php echo $restauracao->id_restauracao?> </h3>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="sem_titulo">
                     <div class="row">
                         <p class="card-text">
                             <div class="col-sm-12">
-                               <b>Tipo de Intervenção: </b><?php echo $restauracao->intervencao?> <br>
                                 <b>Nome do restaurador: </b><?php echo $restauracao->nome_restaurador?> <br>
                                 <b>Data da restauração: </b><?php echo $restauracao->data_restauracao?>
+                            </div>
+                        </p>
+                        <hr>
+                        <p class="card-text text-justify" id="sem_titulo">
+                            <div class="col-sm-12">
+                                <b>Tipo de Intervenção: </b><br>
+                                <?php echo $restauracao->intervencao?> <br>
                             </div>
                         </p>
                     </div>

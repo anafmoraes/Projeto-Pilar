@@ -35,15 +35,22 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <p class="card-text">
+                        <p class="card-text" id="sem_titulo">
                             <div class="col-sm-6">
-                                <b>Descrição da exposição: </b><?php echo $exposicao->descricao?><br>
+                                <b>Local da exposição: </b><br>
+                                <?php echo $exposicao->local_realizacao?><br>
                             </div>
                             <div class="col-sm-6">
-                                <b>Local da exposição: </b><?php echo $exposicao->local_realizacao?><br>
-                                <b>Data de início da exposição: </b><?php echo $exposicao->data_inicio?><br>
-                                <b>Data de término da exposição: </b><?php echo $exposicao->data_fim?><br>
+                               <b>Início: </b><?php echo $exposicao->data_inicio?><br>
+                                <b>Término: </b><?php echo $exposicao->data_fim?><br>
                             </div> 
+                            <hr>
+                        </p>
+                        <p class="card-text text-justify" id="sem_titulo">
+                            <div class="col-sm-12">
+                                <b>Descrição da exposição: </b><br>
+                                <?php echo $exposicao->descricao?><br>
+                            </div>
                         </p>
                     </div>                    
                 </div>
