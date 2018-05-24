@@ -9,6 +9,10 @@ body{
   color: #000;
 }
 
+label{
+  margin: 1vh;
+}
+
 .footer{
     color: #FFF;
 }
@@ -20,6 +24,12 @@ body{
 
 .icon{
   width: 20px;
+}
+
+#caixa {
+  border-width: 0.5px;
+  border-style: dashed;
+  border-color: #ED502E;
 }
 
 * {
