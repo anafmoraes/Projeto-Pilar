@@ -263,14 +263,14 @@
                 </div>
 
                 <div class="modal-footer">
-                    <div class="col-md-2">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                    </div>
-                    <div class="col-md-2"></div>
+                    
                     <div class="col-md-2">
                         <?php echo form_open('Obra_Controller/remover_obra/'.$obra->id_obra); ?>
-                            <button type="submit" class="btn btn-primary"> Sim </button>
+                            <button type="submit" class="btn btn-default"> Sim </button>
                         <?php echo form_close();?>
+                    </div>
+                    <div class="col-md-offset-2">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
                     </div>
                 </div>
             </div>
@@ -278,12 +278,3 @@
     </div>
     <!-- Fim modal de exclusão de obra -->
   </div>
-    
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script type="text/javascript">
-  $('.carousel').carousel({
-    interval:500
-  })
-</script>
