@@ -32,7 +32,7 @@
         <div class="col-sm-offset-2">
             <div class="card" style="width: 75rem">
                 <div class="card-header">
-                    <h3> Restauração de número <?php echo $restauracao->id_restauracao?> </h3>
+                    <h3> Restauração </h3>
                 </div>
                 <div class="card-body" id="sem_titulo">
                     <div class="row">
@@ -77,17 +77,16 @@
 
                                         <div class="modal-footer">
                                             <div class="col-md-2">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                                            </div>
-                                            <div class="col-md-2"></div>
-                                            <div class="col-md-2">
                                                 <!-- Botão para excluir uma exposição -->
                                                 <?php echo form_open('Obra_Controller/excluir_restauracao/'.$id_obra.'/'.$restauracao->id_restauracao); ?>
                                                 <!-- <input  type="hidden" name="txt-id-obra" value="<?php echo $restauracao->id_obra ?>"/> -->
                                                 <!-- <input  type="hidden" name="txt-id-rest" value="<?php echo $restauracao->id_restauracao ?>"/> -->
-                                                <button type="submit" name="txt-visualizar" value=""> Sim </button>
+                                                <button type="submit" name="txt-visualizar" value="" class="btn btn-default"> Sim </button>
                                                 <?php echo form_close();?>
                                                 <!-- FIM -->
+                                            </div>
+                                            <div class="col-md-offset-2">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
                                             </div>
                                         </div>
                                     </div>
