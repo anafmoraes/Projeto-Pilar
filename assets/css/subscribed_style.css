@@ -42,7 +42,13 @@ hr {
 
 #caixa {
   border-width: 0.5px;
-  border-style: dashed;
+  border-style: solid;
+  border-color: #ED502E;
+}
+
+#linha_direita {
+  border-right: solid;
+  border-width: 0.5px;
   border-color: #ED502E;
 }
 

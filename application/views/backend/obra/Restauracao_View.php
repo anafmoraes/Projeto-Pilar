@@ -32,7 +32,7 @@
         <div class="col-sm-offset-2">
             <div class="card" style="width: 75rem">
                 <div class="card-header">
-                    <h3> Restauração de número <?php echo $restauracao->id_restauracao?> </h3>
+                    <h3> Restauração </h3>
                 </div>
                 <div class="card-body" id="sem_titulo">
                     <div class="row">
