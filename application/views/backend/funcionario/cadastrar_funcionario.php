@@ -9,8 +9,7 @@
     </div>
 
     <div class="row">
-        <h3>Cadastrar Novo Funcionário</h3>
-        
+        <h3>Cadastrar Novo Funcionário</h3>        
 
         <div >
             <?php

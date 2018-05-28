@@ -293,4 +293,6 @@ class Funcionario_Controller extends CI_Controller {
 
         redirect(base_url('login'));
     }
+
+    
 }

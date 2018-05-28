@@ -37,7 +37,7 @@
                                   <?php if($funcionario->situacao == 1){  ?>
                                     <span class="status-ativo">Ativo</span>
                                   <?php } else if($funcionario->situacao == 0){ ?>
-                                    <span class="status-dstv">Desativado</span>
+                                    <span class="status-dstv">Inativo</span>
                                    <?php } ?>
                               </p>
                                   
