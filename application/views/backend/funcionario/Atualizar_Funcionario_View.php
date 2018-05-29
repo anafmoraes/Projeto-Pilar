@@ -92,7 +92,7 @@
                         // Chama o form de imagem
                         echo form_open_multipart('Funcionario_Controller/adicionar_foto/'.$id_funcionario);
                         //Passa o id do usuario p ser usado no controller e model
-                        echo form_hidden('id', $id_funcionario );
+                        echo form_hidden('id_funcionario', $id_funcionario );
                         echo $div_open;
                         //cria um arrray com as definicões que o form upload deve ter
                         $imagem = array('name' => 'userfile', 'id' => 'userfile', 'class' => 'form-control');

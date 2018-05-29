@@ -294,5 +294,48 @@ class Funcionario_Controller extends CI_Controller {
         redirect(base_url('login'));
     }
 
-    
+    // Realiza o upload de imagem
+    public function adicionar_foto ($id) {
+        if(!$this-> session->userdata('logado')){
+            redirect(base_url('inicio/login'));
+        }
+
+        $id = $this->input->post('id_funcionario');
+
+        $config['image_library'] = 'gd2';
+        //upload_path, aponta para onde vai salvar as fotos do usuario
+        $config['upload_path'] ='./assets/img/usuarios';
+        //Define os tipos permitidos
+        $config['allowed_types'] = 'jpg';
+        // Define o nome da foto quando for salva
+        $config['file_name'] = $id."jpg";
+        //overwrite usado para deixar o mesmo $id no nome da foto
+        $config['overwrite'] = TRUE;
+
+        //Carrega a biblioteca de upload
+        $this->load->library('upload', $config);
+
+        //usa a função de pegar a imagem e gravar na pasta do projeto
+        //Verifica se o upload falhou
+        if(!$this->upload->do_upload()){
+            echo $this->upload->display_errors();
+        }
+        else{
+            //Configurar o tamanho da imagem
+            $config2['source_image'] = './assets/img/usuarios/'.$id.'.jpg';
+            $config2['create_thumb'] = FALSE;
+            $config['maintain_ratio'] = TRUE;
+            $config2['width'] = 200;
+            $config2['height'] = 200;
+
+            $this->load->library('image_lib', $config2);
+            if($this->image_lib->resize()){
+                redirect(base_url('Funcionario_Controller/atualizar_perfil/'.$id));
+            }
+            else{
+                echo "Deu erro";
+                echo $this->image_lib->display_errors();
+            }
+        }
+    }    
 }
