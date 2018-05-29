@@ -76,6 +76,10 @@ h1 {
   text-align: center;  
 }
 
+h2 {
+    margin-left: 5vw;
+}
+
 input {
   padding: 10px;
   width: 100%;
@@ -87,6 +91,11 @@ input {
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
   background-color: #ffdddd;
+}
+
+input#btn-adicionar {
+    width: 20vw;
+    margin-top: 2vh;
 }
 
 /* Hide all steps by default: */
@@ -446,6 +455,7 @@ span.dados {
 .container-card{
   width: 75%;
   height: 200px;
+  margin-left: 4vw;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
