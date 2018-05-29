@@ -79,8 +79,20 @@
             <div class="col-md-6">
                 <div class="form-group col-md-12">
                     <div class="img-container-card">
-                        <label class="form-group"> Adicionar Foto </label>
-                        <!-- <img src="<?php echo base_url('assets/images/usuarios/generic_user.jpg'); ?>" alt=""> -->
+                        <label class="form-group"> Imagem do Perfil </label>
+                        <div class="row" style="padding-bottom: 14vh; margin-top: 0px;">
+                            <div class="col-lg-12 col-lg-offset-3">
+                                <?php
+                                    if($funcionario->img == 1){
+                                      echo img("assets/img/usuarios/".$funcionario->id_funcionario.".jpg");
+                                    }
+                                    else{
+                                      echo img("assets/img/default.png");
+                                    }                  
+                                ?>
+                            </div>
+                        </div>                            
+                            
                     </div>
                     <?php
                         //Cria variaveis para estilizar o form de imagem

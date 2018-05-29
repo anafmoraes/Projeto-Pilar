@@ -24,11 +24,18 @@
                     <a href= "<?php echo base_url('Funcionario_Controller/cadastrar_funcionario') ?>" ><button style="width: 19vw;margin-left: 90%" id="cadfunc" class="btn btn-default">Cadastrar funcionário</button></a>
                     <br><br>
                     <div class="container">
-                    <?php foreach ($funcionarios as $funcionario){ ?>
-                        
+                    <?php foreach ($funcionarios as $funcionario){ ?>                        
                           <div class="container-card">
                             <div class="img-container-card">
-                              <img src="https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png" alt="">
+                              <!-- Renderiza a imagem do funcionario caso ele tenha alguma -->
+                              <?php
+                                if($funcionario->img == 1){
+                                  echo img("assets/img/usuarios/".$funcionario->id_funcionario.".jpg");
+                                }
+                                else{
+                                  echo img("assets/img/default.png");
+                                }                  
+                              ?>
                             </div>
                             
                             <div class="content-card opcao">

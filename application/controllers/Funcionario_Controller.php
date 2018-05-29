@@ -308,8 +308,8 @@ class Funcionario_Controller extends CI_Controller {
         $config['upload_path'] ='./assets/img/usuarios/';
         //Define os tipos permitidos
         $config['allowed_types'] = 'jpg';
-        // Define o nome da foto quando for salva
-        $config['file_name'] = $id."jpg";
+        // Define o nome da foto quando for salva (sem a extensao)
+        $config['file_name'] = $id;
         //overwrite usado para deixar o mesmo $id no nome da foto
         $config['overwrite'] = TRUE;
 
@@ -323,7 +323,7 @@ class Funcionario_Controller extends CI_Controller {
         }
         else{
             if($this->Funcionario_Model->atualizar_img($id)){
-                redirect(base_url('Funcionario_Controller/pesquisar_funcionario/'.$id));
+                redirect(base_url('Funcionario_Controller/atualizar_perfil/'.$id));
             }
             else{
                 echo "Erro ao salvar a imagem no banco de dados do sistema";

@@ -6,10 +6,18 @@
     <br><br>
     <!--  FIM  -->
       <?php foreach ($resultado as $funcionario){ ?>
-          
             <div class="container-card-edit">
               <div class="img-container-card">
-                <img src="https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png" alt="">
+
+                <?php
+                  if($funcionario->img == 1){
+                    echo img("assets/img/usuarios/".$funcionario->id_funcionario.".jpg");
+                  }
+                  else{
+                    echo img("assets/img/default.png");
+                  }                  
+                ?>
+                <!-- <img src="https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png" alt=""> -->
               </div>
               
               <div class="content-card opcao">
