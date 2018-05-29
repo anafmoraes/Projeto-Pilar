@@ -33,10 +33,15 @@
                     <input type="text" id="txt-email" name="txt-email" class="form-control" placeholder="Email" value="<?php echo set_value('txt-email');?>">
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3">
                     <label id="txt-senha">Senha</label>
                     <input type="password" id="txt-senha" name="txt-senha" class="form-control" placeholder="Senha" value="<?php echo set_value('txt-senha');?>">
                 </div>
+
+                <div class="form-group col-md-3">
+                    <label id="txt-confirmar-senha">Confirmar senha</label>
+                    <input type="password" id="txt-confirmar-senha" name="txt-confirmar-senha" class="form-control" placeholder="Confirmar senha" value="<?php echo set_value('txt-confirmar-senha');?>">
+                </div> 
 
                 <div class="form-group col-md-6">
                     <label id="txt-tipo-func">Tipo de Funcionario</label><br>
@@ -46,12 +51,7 @@
                         <option value="2">Supervisor</option>
                         <option value="3">Auxiliar</option>
                     </select>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label id="txt-confirmar-senha">Confirmar senha</label>
-                    <input type="password" id="txt-confirmar-senha" name="txt-confirmar-senha" class="form-control" placeholder="Confirmar senha" value="<?php echo set_value('txt-confirmar-senha');?>">
-                </div>                
+                </div>                               
                 
             </div>
             

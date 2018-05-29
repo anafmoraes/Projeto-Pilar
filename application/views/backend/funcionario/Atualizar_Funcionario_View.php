@@ -75,7 +75,7 @@
             <div class="col-md-6">
                 <div class="form-group col-md-12">
                     <div class="img-container-card">
-                        <label class="form-group"> Imagem do Perfil </label>
+                        <label class="form-group"> Imagem do Perfil (.jpg) </label>
                         <div class="row" style="padding-bottom: 14vh; margin-top: 0px;">
                             <div class="col-lg-12 col-lg-offset-3">
                                 <?php
