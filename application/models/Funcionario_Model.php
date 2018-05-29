@@ -48,4 +48,19 @@ class Funcionario_Model extends CI_Model
         // Retorna o resultado da pesquisa
         return $this->db->get()->result();
     }
+
+    // Função que faz o campo img do BD ser TRUE, assim o sistema pode pegar ela e renderizar no perfil
+    public function atualizar_img($id_usuario) {
+        //1 Indica ao banco de dados que o usuario possui uma imagem, Null indica que não (valor padrão)
+        $dados['img'] = 1;
+
+        $this->db->where('id_funcionario', $id_usuario);
+
+        //Define quais dados serão inseridos na tabela
+        $this->db->set($dados);
+
+        //  Realiza a instrução de update na tabela selecionada, conforme os dados e o id informados
+        return $this->db->update('funcionario');
+        echo "OK";
+    }
 }
