@@ -26,18 +26,15 @@
                             <input type="text" id="txt-nome" name="txt-nome" class="form-control" value="<?php echo $funcionario->nome ?>" >
                         </div>
 
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label id="txt-senha">Senha</label>
-                                <input type="password" id="txt-senha" name="txt-senha" class="form-control" placeholder="Senha" value="">
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label id="txt-cpf">CPF</label>
-                                <input type="text" id="txt-cpf" name="txt-cpf" class="form-control" value="<?php echo $funcionario->cpf ?>">
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label id="txt-senha">Senha</label>
+                            <input type="password" id="txt-senha" name="txt-senha" class="form-control" placeholder="Senha" value="">
                         </div>
-                        <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label id="txt-cpf">CPF</label>
+                            <input type="text" id="txt-cpf" name="txt-cpf" class="form-control" value="<?php echo $funcionario->cpf ?>">
+                        </div>
                             <div class="form-group col-md-6">
                                 <label id="txt-confirmar-senha">Confirmar senha</label>
                                 <input type="password" id="txt-confirmar-senha" name="txt-confirmar-senha" class="form-control" placeholder="Confirmar senha" value="">
@@ -46,11 +43,10 @@
                             <div class="form-group col-md-6">
                                 <label id="txt-email">Email</label>
                                 <input type="text" id="txt-email" name="txt-email" class="form-control" value="<?php echo $funcionario->email ?>">
-                            </div>
-                        </div>                        
+                            </div>                       
 
                         <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 1) { ?>
-                            <div class="form-group col-md-10">
+                            <div class="form-group col-md-6">
                                 <label id="txt-tipo">Tipo de Funcionario</label><br>
                                 <select class="form-control" value="<?php echo $funcionario->id_tipoFuncionario ?>" name="txt-tipo" >
                                     <option value="0">Escolher Tipo</option>
