@@ -1,19 +1,5 @@
 <div class="container">
     <div class="col-md-12">
-        <!-- 
-        <div class="col-md-4">
-            <div class="row">
-                <h2>Perfil De Usuário</h2>
-
-                <?php $id_func_Logado = $this->session->userdata('usuariologado')->id_funcionario; ?>
-                
-                <?php echo form_open('Funcionario_Controller/pesquisar_funcionario/'.$id_func_Logado); ?>
-                    <button type="submit" name="txt-visualizar" value=""> Visualizar Próprio Perfil </button>
-                <?php echo form_close();?> 
-            </div>            
-        </div>
-         -->
-    
         <div class="col-md-8">
             <!-- Permite todas as operações do CRUD para um administrador -->
             <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 1) { ?>
@@ -24,11 +10,18 @@
                     <a href= "<?php echo base_url('Funcionario_Controller/cadastrar_funcionario') ?>" ><button style="width: 19vw;margin-left: 90%" id="cadfunc" class="btn btn-default">Cadastrar funcionário</button></a>
                     <br><br>
                     <div class="container">
-                    <?php foreach ($funcionarios as $funcionario){ ?>
-                        
+                    <?php foreach ($funcionarios as $funcionario){ ?>                        
                           <div class="container-card">
                             <div class="img-container-card">
-                              <img src="https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png" alt="">
+                              <!-- Renderiza a imagem do funcionario caso ele tenha alguma -->
+                              <?php
+                                if($funcionario->img == 1){
+                                  echo img("assets/img/usuarios/".$funcionario->id_funcionario.".jpg");
+                                }
+                                else{
+                                  echo img("assets/img/default.png");
+                                }                  
+                              ?>
                             </div>
                             
                             <div class="content-card opcao">
@@ -37,7 +30,7 @@
                                   <?php if($funcionario->situacao == 1){  ?>
                                     <span class="status-ativo">Ativo</span>
                                   <?php } else if($funcionario->situacao == 0){ ?>
-                                    <span class="status-dstv">Desativado</span>
+                                    <span class="status-dstv">Inativo</span>
                                    <?php } ?>
                               </p>
                                   

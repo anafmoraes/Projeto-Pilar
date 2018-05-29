@@ -293,4 +293,41 @@ class Funcionario_Controller extends CI_Controller {
 
         redirect(base_url('login'));
     }
+
+    // Realiza o upload de imagem
+    public function adicionar_foto ($id) {
+        if(!$this-> session->userdata('logado')){
+            redirect(base_url('inicio/login'));
+        }
+
+        $id = $this->input->post('id_funcionario');
+
+        //Define a biblioteca de upload a ser usada
+        $config['image_library'] = 'gd2';
+        //upload_path, aponta para onde vai salvar as fotos do usuario
+        $config['upload_path'] ='./assets/img/usuarios/';
+        //Define os tipos permitidos
+        $config['allowed_types'] = 'jpg';
+        // Define o nome da foto quando for salva (sem a extensao)
+        $config['file_name'] = $id;
+        //overwrite usado para deixar o mesmo $id no nome da foto
+        $config['overwrite'] = TRUE;
+
+        //Carrega a biblioteca de upload
+        $this->load->library('upload', $config);
+
+        //usa a função de pegar a imagem e gravar na pasta do projeto
+        //Verifica se o upload falhou
+        if(!$this->upload->do_upload()){
+            echo $this->upload->display_errors('<h3>', '</h3>');
+        }
+        else{
+            if($this->Funcionario_Model->atualizar_img($id)){
+                redirect(base_url('Funcionario_Controller/atualizar_perfil/'.$id));
+            }
+            else{
+                echo "Erro ao salvar a imagem no banco de dados do sistema";
+            }            
+        }
+    }    
 }
