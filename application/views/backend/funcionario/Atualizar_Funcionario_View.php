@@ -50,21 +50,19 @@
                         </div>                        
 
                         <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 1) { ?>
-                        <div class="form-group col-md-10">
-                            <label id="txt-tipo">Tipo de Funcionario</label><br>
-                            <select class="form-control" value="<?php echo $funcionario->id_tipoFuncionario ?>" name="txt-tipo" >
-                                <option value="0">Escolher Tipo</option>
-                                <option value="1">Administrador</option>
-                                <option value="2">Supervisor</option>
-                                <option value="3">Auxiliar</option>
-                            </select>
-                        </div>
-
+                            <div class="form-group col-md-10">
+                                <label id="txt-tipo">Tipo de Funcionario</label><br>
+                                <select class="form-control" value="<?php echo $funcionario->id_tipoFuncionario ?>" name="txt-tipo" >
+                                    <option value="0">Escolher Tipo</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Supervisor</option>
+                                    <option value="3">Auxiliar</option>
+                                </select>
+                            </div>                        
+                        <?php } ?>
                         <div class="form-group col-md-12">
                             <input type="hidden" id="txt-situacao" name="txt-situacao" class="form-control" value="<?php echo $funcionario->situacao ?>">
-                        </div>            
-                        
-                        <?php } ?>
+                        </div>   
                     </div>
                     
                     <div class="row">
@@ -92,10 +90,10 @@
                         // Chama o form de imagem
                         echo form_open_multipart('Funcionario_Controller/adicionar_foto/'.$id_funcionario);
                         //Passa o id do usuario p ser usado no controller e model
-                        echo form_hidden('id_funcionario', $id_funcionario );
+                        echo form_hidden('id_funcionario', $id_funcionario);
                         echo $div_open;
                         //cria um arrray com as definicões que o form upload deve ter
-                        $imagem = array('name' => 'file', 'id' => 'userfile', 'class' => 'form-control');
+                        $imagem = array('name' => 'userfile', 'id' => 'userfile', 'class' => 'form-control');
                         //definicao padrão para arqivos q serao enviados para servers remotos, obrigado a ser 'userfile'
                         echo form_upload($imagem);
                         echo $div_close;

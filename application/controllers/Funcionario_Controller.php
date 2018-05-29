@@ -319,24 +319,10 @@ class Funcionario_Controller extends CI_Controller {
         //usa a função de pegar a imagem e gravar na pasta do projeto
         //Verifica se o upload falhou
         if(!$this->upload->do_upload()){
-            echo $this->upload->display_errors();
+            echo $this->upload->display_errors('<h3>', '</h3>');
         }
         else{
-            //Configurar o tamanho da imagem
-            $config2['source_image'] = './assets/img/usuarios/'.$id.'.jpg';
-            $config2['create_thumb'] = FALSE;
-            //$config['maintain_ratio'] = TRUE;
-            $config2['width'] = 200;
-            $config2['height'] = 200;
-
-            $this->load->library('image_lib', $config2);
-            if($this->image_lib->resize()){
-                redirect(base_url('Funcionario_Controller/atualizar_perfil/'.$id));
-            }
-            else{
-                //echo "Deu erro";
-                echo $this->image_lib->display_errors('<h3>', '</h3>');
-            }
+            redirect(base_url('Funcionario_Controller/pesquisar_funcionario/'.$id));
         }
     }    
 }
