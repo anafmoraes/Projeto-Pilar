@@ -302,9 +302,10 @@ class Funcionario_Controller extends CI_Controller {
 
         $id = $this->input->post('id_funcionario');
 
+        //Define a biblioteca de upload a ser usada
         $config['image_library'] = 'gd2';
         //upload_path, aponta para onde vai salvar as fotos do usuario
-        $config['upload_path'] ='./assets/img/usuarios';
+        $config['upload_path'] ='./assets/img/usuarios/';
         //Define os tipos permitidos
         $config['allowed_types'] = 'jpg';
         // Define o nome da foto quando for salva
@@ -324,7 +325,7 @@ class Funcionario_Controller extends CI_Controller {
             //Configurar o tamanho da imagem
             $config2['source_image'] = './assets/img/usuarios/'.$id.'.jpg';
             $config2['create_thumb'] = FALSE;
-            $config['maintain_ratio'] = TRUE;
+            //$config['maintain_ratio'] = TRUE;
             $config2['width'] = 200;
             $config2['height'] = 200;
 
@@ -333,8 +334,8 @@ class Funcionario_Controller extends CI_Controller {
                 redirect(base_url('Funcionario_Controller/atualizar_perfil/'.$id));
             }
             else{
-                echo "Deu erro";
-                echo $this->image_lib->display_errors();
+                //echo "Deu erro";
+                echo $this->image_lib->display_errors('<h3>', '</h3>');
             }
         }
     }    

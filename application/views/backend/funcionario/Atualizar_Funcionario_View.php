@@ -95,7 +95,7 @@
                         echo form_hidden('id_funcionario', $id_funcionario );
                         echo $div_open;
                         //cria um arrray com as definicões que o form upload deve ter
-                        $imagem = array('name' => 'userfile', 'id' => 'userfile', 'class' => 'form-control');
+                        $imagem = array('name' => 'file', 'id' => 'userfile', 'class' => 'form-control');
                         //definicao padrão para arqivos q serao enviados para servers remotos, obrigado a ser 'userfile'
                         echo form_upload($imagem);
                         echo $div_close;
