@@ -8,7 +8,7 @@
         <div class="col-md-2">
             <!--  Botão para voltar para a pré-visualização  -->
             <?php echo form_open('Obra_Controller/pesquisar_obra/'.$id_obra); ?>
-                <button style="width: 110px" class="btn btn-default" type="submit"> Voltar </button>
+                <button id="botao_voltar" class="btn btn-default" type="submit"> Voltar </button>
             <?php echo form_close();?>
             <!--  FIM  -->
         </div>

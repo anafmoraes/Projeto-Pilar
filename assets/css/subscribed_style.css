@@ -23,6 +23,10 @@ hr {
     border-width: 0.8px;
 }
 
+#botao_voltar{
+  width: 110px;
+}
+
 #sem_titulo{
   margin-top: -4rem;
 }
