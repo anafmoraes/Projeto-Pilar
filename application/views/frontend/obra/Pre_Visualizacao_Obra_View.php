@@ -15,13 +15,13 @@
     <?php
         foreach ($obras as $obra){ ?>
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <h4> <?php echo $obra->nome_objeto ?> </h4>
                 </div>
                 <div class="card-body">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
                         <h4 class="card-title"><?php echo $obra->titulo ?></h4>
                         <p class="card-text">
                         
@@ -31,7 +31,7 @@
                         </p>
                         
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 col-md-2 col-lg-6">
                         <img src="<?php echo base_url('/assets/img/default-image.png');?>" class="img-fluid" width=500px>
                     </div>
                 </div>
