@@ -23,6 +23,10 @@ hr {
     border-width: 0.8px;
 }
 
+#corpo{
+  background-color: #FAFAFA;
+}
+
 #botao_voltar{
   width: 110px;
 }
