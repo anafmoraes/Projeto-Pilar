@@ -6,7 +6,7 @@
       <div class="col-md-2">
         <!--  Botão para voltar para a pré-visualização  -->
         <?php echo form_open('pre_visualizacao_obra'); ?>
-            <button class="btn btn-default" type="submit"> Voltar </button>
+            <button class="btn btn-default" type="submit" id="botao_voltar"> Voltar </button>
         <?php echo form_close();?>
         <!--  FIM  -->
       </div>
@@ -194,7 +194,7 @@
       <div class="col-sm-12">
         <label> CONSERVAÇÃO DO OBJETO</label><br>
         <div class="col-sm-12">
-          Estado de conservação: <br>
+          <div class="col-sm-3">Estado de conservação: </div>
           <div class="col-sm-3">
           <?php 
           if ($obra->conservacao == "Bom") { ?>
