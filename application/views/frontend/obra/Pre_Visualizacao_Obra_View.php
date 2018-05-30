@@ -31,8 +31,9 @@
                         </p>
                         
                     </div>
+
                     <div class="col-sm-2 col-md-2 col-lg-6">
-                        <img src="<?php echo base_url('/assets/img/default-image.png');?>" class="img-fluid" width=500px>
+                        <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" width=500px>
                     </div>
                 </div>
                 <div class="card-footer text-muted text-center">

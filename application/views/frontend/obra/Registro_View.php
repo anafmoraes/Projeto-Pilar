@@ -34,7 +34,7 @@
               <?php echo form_open('Obra_Controller/visualizar_exposicoes/'.$obra->id_obra); ?>
                   <button style="width: 230px" class="btn btn-default btn-block" type="submit"> <span class="oi oi-home" aria-hidden="true" title="Esposições"></span> Exposições </button>
               <?php echo form_close();?>
-              <!-- Fim do codigo de visualizar exposições -->
+              <!-- Fim do codigo de visualizar exposições -->   
             </div>
             <br>
             <div class="btn-group" role="group" style="float: right;">
@@ -44,6 +44,13 @@
                   <button style="width: 230px" class="btn btn-default btn-block" type="submit"> <span class="oi oi-wrench" aria-hidden="true" title="Restaurações"></span> Restaurações </button>
               <?php echo form_close();?>
               <!-- Fim do codigo de visualizar restaurações -->
+
+              <!-- Inicio do codigo de visualizar galeria -->
+              <!-- Passa o id_obra para o form que será usado lá no controller para realizar a buscaBD -->
+              <?php echo form_open('Obra_Controller/galeria/'.$obra->id_obra); ?>
+                  <button style="width: 230px" class="btn btn-default btn-block" type="submit"> <span class="oi oi-home" aria-hidden="true" title="Esposições"></span> Galeria </button>
+              <?php echo form_close();?>
+              <!-- Fim do codigo de visualizar galeria -->
             </div>
       </div>
     </div>

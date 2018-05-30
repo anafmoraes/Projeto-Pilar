@@ -590,4 +590,27 @@ class Obra_Controller extends CI_Controller {
             echo "Houve um erro inesperado na exclusão da Restauração.";
         }
     }
+
+    public function galeria($id) {
+
+        //Realiza a busca pela obra a ser atualizada no banco de dados
+        $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
+        $dados['resultado'] = $this->pesquisa_unitaria;
+        $dados['id_obra'] = $id;       
+
+        //Chama o modelo de cabeçalho
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
+
+        // Carrega o formulário de atualização da obra
+        $this->load->view('backend/obra/Galeria', $dados);
+
+        //Chama o rodapé da página
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');    
+    }
+
+    public function add_img_obra($id) {
+        echo "OK";
+    }
 }
