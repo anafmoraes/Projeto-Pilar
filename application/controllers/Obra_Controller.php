@@ -18,7 +18,7 @@ class Obra_Controller extends CI_Controller {
     }
 
     public function index(){
-        $this->load->view('backend/obra/Obra_View');
+        //$this->load->view('backend/obra/Obra_View');
     }
 
     /*######################################Métodos referentes as obras######################################*/
@@ -407,7 +407,7 @@ class Obra_Controller extends CI_Controller {
         /*Verifica se a validação obteve sucesso*/
         if ($this->form_validation->run() == FALSE) {
             /*Se verificação de dados falhar renderiza o formulario para nov preenchimento*/
-            $this->cadastrar_exposicao($id_obra);
+            $this->visualizar_exposicoes($id_obra);
         }
         else {
             /*Passa os dados do cadastro para uma vaŕiável apenas*/
