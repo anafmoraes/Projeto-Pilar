@@ -385,7 +385,12 @@ class Obra_Controller extends CI_Controller {
     // Carrega a página de cadastro de exposições
     public function cadastrar_exposicao($id_obra){
         $dados['id_obra'] = $id_obra;
+
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
         $this->load->view('backend/obra/Cadastrar_Exposicao_View', $dados);
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     // Salva as exposições no banco e relaciona com a obra
@@ -413,14 +418,12 @@ class Obra_Controller extends CI_Controller {
             $exposicao['data_fim'] = $this->input->post('data-fim-exp');
             $exposicao['id_obra'] = $id_obra;
 
-            /*Envia os dados para função do model que registrará os dados na tabela de exposicoes*/
-            if($this->Exposicao_Model->cadastrar_exposicao($exposicao)){
-                /*Busca todas as exposições registradas na tabela*/
-                $dados['exposicoes'] = $this->Exposicao_Model->exposicoes($id_obra);
-                $dados['id_obra'] = $id_obra;
-                $this->load->view('backend/obra/Exposicao_View', $dados);
+            if($this->Exposicao_Model->cadastrar_exposicao($exposicao)) {
+                //$dados['exposicoes'] = $this->Exposicao_Model->exposicoes($id_obra);
+                //$dados['id_obra'] = $id_obra;
+                $this->visualizar_exposicoes($id_obra);
             }
-            else {
+            else{
                 echo "Houve um erro inesperado, as informações não foram salvas.";
             }
         }
@@ -470,17 +473,13 @@ class Obra_Controller extends CI_Controller {
     }
 
     public function excluir_exposicao($id_obra, $id_exposicao) {
-        if($this->Exposicao_Model->exclusao_unitaria($id_exposicao)){
-            $dados['id_obra'] = $id_obra;
+        /*$this->load->view('template/html-header');
+        $this->load->view('template/header');*/
 
-            if($dados['exposicoes'] = $this->Exposicao_Model->exposicoes($id_obra)){
-                $this->load->view('backend/obra/Exposicao_View', $dados);
-            }
-            else{
-                $this->load->view('backend/obra/Exposicao_View', $dados);
-            }
-        } else {
-            echo "Houve um erro inesperado na exclusão da exposição.";
+        if($this->Exposicao_Model->exclusao_unitaria($id_exposicao)){
+            //$dados['id_obra'] = $id_obra;
+
+            $this->visualizar_exposicoes($id_obra);
         }
     }
 
@@ -499,13 +498,22 @@ class Obra_Controller extends CI_Controller {
             $dados['id_obra'] = $id_obra;
             $this->load->view('backend/obra/Restauracao_View', $dados);
         }
+
         $this->load->view('template/footer');
         $this->load->view('template/html-footer');
     }
 
     public function cadastrar_restauracao($id_obra){
         $dados['id_obra'] = $id_obra;
+        //Chama o modelo de cabeçalho
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
+
         $this->load->view('backend/obra/Cadastrar_Restauracao_View', $dados);
+
+         //Chama o rodapé da página
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer'); 
     }
 
     public function salvar_restauracao($id_obra) {
@@ -517,7 +525,7 @@ class Obra_Controller extends CI_Controller {
         $this->form_validation->set_rules('data-restauracao', 'Data da Restaucarao', 'required');
 
         if($this->form_validation->run() == FALSE) {
-            $this->cadastrar_restauracao();
+            $this->cadastrar_restauracao($id_obra);
         }
         else {
             $restauracao['intervencao'] = $this->input->post('tipo-intervencao');
@@ -526,9 +534,9 @@ class Obra_Controller extends CI_Controller {
             $restauracao['id_obra'] = $id_obra;
 
             if($this->Restauracao_Model->cadastrar_restauracao($restauracao)) {
-                $dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id_obra);
-                $dados['id_obra'] = $id_obra;
-                $this->load->view('backend/obra/Restauracao_View', $dados);
+                //$dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id_obra);
+                //$dados['id_obra'] = $id_obra;
+                $this->visualizar_restauracoes($id_obra);
             }
             else{
                 echo "Houve um erro inesperado, as informações não foram salvas.";
@@ -577,17 +585,11 @@ class Obra_Controller extends CI_Controller {
     }
 
     public function excluir_restauracao($id_obra, $id_restauracao) {
+
         //Exclui um registro de uma restauração especifica do banco passando o id para a pesquisa
         if($this->Restauracao_Model->exclusao_unitaria($id_restauracao)) {
-            $dados['id_obra'] = $id_obra;
 
-            if($dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id_obra)) {
-                $this->load->view('backend/obra/Restauracao_View', $dados);
-            } else {
-                $this->load->view('backend/obra/Restauracao_View', $dados);
-            }
-        } else {
-            echo "Houve um erro inesperado na exclusão da Restauração.";
+            $this->visualizar_restauracoes($id_obra);
         }
     }
 
