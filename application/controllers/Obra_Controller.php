@@ -469,9 +469,9 @@ class Obra_Controller extends CI_Controller {
             $exposicao['data_fim'] = $this->input->post('data-fim-exp');
 
             if($this->Exposicao_Model->atualizar($id_exposicao, $exposicao)) {
-                $dados['exposicoes'] = $this->Exposicao_Model->exposicoes($id_obra);
-                $dados['id_obra'] = $id_obra;
-                $this->load->view('backend/obra/Exposicao_View', $dados);
+                //$dados['exposicoes'] = $this->Exposicao_Model->exposicoes($id_obra);
+                //$dados['id_obra'] = $id_obra;
+                $this->visualizar_exposicoes($id_obra);
             } else {
                 echo "Houve um erro inesperado, as informações não foram salvas.";
             }
@@ -586,9 +586,9 @@ class Obra_Controller extends CI_Controller {
             $restauracao['data_restauracao'] = $this->input->post('data-restauracao');
 
             if($this->Restauracao_Model->atualizar($id_restauracao, $restauracao)) {
-                $dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id_obra);
-                $dados['id_obra'] = $id_obra;
-                $this->load->view('backend/obra/Restauracao_View', $dados);
+                //$dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id_obra);
+                //$dados['id_obra'] = $id_obra;
+                $this->visualizar_restauracoes($id_obra);
             }
             else {
                 echo "Houve um erro inesperado, as informações não foram salvas.";
