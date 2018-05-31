@@ -18,6 +18,9 @@ class Restauracao_Model extends CI_Model{
 
         $this->db->from('restauracao');
 
+        // Ordena por critério descendente de ID (esperança de ordenar do registro mais recente para o mais antigo)
+        $this->db->order_by('id_restauracao','DESC');
+
         $this->db->where('id_obra', $id);
 
         return $this->db->get()->result();

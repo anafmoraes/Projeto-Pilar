@@ -395,6 +395,8 @@ class Obra_Controller extends CI_Controller {
 
     // Salva as exposições no banco e relaciona com a obra
     public function salvar_exposicao($id_obra) {
+
+        $id = $id_obra;
         /*Valida o preenchimento dos campos do formulário*/
         $this->load->library('form_validation');
 
@@ -416,12 +418,10 @@ class Obra_Controller extends CI_Controller {
             $exposicao['local_realizacao'] = $this->input->post('local-realizacao');
             $exposicao['data_inicio'] = $this->input->post('data-inicio-exp');
             $exposicao['data_fim'] = $this->input->post('data-fim-exp');
-            $exposicao['id_obra'] = $id_obra;
+            $exposicao['id_obra'] = $id;
 
             if($this->Exposicao_Model->cadastrar_exposicao($exposicao)) {
-                //$dados['exposicoes'] = $this->Exposicao_Model->exposicoes($id_obra);
-                //$dados['id_obra'] = $id_obra;
-                $this->visualizar_exposicoes($id_obra);
+                $this->visualizar_exposicoes($id);
             }
             else{
                 echo "Houve um erro inesperado, as informações não foram salvas.";
@@ -435,7 +435,13 @@ class Obra_Controller extends CI_Controller {
         $dados['id_exposicao'] = $id_exposicao;
         $dados['id_obra'] = $id_obra;
 
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
+
         $this->load->view('backend/obra/Atualizar_Exposicao_View', $dados);
+
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');
     }
 
     public function salvar_atualizacao_exposicao($id_obra, $id_exposicao) {
@@ -518,6 +524,8 @@ class Obra_Controller extends CI_Controller {
 
     public function salvar_restauracao($id_obra) {
 
+        $id = $id_obra;
+
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('tipo-intervencao', 'Intervencão', 'required|max_length[60]');
@@ -531,12 +539,10 @@ class Obra_Controller extends CI_Controller {
             $restauracao['intervencao'] = $this->input->post('tipo-intervencao');
             $restauracao['nome_restaurador'] = $this->input->post('nome-restaurador');
             $restauracao['data_restauracao'] = $this->input->post('data-restauracao');
-            $restauracao['id_obra'] = $id_obra;
+            $restauracao['id_obra'] = $id;
 
             if($this->Restauracao_Model->cadastrar_restauracao($restauracao)) {
-                //$dados['restauracoes'] = $this->Restauracao_Model->restauracoes($id_obra);
-                //$dados['id_obra'] = $id_obra;
-                $this->visualizar_restauracoes($id_obra);
+                $this->visualizar_restauracoes($id);
             }
             else{
                 echo "Houve um erro inesperado, as informações não foram salvas.";
@@ -550,7 +556,13 @@ class Obra_Controller extends CI_Controller {
         $dados['id_restauracao'] = $id_restauracao;
         $dados['id_obra'] = $id_obra;
 
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
+
         $this->load->view('backend/obra/Atualizar_Restauracao_View', $dados);
+        
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');        
     }
 
     public function salvar_atualizacao_restauracao($id_obra, $id_restauracao) {
