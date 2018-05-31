@@ -26,10 +26,8 @@
                         <p class="card-text">
                         
                             <b>Número atual: </b><?php echo $obra->num_atual ?><br>
-                            <!-- Número Anterior: <?php echo $obra->num_anterior ?><br> -->
                             <b>Descrição do objeto: </b><?php echo $obra->descricao_objeto ?><br>
-                        </p>
-                        
+                        </p>                        
                     </div>
 
                     <div class="col-sm-2 col-md-2 col-lg-6">
