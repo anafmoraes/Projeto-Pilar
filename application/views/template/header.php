@@ -12,8 +12,7 @@
 			if (!reloaded)
 			window.location.replace(window.location+"?reloaded=true");
 		}
-		reloadOnceOnly();
-		
+		reloadOnceOnly();		
 	</script>
 	
 	<!-- Início do Header (Barra de Menus) -->
