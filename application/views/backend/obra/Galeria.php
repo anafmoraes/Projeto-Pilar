@@ -51,8 +51,6 @@
     </div>
 
     <div class="row">
-        <!-- Aqui serão carregadas todas as fotos da galeria -->
-    </div>
-
-        
+        <h3> Aqui serão carregadas todas as fotos da galeria </h3>
+    </div>        
 </div>

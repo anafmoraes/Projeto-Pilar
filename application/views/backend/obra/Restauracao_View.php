@@ -28,40 +28,40 @@
     <!-- Lista todas as obras registradas no banco de dados -->
     <?php
         foreach ($restauracoes as $restauracao){ ?>
-    <div class="row">
-        <div class="col-sm-offset-2">
-            <div class="card" style="width: 75rem">
-                <div class="card-header">
-                    <h3> Restauração </h3>
-                </div>
-                <div class="card-body" id="sem_titulo">
-                    <div class="row">
-                        <p class="card-text">
-                            <div class="col-sm-12">
-                                <b>Nome do restaurador: </b><?php echo $restauracao->nome_restaurador?> <br>
-                                <b>Data da restauração: </b><?php echo $restauracao->data_restauracao?>
-                            </div>
-                        </p>
-                        <hr>
-                        <p class="card-text text-justify" id="sem_titulo">
-                            <div class="col-sm-12">
-                                <b>Tipo de Intervenção: </b><br>
-                                <?php echo $restauracao->intervencao?> <br>
-                            </div>
-                        </p>
+        <div class="row">
+            <div class="col-sm-offset-2">
+                <div class="card" style="width: 75rem">
+                    <div class="card-header">
+                        <h3> Restauração </h3>
                     </div>
-                </div>
-                <div class="card-footer text-muted">
-                    <div class="col-sm-6">
-                            <!-- Botão para atualizar uma restauração -->
-                            <?php echo form_open('Obra_Controller/atualizar_restauracao/'.$id_obra.'/'.$restauracao->id_restauracao); ?>
-                                <!-- <input  type="hidden" name="txt-id-rest" value="<?php echo $restauracao->id_restauracao ?>"/> -->
-                                <!-- <input  type="hidden" name="txt-id-obra" value="<?php echo $restauracao->id_obra ?>"/> -->
-                                <button style="width: 200px" class="btn btn-default" type="submit" name="txt-restauracao" value=""><span class="oi oi-loop-circular"></span> Atualizar </button>
-                            <?php echo form_close();?>
-                            <!-- FIM -->
+                    <div class="card-body" id="sem_titulo">
+                        <div class="row">
+                            <p class="card-text">
+                                <div class="col-sm-12">
+                                    <b>Nome do restaurador: </b><?php echo $restauracao->nome_restaurador?> <br>
+                                    <b>Data da restauração: </b><?php echo $restauracao->data_restauracao?>
+                                </div>
+                            </p>
+                            <hr>
+                            <p class="card-text text-justify" id="sem_titulo">
+                                <div class="col-sm-12">
+                                    <b>Tipo de Intervenção: </b><br>
+                                    <?php echo $restauracao->intervencao?> <br>
+                                </div>
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="card-footer text-muted">
+                        <div class="col-sm-6">
+                                <!-- Botão para atualizar uma restauração -->
+                                <?php echo form_open('Obra_Controller/atualizar_restauracao/'.$id_obra.'/'.$restauracao->id_restauracao); ?>
+                                    <!-- <input  type="hidden" name="txt-id-rest" value="<?php echo $restauracao->id_restauracao ?>"/> -->
+                                    <!-- <input  type="hidden" name="txt-id-obra" value="<?php echo $restauracao->id_obra ?>"/> -->
+                                    <button style="width: 200px" class="btn btn-default" type="submit" name="txt-restauracao" value=""><span class="oi oi-loop-circular"></span> Atualizar </button>
+                                <?php echo form_close();?>
+                                <!-- FIM -->
+                        </div>
+                        <div class="col-sm-6">
                             <!-- Botão para excluir uma restauração -->
                             <!-- Botão de exclusão que chama um modal para verificar se o usuário deseja mesmo excluir a obra-->
                             <button style="width: 200px" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal"><span class="oi oi-trash"></span> Excluir</button>
@@ -92,14 +92,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Fim modal de exclusão de obra -->
+                                <!-- Fim modal de exclusão de obra -->
+                        </div>
                     </div>
+                            
                 </div>
-                        
             </div>
         </div>
-    </div>
-    <br>
+        <br>
     <?php
     }?>
 </div>
