@@ -407,7 +407,7 @@ class Obra_Controller extends CI_Controller {
         /*Verifica se a validação obteve sucesso*/
         if ($this->form_validation->run() == FALSE) {
             /*Se verificação de dados falhar renderiza o formulario para nov preenchimento*/
-            $this->visualizar_exposicoes($id_obra);
+            $this->cadastrar_exposicao($id_obra);
         }
         else {
             /*Passa os dados do cadastro para uma vaŕiável apenas*/
@@ -498,13 +498,13 @@ class Obra_Controller extends CI_Controller {
             $dados['id_obra'] = $id_obra;
             $this->load->view('backend/obra/Restauracao_View', $dados);
         }
-
         $this->load->view('template/footer');
         $this->load->view('template/html-footer');
     }
 
     public function cadastrar_restauracao($id_obra){
         $dados['id_obra'] = $id_obra;
+
         //Chama o modelo de cabeçalho
         $this->load->view('template/html-header');
         $this->load->view('template/header');
