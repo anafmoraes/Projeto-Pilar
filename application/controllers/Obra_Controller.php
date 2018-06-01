@@ -363,13 +363,16 @@ class Obra_Controller extends CI_Controller {
         //Realiza a busca pela obra a ser atualizada no banco de dados
         $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
         $dados['resultado'] = $this->pesquisa_unitaria;
-        $dados['id_obra'] = $id;       
+        $dados['id_obra'] = $id;
+
+        //Aqui vai no BD e pesquisa por todas as fotos
+        $dados['imagens'] = "Resultado da busca do caminho da foto na tabela Galeria";
 
         //Chama o modelo de cabeçalho
         $this->load->view('template/html-header');
         $this->load->view('template/header');
 
-        // Carrega o formulário de atualização da obra
+        // Carrega o formulário de atualização da obra, inserir resultado da nusca por fotos na variavel $dados
         $this->load->view('backend/obra/Galeria', $dados);
 
         //Chama o rodapé da página
@@ -378,7 +381,49 @@ class Obra_Controller extends CI_Controller {
     }
 
     public function add_img_obra($id) {
-        echo "OK";
+        if(!$this-> session->userdata('logado')){
+            redirect(base_url('inicio/login'));
+        }
+
+        //Grava as informações da imagem no banco de dados        
+        $dados['id_obra'] = $id;
+        $dados['img_padrao'] = 0;
+        $dados['caminho_img'] =  "assets/img/obras/";
+
+        //Realiza pré-cadastro da imagem no BD e retorna o id que acaba de ser gerado para eta imagem
+        $id_img = cadastrar_imagem($dados);
+
+        //$caminho_img = "assets/img/obras/";        
+        //Usa o id para dar nome a imagem
+        $dados['nome_img'] = $id_img;
+        
+        //Atualiza o registro com todas as informações
+        if(atualizar_cadastro_img($id_img, $dados2)){
+
+            //Salva a imagem na pasta do projeto
+            $config['upload_path'] = './assets/img/obras/';
+            $config['allowed_types'] = 'jpg';
+            $config['file_name'] = $id_img; //Ou 'nome_img', nas neste caso tem que fazer uma pesquisa no banco antes
+
+            //Para não sobrescrever a imagem que já estiver na pasta
+            $config['overwrite'] = FALSE;
+            //$config['max_size'] = 100; $config['max_width'] = 1024; $config['max_height'] = 768;
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('userfile')) {
+                echo $this->upload->display_errors('<h3>', '</h3>');
+            }
+            else {
+                //Se o upload deu certo, agora tem que ir no BD e pegar todas as fotos p renderizar na página de galeria
+                $data = array('upload_data' => $this->upload->data());
+                $this->load->view('upload_success', $data);
+            } 
+        }
+        else{
+            echo "Erro ao gravar informações da imagem no banco de dados";
+        }
+        
     }
 
 

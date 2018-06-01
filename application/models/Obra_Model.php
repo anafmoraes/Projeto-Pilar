@@ -64,4 +64,25 @@ class Obra_Model extends CI_Model{
         return $this->db->delete('obra');
     }
 
+    // Responsável por gerar a operação de Cadastrate do CRUD
+    public function cadastrar_imagem($dados){
+        //Grava uma imagem na tabela de dados já inserindo um id
+        $this->db->insert('galeria', $dados);
+
+        //Retorna o último id inserido na tabela galeria
+        return $this->db->insert_id();
+    }
+
+    // Responsável por gerar a operação de Update do CRUD
+    public function atualizar_cadastro_img($id, $dados){
+        // Informa que a imagem que será atualizada será a que contém o id_img = $id
+        $this->db->where('id_img', $id);
+
+        //Define quais dados serão inseridos na tabela
+        $this->db->set($dados);
+
+        //  Realiza a instrução de update na tabela selecionada, conforme os dados e o id informados
+        return $this->db->update('galeria');
+    }
+
 }
