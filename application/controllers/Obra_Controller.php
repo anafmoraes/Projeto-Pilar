@@ -21,7 +21,7 @@ class Obra_Controller extends CI_Controller {
         //$this->load->view('backend/obra/Obra_View');
     }
 
-    /*######################################Métodos referentes as obras######################################*/
+/*######################################Métodos referentes as obras######################################*/
 
     public function cadastrar_obra() {
         $this->load->view('template/html-header');
@@ -358,6 +358,29 @@ class Obra_Controller extends CI_Controller {
         }
     }
 
+    public function galeria($id) {
+
+        //Realiza a busca pela obra a ser atualizada no banco de dados
+        $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
+        $dados['resultado'] = $this->pesquisa_unitaria;
+        $dados['id_obra'] = $id;       
+
+        //Chama o modelo de cabeçalho
+        $this->load->view('template/html-header');
+        $this->load->view('template/header');
+
+        // Carrega o formulário de atualização da obra
+        $this->load->view('backend/obra/Galeria', $dados);
+
+        //Chama o rodapé da página
+        $this->load->view('template/footer');
+        $this->load->view('template/html-footer');    
+    }
+
+    public function add_img_obra($id) {
+        echo "OK";
+    }
+
 
 
 /*######################################Métodos referentes as exposições#############################################-*/
@@ -487,7 +510,7 @@ class Obra_Controller extends CI_Controller {
         }
     }
 
-    /*######################################Métodos referentes as restaurações######################################*/
+/*######################################Métodos referentes as restaurações######################################*/
 
     public function visualizar_restauracoes($id_obra) {
         $this->load->view('template/html-header');
@@ -599,28 +622,5 @@ class Obra_Controller extends CI_Controller {
 
             $this->visualizar_restauracoes($id_obra);
         }
-    }
-
-    public function galeria($id) {
-
-        //Realiza a busca pela obra a ser atualizada no banco de dados
-        $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
-        $dados['resultado'] = $this->pesquisa_unitaria;
-        $dados['id_obra'] = $id;       
-
-        //Chama o modelo de cabeçalho
-        $this->load->view('template/html-header');
-        $this->load->view('template/header');
-
-        // Carrega o formulário de atualização da obra
-        $this->load->view('backend/obra/Galeria', $dados);
-
-        //Chama o rodapé da página
-        $this->load->view('template/footer');
-        $this->load->view('template/html-footer');    
-    }
-
-    public function add_img_obra($id) {
-        echo "OK";
     }
 }
