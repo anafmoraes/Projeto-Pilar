@@ -323,7 +323,7 @@ class Funcionario_Controller extends CI_Controller {
         }
         else{
             if($this->Funcionario_Model->atualizar_img($id)){
-                redirect(base_url('Funcionario_Controller/atualizar_perfil/'.$id));
+                $this->pesquisar_funcionario($id);
             }
             else{
                 echo "Erro ao salvar a imagem no banco de dados do sistema";
