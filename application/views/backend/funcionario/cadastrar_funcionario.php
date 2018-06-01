@@ -46,7 +46,7 @@
                 <div class="form-group col-md-6">
                     <label id="txt-tipo-func">Tipo de Funcionario</label><br>
                     <select class="form-control" name="txt-tipo-func" >
-                        <option value="0">Escolher Tipo</option>
+                        <option value="3">Escolher Tipo</option>
                         <option value="1">Administrador</option>
                         <option value="2">Supervisor</option>
                         <option value="3">Auxiliar</option>
