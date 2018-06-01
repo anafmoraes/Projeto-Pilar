@@ -408,7 +408,6 @@ class Obra_Controller extends CI_Controller {
             $config['overwrite'] = FALSE;
 
             $this->load->library('upload', $config);
-
             if (!$this->upload->do_upload('userfile')) {
                 //Se a imagem não for permitida, apaga o registro que acaba de ser criado para ela na tabela
                 $this->Obra_Model->remover_registro_imagem($id_img);
@@ -422,10 +421,8 @@ class Obra_Controller extends CI_Controller {
         else{
             echo "Erro ao gravar informações da imagem no banco de dados";
             echo "Nenhuma imagem foi registrada no sistema. Tente novamente";
-        }
-        
+        }        
     }
-
 
 
 /*######################################Métodos referentes as exposições#############################################-*/
