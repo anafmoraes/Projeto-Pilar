@@ -7,17 +7,22 @@
             <?php echo form_close();?>
             <!--  FIM  -->
         </div>
+        <br><br>
+    </div>
 
-        <!-- <div class="col-sm-offset-10"> -->
-            <!-- Botão que direciona para a página de cadastro de exposição -->
-            <!-- <?php echo form_open('Obra_Controller/cadastrar_exposicao/'.$id_obra); ?>
-                <button style="width: 230px" class="btn btn-default" type="submit"> Nova Imagem </button>
-            <?php echo form_close();?> -->
-            <!-- FIM -->
-        <!-- </div> -->
-
-        <!-- Coluna da direita -->
-        <div class="col-md-4">
+        <!-- <?php echo $error;?> -->
+    <div class ="row">
+        <div class="col-md-6">
+            <?php
+            echo form_open_multipart('Obra_Controller/add_img_obra/'.$id_obra);?>
+                <input class="form-control" type="file" name="userfile" size="20" />
+                <button class="btn btn-default" type="submit"> Adicionar Nova Imagem </button>
+            <!-- </form> -->
+            <?php echo form_close();?>
+        </div>
+    </div>
+        
+        <!-- <div class="col-md-4">
             <div class="form-group">
                 <div class="img-container-card">                      
                         
@@ -47,10 +52,9 @@
                     echo form_close();
                 ?>                        
             </div>
-        </div>
-    </div>
+        </div> -->
 
     <div class="row">
-        <h3> Aqui serão carregadas todas as fotos da galeria </h3>
+        <h3>Galeria de Imagens </h3>
     </div>        
 </div>
