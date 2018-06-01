@@ -64,8 +64,23 @@ class Obra_Model extends CI_Model{
         return $this->db->delete('obra');
     }
 
+    public function imagens_desta_obra($id){
+        $this->db->select();
+
+        // Indica em que tabela será realizada a pesquisa pelos atributos
+        $this->db->from('galeria');
+
+        $this->db->where('id_obra', $id);
+
+        // Ordena por critério descendente de ID (esperança de ordenar do registro mais recente para o mais antigo)
+        $this->db->order_by('id_img','DESC');
+
+        // Retorna o resultado da pesquisa
+        return $this->db->get()->result();
+    }
+    
     // Responsável por gerar a operação de Cadastrate do CRUD
-    public function cadastrar_imagem($dados){
+    public function cadastrar_registro_imagem($dados){
         //Grava uma imagem na tabela de dados já inserindo um id
         $this->db->insert('galeria', $dados);
 
@@ -74,7 +89,7 @@ class Obra_Model extends CI_Model{
     }
 
     // Responsável por gerar a operação de Update do CRUD
-    public function atualizar_cadastro_img($id, $dados){
+    public function atualizar_registro_img($id, $dados){
         // Informa que a imagem que será atualizada será a que contém o id_img = $id
         $this->db->where('id_img', $id);
 
@@ -85,4 +100,8 @@ class Obra_Model extends CI_Model{
         return $this->db->update('galeria');
     }
 
+    public function remover_registro_imagem($id_img){
+        $this->db->where('id_img', $id_img);
+        return $this->db->delete('galeria');
+    }
 }

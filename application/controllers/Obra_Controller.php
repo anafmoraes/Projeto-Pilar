@@ -361,12 +361,12 @@ class Obra_Controller extends CI_Controller {
     public function galeria($id) {
 
         //Realiza a busca pela obra a ser atualizada no banco de dados
-        $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
-        $dados['resultado'] = $this->pesquisa_unitaria;
+        //$this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
+        //$dados['resultado'] = $this->pesquisa_unitaria;
         $dados['id_obra'] = $id;
 
         //Aqui vai no BD e pesquisa por todas as fotos
-        $dados['imagens'] = "Resultado da busca do caminho da foto na tabela Galeria";
+        $dados['imagens'] = $this->Obra_Model->imagens_desta_obra($id);
 
         //Chama o modelo de cabeçalho
         $this->load->view('template/html-header');
@@ -391,37 +391,37 @@ class Obra_Controller extends CI_Controller {
         $dados['caminho_img'] =  "assets/img/obras/";
 
         //Realiza pré-cadastro da imagem no BD e retorna o id que acaba de ser gerado para eta imagem
-        $id_img = cadastrar_imagem($dados);
+        $id_img = $this->Obra_Model->cadastrar_registro_imagem($dados);
 
-        //$caminho_img = "assets/img/obras/";        
         //Usa o id para dar nome a imagem
         $dados['nome_img'] = $id_img;
         
         //Atualiza o registro com todas as informações
-        if(atualizar_cadastro_img($id_img, $dados2)){
+        if($this->Obra_Model->atualizar_registro_img($id_img, $dados)){
 
             //Salva a imagem na pasta do projeto
             $config['upload_path'] = './assets/img/obras/';
             $config['allowed_types'] = 'jpg';
-            $config['file_name'] = $id_img; //Ou 'nome_img', nas neste caso tem que fazer uma pesquisa no banco antes
+            $config['file_name'] = $id_img;
 
             //Para não sobrescrever a imagem que já estiver na pasta
             $config['overwrite'] = FALSE;
-            //$config['max_size'] = 100; $config['max_width'] = 1024; $config['max_height'] = 768;
 
             $this->load->library('upload', $config);
 
             if (!$this->upload->do_upload('userfile')) {
+                //Se a imagem não for permitida, apaga o registro que acaba de ser criado para ela na tabela
+                $this->Obra_Model->remover_registro_imagem($id_img);
                 echo $this->upload->display_errors('<h3>', '</h3>');
             }
             else {
-                //Se o upload deu certo, agora tem que ir no BD e pegar todas as fotos p renderizar na página de galeria
-                $data = array('upload_data' => $this->upload->data());
-                $this->load->view('upload_success', $data);
+                //Se o upload deu certochama a funcao galeria novamente
+                $this->galeria($id);
             } 
         }
         else{
             echo "Erro ao gravar informações da imagem no banco de dados";
+            echo "Nenhuma imagem foi registrada no sistema. Tente novamente";
         }
         
     }
