@@ -46,7 +46,7 @@
                                 <div class="inner-data">
                                      <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
                                 <?php echo form_open('Funcionario_Controller/pesquisar_funcionario/'.$funcionario->id_funcionario); ?>
-                                    <button type="submit" name="txt-visualizar" class="btn btn-outline-primary">Vizualizar Informações</button>
+                                    <button class="btn btn-default" style="width: 250px;" type="submit" name="txt-visualizar" class="btn btn-outline-primary">Vizualizar Informações</button>
                                     
                                 <?php echo form_close();?>
 
@@ -58,7 +58,7 @@
                                         <?php echo form_open('excuirL'); ?>
                                             <input  type="hidden" name="txt-id" value="<?php echo $funcionario->id_funcionario ?>"/>
                                             <input  type="hidden" name="txt-situacao" value="0"/>
-                                            <button type="submit" class="btn btn-danger">Excluir Usuário do Sistema</button>
+                                            <button style="width: 180px;margin-left: 35px;" type="submit" class="btn btn-default">Excluir Usuário</button>
                                         <?php echo form_close();?>
                                     <?php
                                     }?>
@@ -67,7 +67,8 @@
                                     <?php echo form_open('incluirL'); ?>
                                         <input  type="hidden" name="txt-id" value="<?php echo $funcionario->id_funcionario ?>"/>
                                         <input  type="hidden" name="txt-situacao" value="1"/>
-                                        <button type="submit" class="btn btn-azul"> Ativar Usuário No Sistema </button>
+                                        <button type="submit" style="margin-left: 30px;
+    width: 165px;" class="btn btn-default"> Ativar Usuário </button>
                                     <?php echo form_close();?>
                                 <?php
                                 }?>

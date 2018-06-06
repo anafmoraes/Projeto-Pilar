@@ -1,7 +1,7 @@
 <div class="container">
      <!--  Botão para voltar para a pré-visualização  -->
     <?php echo form_open('pre_visualizacao_funcionario'); ?>
-        <button type="submit"> Voltar </button>
+        <button type="submit"class="btn btn-default"> Voltar </button>
     <?php echo form_close();?>
     <br><br>
     <!--  FIM  -->
@@ -42,7 +42,7 @@
                           <span class="tipo-aux">Auxiliar</span>
                         <?php } ?>
                      <br><br>
-                     <span class="dados">CPF:<?php echo $funcionario->cpf?> </span>
+                     <span class="dados">CPF:  <?php echo $funcionario->cpf?></span>
                      <br><br>
                      <span class="dados"> E-mail: <?php echo $funcionario->email?> </span>
                 </div>
@@ -51,7 +51,7 @@
                   <div class="inner-data">
                         <!-- passa os dados para o form, para serem mandados para o controller no método atualizar_perfil() -->
                       <?php echo form_open('Funcionario_Controller/atualizar_perfil/'.$funcionario->id_funcionario); ?>
-                          <button type="submit"> Editar Perfil </button>
+                          <button class="btn btn-default" type="submit" style="width:155px;"> Editar Perfil </button>
                       <?php echo form_close();?>
 
                   </div>
@@ -62,7 +62,7 @@
                           <?php echo form_open('excuirL'); ?>
                               <input  type="hidden" name="txt-id" value="<?php echo $funcionario->id_funcionario ?>"/>
                               <input  type="hidden" name="txt-situacao" value="0"/>
-                              <button type="submit" class="btn btn-danger btn-padrao">Excluir Usuário do Sistema</button>
+                              <button type="submit" class="btn btn-default" style="width: 180px;">Excluir Usuário </button>
                           <?php echo form_close();?>
                       <?php
                       }?>
@@ -71,7 +71,7 @@
                       <?php echo form_open('incluirL'); ?>
                           <input  type="hidden" name="txt-id" value="<?php echo $funcionario->id_funcionario ?>"/>
                           <input  type="hidden" name="txt-situacao" value="1"/>
-                          <button type="submit" class="btn btn-azul"> Ativar Usuário No Sistema </button>
+                          <button type="submit" class="btn btn-default" style="width: 180px;"> Ativar Usuário</button>
                       <?php echo form_close();?>
                   <?php
                   }?>
