@@ -486,7 +486,8 @@ class Obra_Controller extends CI_Controller {
             $exposicao['id_obra'] = $id;
 
             if($this->Exposicao_Model->cadastrar_exposicao($exposicao)) {
-                $this->visualizar_exposicoes($id);
+                redirect(base_url('Obra_Controller/visualizar_exposicoes/'.$id));
+                //$this->visualizar_exposicoes($id);
             }
             else{
                 echo "Houve um erro inesperado, as informações não foram salvas.";
@@ -523,7 +524,8 @@ class Obra_Controller extends CI_Controller {
         /*Verifica se a validação obteve sucesso*/
         if ($this->form_validation->run() == FALSE) {
             /*Se verificação de dados falhar renderiza o formulario para novo preenchimento*/
-            $this->atualizar_exposicao($id_obra, $id_exposicao);
+            redirect(base_url('Obra_Controller/visualizar_exposicoes/'.$id_obra.'/'.$id_exposicao));
+            //$this->atualizar_exposicao($id_obra, $id_exposicao);
         }
         else {
             /*Envia os dados para a função do model que irá grava-los no BD*/

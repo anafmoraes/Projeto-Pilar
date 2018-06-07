@@ -62,8 +62,13 @@ $route['admin'] = 'Inicio_Controller/admin';
 $route['cadastrar_obra'] = 'Obra_Controller/cadastrar_obra';
 $route['pre_visualizacao_obra'] = 'Obra_Controller/pre_visualizacao';
 $route['visualizar_registro'] = 'Obra_Controller/pesquisar_obra';
+$route['exposicoes:any'] = 'Obra_Controller/visualizar_exposicoes';
+$route['restauracoes'] = 'Obra_Controller/visualizar_restauracoes';
+
 $route['cadastrar_exposicao'] = 'Exposicao_Controller/cadastrar_exposicao';
 $route['cadastrar_restauracao'] = 'Restauracao_Controller/cadastrar_restauracao';
+
+
 
 /*Rotas relacionadas à sessão*/
 $route['entrar'] = 'Funcionario_Controller/pagina_login';
