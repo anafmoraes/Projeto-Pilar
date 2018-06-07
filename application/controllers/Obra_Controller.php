@@ -589,8 +589,6 @@ class Obra_Controller extends CI_Controller {
 
     public function salvar_restauracao($id_obra) {
 
-        $id = $id_obra;
-
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('tipo-intervencao', 'Intervencão', 'required|max_length[60]');
@@ -604,10 +602,11 @@ class Obra_Controller extends CI_Controller {
             $restauracao['intervencao'] = $this->input->post('tipo-intervencao');
             $restauracao['nome_restaurador'] = $this->input->post('nome-restaurador');
             $restauracao['data_restauracao'] = $this->input->post('data-restauracao');
-            $restauracao['id_obra'] = $id;
+            $restauracao['id_obra'] = $id_obra;
 
             if($this->Restauracao_Model->cadastrar_restauracao($restauracao)) {
-                $this->visualizar_restauracoes($id);
+                //$this->visualizar_restauracoes($id);
+                redirect(base_url('Obra_Controller/visualizar_restauracoes/'.$id_obra));
             }
             else{
                 echo "Houve um erro inesperado, as informações não foram salvas.";
@@ -651,7 +650,8 @@ class Obra_Controller extends CI_Controller {
             $restauracao['data_restauracao'] = $this->input->post('data-restauracao');
 
             if($this->Restauracao_Model->atualizar($id_restauracao, $restauracao)) {
-                $this->visualizar_restauracoes($id_obra);
+                //$this->visualizar_restauracoes($id_obra);
+                redirect(base_url('Obra_Controller/visualizar_restauracoes/'.$id_obra.'/'.$id_restauracao));
             }
             else {
                 echo "Houve um erro inesperado, as informações não foram salvas.";
