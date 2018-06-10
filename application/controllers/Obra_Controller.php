@@ -415,7 +415,7 @@ class Obra_Controller extends CI_Controller {
             }
             else {
                 //Se o upload deu certochama a funcao galeria novamente
-                $this->galeria($id);
+                redirect(base_url('Obra_Controller/galeria/'.$id));
             } 
         }
         else{
