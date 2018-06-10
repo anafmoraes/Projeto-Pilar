@@ -415,7 +415,7 @@ class Obra_Controller extends CI_Controller {
             }
             else {
                 //Se o upload deu certochama a funcao galeria novamente
-                $this->galeria($id);
+                redirect(base_url('Obra_Controller/galeria/'.$id));
             } 
         }
         else{
@@ -486,7 +486,8 @@ class Obra_Controller extends CI_Controller {
             $exposicao['id_obra'] = $id;
 
             if($this->Exposicao_Model->cadastrar_exposicao($exposicao)) {
-                $this->visualizar_exposicoes($id);
+                redirect(base_url('Obra_Controller/visualizar_exposicoes/'.$id));
+                //$this->visualizar_exposicoes($id);
             }
             else{
                 echo "Houve um erro inesperado, as informações não foram salvas.";
@@ -523,7 +524,8 @@ class Obra_Controller extends CI_Controller {
         /*Verifica se a validação obteve sucesso*/
         if ($this->form_validation->run() == FALSE) {
             /*Se verificação de dados falhar renderiza o formulario para novo preenchimento*/
-            $this->atualizar_exposicao($id_obra, $id_exposicao);
+            redirect(base_url('Obra_Controller/visualizar_exposicoes/'.$id_obra.'/'.$id_exposicao));
+            //$this->atualizar_exposicao($id_obra, $id_exposicao);
         }
         else {
             /*Envia os dados para a função do model que irá grava-los no BD*/
@@ -587,8 +589,6 @@ class Obra_Controller extends CI_Controller {
 
     public function salvar_restauracao($id_obra) {
 
-        $id = $id_obra;
-
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('tipo-intervencao', 'Intervencão', 'required|max_length[60]');
@@ -602,10 +602,11 @@ class Obra_Controller extends CI_Controller {
             $restauracao['intervencao'] = $this->input->post('tipo-intervencao');
             $restauracao['nome_restaurador'] = $this->input->post('nome-restaurador');
             $restauracao['data_restauracao'] = $this->input->post('data-restauracao');
-            $restauracao['id_obra'] = $id;
+            $restauracao['id_obra'] = $id_obra;
 
             if($this->Restauracao_Model->cadastrar_restauracao($restauracao)) {
-                $this->visualizar_restauracoes($id);
+                //$this->visualizar_restauracoes($id);
+                redirect(base_url('Obra_Controller/visualizar_restauracoes/'.$id_obra));
             }
             else{
                 echo "Houve um erro inesperado, as informações não foram salvas.";
@@ -649,7 +650,8 @@ class Obra_Controller extends CI_Controller {
             $restauracao['data_restauracao'] = $this->input->post('data-restauracao');
 
             if($this->Restauracao_Model->atualizar($id_restauracao, $restauracao)) {
-                $this->visualizar_restauracoes($id_obra);
+                //$this->visualizar_restauracoes($id_obra);
+                redirect(base_url('Obra_Controller/visualizar_restauracoes/'.$id_obra.'/'.$id_restauracao));
             }
             else {
                 echo "Houve um erro inesperado, as informações não foram salvas.";
