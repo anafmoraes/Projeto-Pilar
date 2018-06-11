@@ -887,3 +887,7 @@ span.tipo-aux{
 button.btn.btn-azul{
   background-color: #4c93d0;
 }
+
+#add_img {
+    width: 20vw;
+}
