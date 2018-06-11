@@ -104,4 +104,12 @@ class Obra_Model extends CI_Model{
         $this->db->where('id_img', $id_img);
         return $this->db->delete('galeria');
     }
+
+    public function img_padrao($id_bra){
+        $this->db->select();
+        $this->db->from('galeria');
+        $this->db->where('id_obra', $id_obra);
+        $this->db->where('img_padrao', 1);
+        return $this->db->get->result();
+    }
 }

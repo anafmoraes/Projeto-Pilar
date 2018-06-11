@@ -139,7 +139,8 @@ class Obra_Controller extends CI_Controller {
 
     // Envia, para a view, dados específicos de cada obra cadastrada no sistema
     public function pre_visualizacao() {
-        $this->pre_visualizacao = $this->Obra_Model->pre_visualizacao();        
+        $this->pre_visualizacao = $this->Obra_Model->pre_visualizacao();  
+        $this->img_padrao = $this->Obra_Model->img_padrao();
         $dados['obras'] = $this->pre_visualizacao;
 
         //Chama o modelo de cabeçalho
@@ -450,7 +451,6 @@ class Obra_Controller extends CI_Controller {
             echo "Erro ao acessar Obra_Controller/img_padrao";
         }
     }
-
 
 /*######################################Métodos referentes as exposições#############################################-*/
 

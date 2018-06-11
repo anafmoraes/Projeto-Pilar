@@ -29,17 +29,18 @@
 
     <div class="row">        
         <?php foreach ($imagens as $imagem){ ?>
-        <?php
+        <!-- <?php
             echo $source = $imagem->caminho_img . $imagem->id_img . '.' . $imagem->extensao;
-        ?>
+        ?> -->
             <div class="img-responsive" style="width: 20px !important">
                 <!-- <?php echo img($source); ?> -->
 
                 <figure>
                     <img src="<?php echo base_url($source); ?>" alt=" <?php echo $imagem->nome_img ?>" >
+                    
                     <figcaption>
-                        Nome: <?php echo $imagem->nome_img ?>
-                            <a href="<?php echo base_url('Obra_Controller/img_padrao/'.$id_obra.'/'.$imagem->id_img); ?>"> Tornar padrão </a>
+                            Nome: <?php echo $imagem->nome_img ?>
+                            <a href="<?php echo base_url('Obra_Controller/img_padrao/'.$id_obra.'/'.$imagem->id_img); ?>"> Tornar Padrão </a>
                     </figcaption>
                 </figure>
             </div>

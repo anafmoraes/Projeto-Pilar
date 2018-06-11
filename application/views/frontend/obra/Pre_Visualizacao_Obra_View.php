@@ -30,6 +30,14 @@
                         </p>                        
                     </div>
 
+                    <?php
+                    if($obra->imagem == 1){
+                        echo img("assets/img/usuarios/".$funcionario->id_funcionario.".jpg");
+                        }
+                    else{
+                        echo img("assets/img/default.png");
+                    }?>
+
                     <div class="col-sm-2 col-md-2 col-lg-6">
                         <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" width=500px>
                     </div>
