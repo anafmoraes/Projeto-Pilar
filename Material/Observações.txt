@@ -11,8 +11,8 @@ a situação não ficar colada no nome, ou seja, a situação ficar sempre alinh
 
 Algum javascript, inserido na sprint 12 ta atrapalhando o reload automatico de pagina, acho que tem a ver c cars ou o modal de confirmação de exclusao
 
-Criar uma forma de preencher o valor do atributi 'imagem' na tabela de obra com 1,c aso tenha imagem para aquela obra ou 0 caso contrario. Facilita as coisas na view de Galeria
+Criar uma forma de preencher o valor do atributo 'imagem' na tabela de obra com 1, caso tenha imagem para aquela obra ou 0 caso contrario. Facilita as coisas na view de Galeria
 
-PEQUENA REUNIÃO
 
-Passar todo código de estilo que está no projeto para o arquivo subscribet_style.css
+A função de cadastrar um novo funcionario nao está informando os erros originados de preenchimento incorreto (Consertar isso).
+

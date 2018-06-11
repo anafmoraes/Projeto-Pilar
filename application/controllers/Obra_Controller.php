@@ -82,7 +82,8 @@ class Obra_Controller extends CI_Controller {
         
 
         if($this->form_validation->run() == FALSE) {
-            $this->cadastrar_obra();
+            redirect(base_url('Obra_Controller/cadastrar_obra'));
+            //$this->cadastrar_obra();
         } else {
             $obra['num_atual'] = $this->input->post('numero-atual');
             $obra['num_anterior'] = $this->input->post('numero-anterior');
@@ -127,7 +128,6 @@ class Obra_Controller extends CI_Controller {
             $obra['data_aquisicao'] = $this->input->post('data-aquisicao');
             $obra['id_funcionario'] = $this->session->userdata('usuariologado')->id_funcionario;
             $obra['situacao'] = 1;
-
 
             if($dados['obras'] = $this->Obra_Model->cadastrar_obra($obra)) {
                 redirect(base_url('Obra_Controller/pre_visualizacao'));
@@ -248,7 +248,8 @@ class Obra_Controller extends CI_Controller {
 
         if($this->form_validation->run() == FALSE) {
             // Se a validação falhar chama o método de atualização novamente. '$this' indica que o método pertence a esta classe
-            $this->atualizar_obra($id);
+            //$this->atualizar_obra($id);
+            redirect(base_url('Obra_Controller/atualizar_obra/'.$id));
         }
         else {
             $obra['num_atual'] = $this->input->post('numero-atual');
@@ -381,7 +382,7 @@ class Obra_Controller extends CI_Controller {
     }
 
     public function add_img_obra($id) {
-        if(!$this-> session->userdata('logado')){
+        if(!$this->session->userdata('logado')){
             redirect(base_url('inicio/login'));
         }
 
@@ -474,7 +475,8 @@ class Obra_Controller extends CI_Controller {
         /*Verifica se a validação obteve sucesso*/
         if ($this->form_validation->run() == FALSE) {
             /*Se verificação de dados falhar renderiza o formulario para nov preenchimento*/
-            $this->cadastrar_exposicao($id_obra);
+            redirect(base_url('Obra_Controller/cadastrar_exposicao/'.$id_obra));
+            //$this->cadastrar_exposicao($id_obra);
         }
         else {
             /*Passa os dados do cadastro para uma vaŕiável apenas*/
@@ -536,7 +538,8 @@ class Obra_Controller extends CI_Controller {
             $exposicao['data_fim'] = $this->input->post('data-fim-exp');
 
             if($this->Exposicao_Model->atualizar($id_exposicao, $exposicao)) {
-                $this->visualizar_exposicoes($id_obra);
+                //$this->visualizar_exposicoes($id_obra);
+                redirect(base_url('Obra_Controller/visualizar_exposicoes/'.$id_obra));
             } else {
                 echo "Houve um erro inesperado, as informações não foram salvas.";
             }
@@ -550,7 +553,8 @@ class Obra_Controller extends CI_Controller {
         if($this->Exposicao_Model->exclusao_unitaria($id_exposicao)){
             //$dados['id_obra'] = $id_obra;
 
-            $this->visualizar_exposicoes($id_obra);
+            //$this->visualizar_exposicoes($id_obra);
+            redirect(base_url('Obra_Controller/visualizar_exposicoes/'.$id_obra));
         }
     }
 
