@@ -335,5 +335,5 @@ class Funcionario_Controller extends CI_Controller {
                 echo "Erro ao salvar a imagem no banco de dados do sistema";
             }            
         }
-    }    
+    }
 }
