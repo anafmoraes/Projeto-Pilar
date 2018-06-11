@@ -10,35 +10,41 @@
         <br><br>
     </div>
 
-        <!-- <?php echo $error;?> -->
+
     <div class ="row">
         <div class="col-md-6">
             <?php
             echo form_open_multipart('Obra_Controller/add_img_obra/'.$id_obra);?>
                 <input class="form-control" type="file" name="userfile" size="20" />
-                <button class="btn btn-default" type="submit"> Adicionar Nova Imagem </button>
+                <button id="add_img" class="btn btn-default add_img" type="submit"> Adicionar Nova Imagem </button>
             <!-- </form> -->
             <?php echo form_close();?>
         </div>
     </div>
     
     <div class="row">
-        <div class="img">
-            <?php foreach ($imagens as $imagem){ ?>
-                <?php
-                    $source = echo $imagem->caminho_img . echo $imagem->id_img . echo $imagem->extensao;
-                ?>
+        <h3>Galeria de Imagens </h3>
+        <hr>
+    </div>
+
+    <div class="row">        
+        <?php foreach ($imagens as $imagem){ ?>
+        <?php
+            echo $source = $imagem->caminho_img . $imagem->id_img . '.' . $imagem->extensao;
+        ?>
+            <div class="img-responsive" style="width: 20px !important">
+                <!-- <?php echo img($source); ?> -->
+
                 <figure>
-                    <img src="<?php $source ?>" alt=" <?php echo $imagem->nome_img ?>" style="width:100%">
-                    <figcaption> <?php echo $imagem->nome_img ?> </figcaption>
+                    <img src="<?php echo base_url($source); ?>" alt=" <?php echo $imagem->nome_img ?>" >
+                    <figcaption> Nome: <?php echo $imagem->nome_img ?> </figcaption>
                 </figure>
-            <?php
-            }?>
-        </div>
+            </div>
+        <?php
+        }?>
+        
     </div>
             
 
-    <div class="row">
-        <h3>Galeria de Imagens </h3>
-    </div>        
+            
 </div>
