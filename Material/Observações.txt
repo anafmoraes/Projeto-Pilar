@@ -9,7 +9,5 @@ Credenciais de acesso ao sistema{
 No card de funcionarios: Formatar a row do nome e situaçõa do funcionario, para que se o nome for pequeno
 a situação não ficar colada no nome, ou seja, a situação ficar sempre alinhada à direita do card e o nome sempré à esquerda.
 
-Algum javascript, inserido na sprint 12 ta atrapalhando o reload automatico de pagina, acho que tem a ver c cars ou o modal de confirmação de exclusao
-
 A função de cadastrar um novo funcionario nao está informando os erros originados de preenchimento incorreto (Consertar isso).
 
