@@ -61,8 +61,9 @@ class Funcionario_Controller extends CI_Controller {
             $this->form_validation->set_rules('txt-tipo-func', 'Tipo de Funcionario', 'required');
             
 
-            if ($this->form_validation->run() == FALSE) {
-                $this->cadastrar_funcionario();
+            if ($this->form_validation->run() == FALSE){
+                redirect(base_url('Funcionario_Controller/cadastrar_funcionario'));                
+                //$this->cadastrar_funcionario();
             }
             else{
                 $user['nome'] = $this->input->post('txt-nome');
@@ -183,7 +184,9 @@ class Funcionario_Controller extends CI_Controller {
 
         // Verifica se a validação de dados obteve sucesso
         if ($this->form_validation->run() == FALSE){
-                $this->atualizar_perfil();
+            redirect(base_url('Funcionario_Controller/atualizar_perfil/'.$id));
+            //$this->atualizar_perfil();
+            //redirect(base_url('Funcionario_Controller/'));
         }
         else{
             $chave = $this->input->post('txt-id');

@@ -15,4 +15,5 @@ Criar uma forma de preencher o valor do atributi 'imagem' na tabela de obra com 
 
 PEQUENA REUNIÃO
 
-Passar todo código de estilo que está no projeto para o arquivo subscribet_style.css
+A função de cadastrar um novo funcionario nao está informando os erros originados de preenchimento incorreto (C0nsertar isso).
+
