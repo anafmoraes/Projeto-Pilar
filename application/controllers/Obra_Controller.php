@@ -392,17 +392,26 @@ class Obra_Controller extends CI_Controller {
         $dados['caminho_img'] =  "assets/img/obras/";
 
         //Realiza pré-cadastro da imagem no BD e retorna o id que acaba de ser gerado para eta imagem
-        $id_img = $this->Obra_Model->cadastrar_registro_imagem($dados);
+        $id_img = $this->Obra_Model->cadastrar_registro_imagem($dados);        
 
         //Usa o id para dar nome a imagem
-        $dados['nome_img'] = $id_img;
+        //$dados['nome_img'] = $id_img;
+
+        // Pega a extensão do arquivo (codigo PHP)
+        $dados['extensao'] = pathinfo($_FILES["userfile"]["name"], PATHINFO_EXTENSION);
+
+        //Pega o nome original da imagem
+        $original_name = $_FILES['userfile']['name'];
+
+        //Trata o nome original da imagem
+        $dados['nome_img'] = ''.strtr(utf8_decode($original_name), utf8_decode(' àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), '_aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
         
-        //Atualiza o registro com todas as informações
+        //Atualiza o registro no banco de dados com todas as informações
         if($this->Obra_Model->atualizar_registro_img($id_img, $dados)){
 
             //Salva a imagem na pasta do projeto
             $config['upload_path'] = './assets/img/obras/';
-            $config['allowed_types'] = 'jpg';
+            $config['allowed_types'] = 'jpg|png|jpeg|gif|bitmap|tiff|psd|raw|exif';
             $config['file_name'] = $id_img;
 
             //Para não sobrescrever a imagem que já estiver na pasta
@@ -415,7 +424,13 @@ class Obra_Controller extends CI_Controller {
                 echo $this->upload->display_errors('<h3>', '</h3>');
             }
             else {
-                //Se o upload deu certochama a funcao galeria novamente
+                //Indica ao banco de dados que a obra possui imagens associadas a ela
+                $obra['imagem'] = 1;
+                if(!$this->Obra_Model->atualizar_obra($id, $obra)) {
+                    echo "Erro ao informar ao banco de dados que a obra atual possui registros de imagem";   
+                }
+
+                //Se o upload deu certo chama a funcao galeria novamente
                 redirect(base_url('Obra_Controller/galeria/'.$id));
             } 
         }
