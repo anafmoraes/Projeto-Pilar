@@ -37,7 +37,10 @@
 
                 <figure>
                     <img src="<?php echo base_url($source); ?>" alt=" <?php echo $imagem->nome_img ?>" >
-                    <figcaption> Nome: <?php echo $imagem->nome_img ?> </figcaption>
+                    <figcaption>
+                        Nome: <?php echo $imagem->nome_img ?>
+                            <a href="<?php echo base_url('Obra_Controller/img_padrao/'.$id_obra.'/'.$imagem->id_img); ?>"> Tornar padrão </a>
+                    </figcaption>
                 </figure>
             </div>
         <?php

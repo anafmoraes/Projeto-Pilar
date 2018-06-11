@@ -440,6 +440,17 @@ class Obra_Controller extends CI_Controller {
         }        
     }
 
+    public function img_padrao($id_obra, $id_img){
+        $dados['img_padrao'] = 1;
+
+        if($this->Obra_Model->atualizar_registro_img($id_img, $dados)) {
+            redirect(base_url('Obra_Controller/galeria/'.$id_obra));
+        }
+        else{
+            echo "Erro ao acessar Obra_Controller/img_padrao";
+        }
+    }
+
 
 /*######################################Métodos referentes as exposições#############################################-*/
 
