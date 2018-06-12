@@ -11,3 +11,6 @@ a situação não ficar colada no nome, ou seja, a situação ficar sempre alinh
 
 A função de cadastrar um novo funcionario nao está informando os erros originados de preenchimento incorreto (Consertar isso).
 
+Falta implementar a remoção da imagem que for excluida da pasta do projeto (Ver obra model na funcao remover_registro_imagem())
+
+No formulário de exibição do registro de obra, pode colocar direo o meio de aquisição da obra, nao precisa colocar todas as opções, coloque apenas a que é válida.

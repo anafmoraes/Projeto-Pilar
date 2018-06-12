@@ -30,8 +30,13 @@
                             </p>                        
                         </div>
 
+
+
                        <?php if($obra->imagem == 1 && $obra->img_padrao == 1){ ?>
-                        
+                        <?php
+                            echo $source = $obra->caminho_img . $obra->id_img . '.' . $obra->extensao;
+                        ?>
+
                             <div class="col-sm-2 col-md-2 col-lg-6">
                                 <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" width=500px>
                             </div>
@@ -41,6 +46,9 @@
                                 <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" width=500px>
                             </div>
                         <?php }?>
+
+
+
 
                         <div class="col-sm-2 col-md-2 col-lg-6">
                             <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" width=500px>

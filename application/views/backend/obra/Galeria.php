@@ -13,11 +13,10 @@
 
     <div class ="row">
         <div class="col-md-6">
-            <?php
-            echo form_open_multipart('Obra_Controller/add_img_obra/'.$id_obra);?>
+            <!-- Formulário de upload de imagens -->
+            <?php echo form_open_multipart('Obra_Controller/add_img_obra/'.$id_obra);?>
                 <input class="form-control" type="file" name="userfile" size="20" />
                 <button id="add_img" class="btn btn-default add_img" type="submit"> Adicionar Nova Imagem </button>
-            <!-- </form> -->
             <?php echo form_close();?>
         </div>
     </div>
@@ -32,9 +31,7 @@
         <?php
             $source = $imagem->caminho_img . $imagem->id_img . '.' . $imagem->extensao;
         ?>
-            <div class="img-responsive" style="width: 20px !important">
-                <!-- <?php echo img($source); ?> -->
-
+            <div>
                 <figure>
                     <img src="<?php echo base_url($source); ?>" alt=" <?php echo $imagem->nome_img ?>" >
                     
