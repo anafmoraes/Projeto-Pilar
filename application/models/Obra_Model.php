@@ -17,12 +17,17 @@ class Obra_Model extends CI_Model{
 
     // Responsável por gerar a pré-visualização de TODAS as obras cadastradas na view
     public function pre_visualizacao(){
-        // get_compiled_select() deve ser usado para a pesquisa funcionar corretamente
+        // get_compiled_select() deve ser usado para a pesquisa funcionar corretamente neste join
     	$this->db->select('id_obra', 'num_atual', 'num_anterior', 'nome_objeto', 'titulo',
-            'imagem')->get_compiled_select();
+            'imagem', 'id_img', 'extensao', 'caminho_img', 'img_padrao')->get_compiled_select();
 
-    	// Indica em que tabela será realizada a pesquisa pelos atributos
-    	$this->db->from('obra');
+        // Indica em que tabela será realizada a pesquisa pelos atributos
+        $this->db->from('obra');
+
+        //Realiza uma busca em duas tabelas
+        $this->db->join('galeria', 'obra_id = id_obra');
+
+        //$this->db->where('nome_objeto', 1);
 
         // Ordena por critério descendente de ID (esperança de ordenar do registro mais recente para o mais antigo)
         $this->db->order_by('id_obra','DESC');
@@ -70,7 +75,7 @@ class Obra_Model extends CI_Model{
         // Indica em que tabela será realizada a pesquisa pelos atributos
         $this->db->from('galeria');
 
-        $this->db->where('id_obra', $id);
+        $this->db->where('obra_id', $id);
 
         // Ordena por critério descendente de ID (esperança de ordenar do registro mais recente para o mais antigo)
         $this->db->order_by('id_img','DESC');
@@ -105,11 +110,19 @@ class Obra_Model extends CI_Model{
         return $this->db->delete('galeria');
     }
 
-    public function img_padrao($id_bra){
-        $this->db->select();
-        $this->db->from('galeria');
-        $this->db->where('id_obra', $id_obra);
+    public function tornar_padrao($id_img, $id_obra, $dados){        
+        //Limpa a imagem padrao anterior
+        $this->db->from('galeria');        
+        $this->db->where('obra_id', $id_obra);
         $this->db->where('img_padrao', 1);
-        return $this->db->get->result();
+        $remove['img_padrao'] = 0;
+        $this->db->set($remove);
+        $this->db->update('galeria');
+
+        //Define a nova imagem padrao
+        $this->db->from('galeria');
+        $this->db->where('id_img', $id_img);
+        $this->db->set($dados);
+        return $this->db->update('galeria');
     }
 }

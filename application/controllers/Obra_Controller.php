@@ -139,8 +139,8 @@ class Obra_Controller extends CI_Controller {
 
     // Envia, para a view, dados específicos de cada obra cadastrada no sistema
     public function pre_visualizacao() {
-        $this->pre_visualizacao = $this->Obra_Model->pre_visualizacao();  
-        $this->img_padrao = $this->Obra_Model->img_padrao();
+        $this->pre_visualizacao = $this->Obra_Model->pre_visualizacao();
+        
         $dados['obras'] = $this->pre_visualizacao;
 
         //Chama o modelo de cabeçalho
@@ -388,7 +388,7 @@ class Obra_Controller extends CI_Controller {
         }
 
         //Grava as informações da imagem no banco de dados        
-        $dados['id_obra'] = $id;
+        $dados['obra_id'] = $id;
         $dados['img_padrao'] = 0;
         $dados['caminho_img'] =  "assets/img/obras/";
 
@@ -442,9 +442,10 @@ class Obra_Controller extends CI_Controller {
     }
 
     public function img_padrao($id_obra, $id_img){
+        //Tem que tirar o padrao de outra imagem
         $dados['img_padrao'] = 1;
 
-        if($this->Obra_Model->atualizar_registro_img($id_img, $dados)) {
+        if($this->Obra_Model->tornar_padrao($id_img, $id_obra, $dados)) {
             redirect(base_url('Obra_Controller/galeria/'.$id_obra));
         }
         else{

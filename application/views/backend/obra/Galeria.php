@@ -29,9 +29,9 @@
 
     <div class="row">        
         <?php foreach ($imagens as $imagem){ ?>
-        <!-- <?php
-            echo $source = $imagem->caminho_img . $imagem->id_img . '.' . $imagem->extensao;
-        ?> -->
+        <?php
+            $source = $imagem->caminho_img . $imagem->id_img . '.' . $imagem->extensao;
+        ?>
             <div class="img-responsive" style="width: 20px !important">
                 <!-- <?php echo img($source); ?> -->
 
@@ -46,9 +46,5 @@
             </div>
         <?php
         }?>
-        
     </div>
-            
-
-            
 </div>
