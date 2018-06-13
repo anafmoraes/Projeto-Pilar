@@ -10,13 +10,13 @@
         <?php echo form_close();?>
         <!--  FIM  -->
       </div>
-      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar de botões" style="float: right;">
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar de botões" id="alinhar_direita">
           <div class="btn-group mr-2" role="group">
             <!-- Inicio do codigo de Update -->
             <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
             <?php echo form_open('Obra_Controller/atualizar_obra/'.$obra->id_obra); ?>
               <!-- <input  type="hidden" name="txt-id" value="<?php echo $obra->id_obra ?>"/> -->
-              <button class="btn btn-default btn-block" style="width: 115px" type="submit" name="txt-atualizar" value="">
+              <button class="btn btn-default btn-block" id="botao_115" type="submit" name="txt-atualizar" value="">
               <span class="oi oi-pencil" aria-hidden="true" title="Editar"></span>
                 Editar
               </button>
@@ -25,30 +25,30 @@
           </div>
           <div class="btn-group mr-2" role="group">
             <!-- Botão de exclusão que chama um modal para verificar se o usuário deseja mesmo excluir a obra-->
-            <button style="width: 115px" class="btn btn-default btn-block" type="button" data-toggle="modal" data-target="#myModal"><span class="oi oi-trash" aria-hidden="true" title="Excluir"></span> Excluir</button>
+            <button id="botao_115" class="btn btn-default btn-block" type="button" data-toggle="modal" data-target="#myModal"><span class="oi oi-trash" aria-hidden="true" title="Excluir"></span> Excluir</button>
           </div>
           <br>
-          <div class="btn-group" role="group" style="float: right;">
+          <div class="btn-group" role="group" id="alinhar_direita">
               <!-- Inicio do codigo de visualizar exposições -->
               <!-- Passa o id_obra para o form que será usado lá no controller para realizar a buscaBD -->
               <?php echo form_open('Obra_Controller/visualizar_exposicoes/'.$obra->id_obra); ?>
-                  <button style="width: 230px" class="btn btn-default btn-block" type="submit"> <span class="oi oi-home" aria-hidden="true" title="Esposições"></span> Exposições </button>
+                  <button id="botao_230" class="btn btn-default btn-block" type="submit"> <span class="oi oi-home" aria-hidden="true" title="Esposições"></span> Exposições </button>
               <?php echo form_close();?>
               <!-- Fim do codigo de visualizar exposições -->   
             </div>
             <br>
-            <div class="btn-group" role="group" style="float: right;">
+            <div class="btn-group" role="group" id="alinhar_direita">
               <!-- Inicio do codigo de visualizar restaurações -->
               <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD -->
               <?php echo form_open('Obra_Controller/visualizar_restauracoes/'.$obra->id_obra); ?>
-                  <button style="width: 230px" class="btn btn-default btn-block" type="submit"> <span class="oi oi-wrench" aria-hidden="true" title="Restaurações"></span> Restaurações </button>
+                  <button id="botao_230" class="btn btn-default btn-block" type="submit"> <span class="oi oi-wrench" aria-hidden="true" title="Restaurações"></span> Restaurações </button>
               <?php echo form_close();?>
               <!-- Fim do codigo de visualizar restaurações -->
 
               <!-- Inicio do codigo de visualizar galeria -->
               <!-- Passa o id_obra para o form que será usado lá no controller para realizar a buscaBD -->
               <?php echo form_open('Obra_Controller/galeria/'.$obra->id_obra); ?>
-                  <button style="width: 230px" class="btn btn-default btn-block" type="submit"> <span class="oi oi-home" aria-hidden="true" title="Esposições"></span> Galeria </button>
+                  <button id="botao_230" class="btn btn-default btn-block" type="submit"> <span class="oi oi-home" aria-hidden="true" title="Esposições"></span> Galeria </button>
               <?php echo form_close();?>
               <!-- Fim do codigo de visualizar galeria -->
             </div>

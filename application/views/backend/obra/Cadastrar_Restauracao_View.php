@@ -12,7 +12,7 @@
 
             <!-- Botão para voltar a visualização das exposicoes -->
             <?php echo form_open('Obra_Controller/visualizar_restauracoes/'.$id_obra); ?>
-                <button type="submit"> Voltar </button>
+                <button id="botao_voltar" type="submit" class="btn btn-default"> Voltar </button>
             <?php echo form_close();?>
             <!-- FIM -->
 

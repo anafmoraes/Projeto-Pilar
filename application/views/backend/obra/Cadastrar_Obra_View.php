@@ -256,8 +256,8 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
     </div>
 
 
-  <div style="overflow:auto;">
-    <div style="float:right;">
+  <div id="overflow_automatico">
+    <div id="alinhar_direita">
       <button type="button" class="btn btn-default" id="prevBtn" onclick="nextPrev(-1)">Voltar</button>
       <button type="button" class="btn btn-default" id="nextBtn" onclick="nextPrev(1)">Avançar</button>
     </div>
@@ -265,7 +265,7 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
 
 
   <!-- Circles which indicates the steps of the form: -->
-  <div style="text-align:center;margin-top:40px;">
+  <div id="passos_cadastro">
     <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
