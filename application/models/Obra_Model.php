@@ -27,10 +27,10 @@ class Obra_Model extends CI_Model{
         //Realiza uma busca em duas tabelas
         $this->db->join('galeria', 'imagem >= 0');
 
-        $this->db->where('img_padrao', 1);
+        //$this->db->where('img_padrao', 1);
 
         // Ordena por critério descendente de ID (esperança de ordenar do registro mais recente para o mais antigo)
-        $this->db->order_by('id_obra','DESC');
+        //$this->db->order_by('id_obra','DESC');
 
     	// Retorna o resultado da pesquisa
     	return $this->db->get()->result();

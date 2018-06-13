@@ -103,8 +103,8 @@ hr {
 
 #caixa {
   border-width: 0.5px;
-  border-style: solid;
-  border-color: #ED502E;
+  background-color: #FAFAFA;
+
 }
 
 #linha_direita {
