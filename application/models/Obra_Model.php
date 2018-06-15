@@ -130,4 +130,10 @@ class Obra_Model extends CI_Model{
 
         return $this->db->get()->result();
     }
+
+    public function excluir_imagens($id_obra) {
+        $this->db->where('id_obra', $id_obra);
+
+        return $this->db->delete('galeria');
+    }
 }

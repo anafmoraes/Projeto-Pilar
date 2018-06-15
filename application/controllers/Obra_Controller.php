@@ -335,25 +335,26 @@ class Obra_Controller extends CI_Controller {
     // Exclui uma obra e as exposições e restaurações relacionadas a ela (Propagação)
     public function remover_obra($id_obra) {
 
-        /*Acessa o BD para excluir todas as exposições associadas à obra*/
-        if($this->Exposicao_Model->excluir_exposicoes_obras($id_obra)){
-            /*Acessa o BD para excluir todas as restaurações associadas à obra*/
-            if($this->Restauracao_Model->excluir_restauracoes_obras($id_obra)){
-                /*Acessa o BD para excluir todas aobra selecionada*/
-                if($this->Obra_Model->excluir_obra($id_obra)) {
-                    redirect(base_url('Obra_Controller/pre_visualizacao'));
+        //if($this->Exposicao_Model->excluir_imagens($id_obra)){
+            /*Acessa o BD para excluir todas as exposições associadas à obra*/
+            if($this->Exposicao_Model->excluir_exposicoes_obras($id_obra)){
+                /*Acessa o BD para excluir todas as restaurações associadas à obra*/
+                if($this->Restauracao_Model->excluir_restauracoes_obras($id_obra)){
+                    /*Acessa o BD para excluir todas aobra selecionada*/
+                    if($this->Obra_Model->excluir_obra($id_obra)) {
+                        redirect(base_url('Obra_Controller/pre_visualizacao'));
+                    }
+                    else{
+                        echo "Houve um erro inesperado na exclusão da obra selecionada";
+                    }
                 }
                 else{
-                    echo "Houve um erro inesperado na exclusão da obra selecionada";
+                    echo "Houve um erro inesperado na exclusão das restaurações ligadas a obra.";
                 }
             }
-            else{
-                echo "Houve um erro inesperado na exclusão das restaurações ligadas a obra.";
+            else {
+                echo "Houve um erro inesperado na exclusão das exposições ligadas a obra.";
             }
-        }
-        else {
-            echo "Houve um erro inesperado na exclusão das exposições ligadas a obra.";
-        }
     }
 
     public function galeria($id) {
