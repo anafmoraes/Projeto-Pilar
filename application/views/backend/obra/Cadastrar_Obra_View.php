@@ -29,7 +29,7 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
         <h1>Localização</h1>
         <h6 class="text-center">Insira abaixo as informações da <strong> LOCALIZAÇÃO </strong> do objeto que deseja registrar</h6>
         <div class="form-group">
-            <textarea type="text" id="localizacao" name="localizacao" oninput="this.className = ''" class="form-control" placeholder="Digite a localização do objeto" value="<?php echo set_value('localizacao');?>" maxlength="150" rows="2" cols="100"></textarea>
+            <input type="text" id="localizacao" name="localizacao" oninput="this.className = ''" class="form-control" placeholder="Digite a localização do objeto" value="<?php echo set_value('localizacao');?>" maxlength="150" autofocus>
         </div>
     </div>
 
@@ -40,7 +40,7 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
         <div class="row">
             <div class="form-group col-md-6">
                 <label id="numero-atual">Número atual</label>
-                <input type="text" id="numero-atual" name="numero-atual" class="form-control" placeholder="Digite o número atual" value="<?php echo set_value('numero-atual');?>" oninput="this.className = ''" maxlength="30">
+                <input autofocus type="text" id="numero-atual" name="numero-atual" class="form-control" placeholder="Digite o número atual" value="<?php echo set_value('numero-atual');?>" oninput="this.className = ''" maxlength="30">
             </div>
             <div class="form-group col-md-6">
                 <label id="numero-anterior">Número anterior</label>
@@ -73,11 +73,11 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
         <div class="row">
             <div class="form-group col-md-6">
                 <label id="material">Material</label><br>
-                <textarea type="text" id="material" name="material" class="form-control" placeholder="Digite o material do objeto" value="<?php echo set_value('material');?>" oninput="this.className = ''" maxlength="500" rows="2" cols="45"></textarea>
+                <input type="text" id="material" name="material" class="form-control" placeholder="Digite o material do objeto" value="<?php echo set_value('material');?>" oninput="this.className = ''" maxlength="500">
             </div>
             <div class="form-group col-md-6">
                 <label id="tecnica">Técnica</label><br>
-                <textarea type="text" id="tecnica" name="tecnica" class="form-control" placeholder="Digite a técnica" value="<?php echo set_value('tecnica');?>" oninput="this.className = ''" maxlength="500" rows="2" cols="45"></textarea>
+                <input type="text" id="tecnica" name="tecnica" class="form-control" placeholder="Digite a técnica" value="<?php echo set_value('tecnica');?>" oninput="this.className = ''" maxlength="500" >
             </div>
         </div>
         <div class="form-group">
@@ -122,7 +122,7 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
         <h6 class="text-center">Insira abaixo as informações das <strong> DIMENSÕES </strong> do objeto que deseja registrar</h6>
         <div class="form-group">
             <label id="altura">Altura</label>
-            <input type="number" id="altura" name="altura" class="form-control" placeholder="Digite a altura do objeto" value="<?php echo set_value('altura');?>" oninput="this.className = ''">
+            <input autofocus type="number" id="altura" name="altura" class="form-control" placeholder="Digite a altura do objeto" value="<?php echo set_value('altura');?>" oninput="this.className = ''">
         </div>
         <div class="form-group">
             <label id="largura">Largura</label>
@@ -155,7 +155,7 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
         <h6 class="text-center">Insira abaixo as informações da <strong> ANÁLISE </strong> do objeto que deseja registrar</h6>
         <div class="form-group">
             <label id="descricao-objeto">Descrição do objeto </label><br>
-            <textarea type="text" id="descricao-objeto" name="descricao-objeto" class="form-control" placeholder="Insira uma descrição para o objeto" value="<?php echo set_value('descricao-objeto');?>" oninput="this.className = ''" maxlength="1000" rows="6" cols="100"></textarea>
+            <textarea autofocus type="text" id="descricao-objeto" name="descricao-objeto" class="form-control" placeholder="Insira uma descrição para o objeto" value="<?php echo set_value('descricao-objeto');?>" oninput="this.className = ''" maxlength="1000" rows="6" cols="100"></textarea>
         </div>
         <div class="form-group">
             <label id="carac-tecnicas">Caracteristicas técnicas </label><br>
@@ -180,7 +180,7 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
         <h6 class="text-center">Insira abaixo as <strong> OBSERVAÇÕES </strong> do objeto que deseja registrar</h6>
         <div class="form-group">
             <label id="publicacao">Publicação </label>
-            <input type="text" id="publicacao" name="publicacao" class="form-control" placeholder="Insira as publicações" value="<?php echo set_value('publicacao');?>" oninput="this.className = ''" maxlength="1000">
+            <input autofocus type="text" id="publicacao" name="publicacao" class="form-control" placeholder="Insira as publicações" value="<?php echo set_value('publicacao');?>" oninput="this.className = ''" maxlength="1000">
         </div>
         <div class="form-group">
             <label id="fontes-primarias">Fontes primárias </label>
@@ -214,7 +214,7 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
         <h6 class="text-center">Insira abaixo as informações <strong> TÉCNICAS </strong> do objeto que deseja registrar</h6>
         <div class="form-group">
             <label id="responsavel">Responsável pelo preechimento técnico (é o usuário que esta cadastrando?)</label>
-            <input type="text" id="responsavel" name="responsavel" class="form-control" placeholder="Digite o responsável pelo preenchimento técnico" value="<?php echo set_value('responsavel');?>" oninput="this.className = ''" maxlength="200">
+            <input autofocus type="text" id="responsavel" name="responsavel" class="form-control" placeholder="Digite o responsável pelo preenchimento técnico" value="<?php echo set_value('responsavel');?>" oninput="this.className = ''" maxlength="200">
         </div>
         <div class="form-group">
             <label id="nome-fotografo">Nome do fotógrafo</label>
@@ -256,8 +256,8 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
     </div>
 
 
-  <div style="overflow:auto;">
-    <div style="float:right;">
+  <div id="overflow_automatico">
+    <div id="alinhar_direita">
       <button type="button" class="btn btn-default" id="prevBtn" onclick="nextPrev(-1)">Voltar</button>
       <button type="button" class="btn btn-default" id="nextBtn" onclick="nextPrev(1)">Avançar</button>
     </div>
@@ -265,7 +265,7 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
 
 
   <!-- Circles which indicates the steps of the form: -->
-  <div style="text-align:center;margin-top:40px;">
+  <div id="passos_cadastro">
     <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>

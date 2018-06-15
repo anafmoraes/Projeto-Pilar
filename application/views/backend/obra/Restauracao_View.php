@@ -14,7 +14,7 @@
             <!-- Botão que direciona para a página de cadastro de restauração -->
             <?php echo form_open('Obra_Controller/cadastrar_restauracao/'.$id_obra); ?>
                 <!-- <input  type="hidden" name="txt-id" value="<?php echo $id_obra ?>"/> -->
-                <button style="width: 250px" class="btn btn-default" type="submit"> Cadastrar restauração </button>
+                <button id="botao_restauracao" class="btn btn-default" type="submit"> Cadastrar restauração </button>
             <?php echo form_close();?>
             <!-- FIM -->
         </div>
@@ -27,7 +27,7 @@
         foreach ($restauracoes as $restauracao){ ?>
         <div class="row">
             <div class="col-sm-offset-2">
-                <div class="card" style="width: 75rem">
+                <div class="card" id="tamanho_card">
                     <div class="card-header">
                         <h3> Restauração </h3>
                     </div>
@@ -54,14 +54,14 @@
                                 <?php echo form_open('Obra_Controller/atualizar_restauracao/'.$id_obra.'/'.$restauracao->id_restauracao); ?>
                                     <!-- <input  type="hidden" name="txt-id-rest" value="<?php echo $restauracao->id_restauracao ?>"/> -->
                                     <!-- <input  type="hidden" name="txt-id-obra" value="<?php echo $restauracao->id_obra ?>"/> -->
-                                    <button style="width: 200px" class="btn btn-default" type="submit" name="txt-restauracao" value=""><span class="oi oi-loop-circular"></span> Atualizar </button>
+                                    <button id="botao_atualizar" class="btn btn-default" type="submit" name="txt-restauracao" value=""><span class="oi oi-loop-circular"></span> Atualizar </button>
                                 <?php echo form_close();?>
                                 <!-- FIM -->
                         </div>
                         <div class="col-sm-6">
                             <!-- Botão para excluir uma restauração -->
                             <!-- Botão de exclusão que chama um modal para verificar se o usuário deseja mesmo excluir a obra-->
-                            <button style="width: 200px" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal"><span class="oi oi-trash"></span> Excluir</button>
+                            <button id="botao_excluir" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal"><span class="oi oi-trash"></span> Excluir</button>
 
                             <!-- Modal de exclusão de obra -->
                             <div class="modal fade" id="myModal" role="dialog">

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-offset-10">
             <!-- Código que leva para o form de cadasttro de obra -->
-            <a style="width: 200px" class="btn btn-default" type="button" href= "<?php echo base_url('Obra_Controller/cadastrar_obra') ?>" >Cadastrar Obra</a>
+            <a id="cadastrar_obra" class="btn btn-default" type="button" href= "<?php echo base_url('Obra_Controller/cadastrar_obra') ?>" >Cadastrar Obra</a>
         </div>
     </div>
     <div class="row text-center">
@@ -44,7 +44,7 @@
                         <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD
                          via GET-->
                         <?php echo form_open('Obra_Controller/pesquisar_obra/'.$obra->id_obra); ?>
-                            <button class="btn btn-default" type="submit" name="txt-visualizar" value="" style="width: 250px"> Visualizar Registro </button>
+                            <button id="visualizar_registro" class="btn btn-default" type="submit" name="txt-visualizar" value=""> Visualizar Registro </button>
                         <?php echo form_close();?>
                     </div>
                 </div>
