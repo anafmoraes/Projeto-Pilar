@@ -140,8 +140,10 @@ class Obra_Controller extends CI_Controller {
     // Envia, para a view, dados específicos de cada obra cadastrada no sistema
     public function pre_visualizacao() {
         $this->pre_visualizacao = $this->Obra_Model->pre_visualizacao();
+        $this->imgs_padrao = $this->Obra_Model->seleciona_img_padrao();
         
         $dados['obras'] = $this->pre_visualizacao;
+        $dados['imgs'] = $this->imgs_padrao;
 
         //Chama o modelo de cabeçalho
         $this->load->view('template/html-header');
@@ -151,8 +153,7 @@ class Obra_Controller extends CI_Controller {
 
         //Chama o rodapé da página
         $this->load->view('template/footer');
-        $this->load->view('template/html-footer');
-        
+        $this->load->view('template/html-footer');        
     }
 
     // Envia para a view uma obra específica de acordo com o id que é passado na view
@@ -196,12 +197,9 @@ class Obra_Controller extends CI_Controller {
         $this->load->view('template/html-footer');        
     }
 
-    public function salvar_atualizacao($id) {
+    public function salvar_atualizacao($id_obra) {
 
-        $id_obra = $id;
         $this->load->library('form_validation');
-
-        //Não funciona colocando a variável $id_obra como parametro do metodo na forma de string
         //$this->form_validation->set_rules('$id_obra', 'ID', 'required');
 
         //Realiza a validação dos demais campos do form
@@ -249,8 +247,7 @@ class Obra_Controller extends CI_Controller {
 
         if($this->form_validation->run() == FALSE) {
             // Se a validação falhar chama o método de atualização novamente. '$this' indica que o método pertence a esta classe
-            //$this->atualizar_obra($id);
-            redirect(base_url('Obra_Controller/atualizar_obra/'.$id));
+            redirect(base_url('Obra_Controller/atualizar_obra/'.$id_obra));
         }
         else {
             $obra['num_atual'] = $this->input->post('numero-atual');
@@ -296,9 +293,8 @@ class Obra_Controller extends CI_Controller {
             $obra['data_aquisicao'] = $this->input->post('data-aquisicao');
             $obra['id_funcionario'] = $this->session->userdata('usuariologado')->id_funcionario;
 
-            if($this->Obra_Model->atualizar_obra($id, $obra)) {
-                $dados['resultado'] = $this->Obra_Model->pesquisa_unitaria($id);
-                $this->load->view('frontend/obra/Registro_View', $dados);
+            if($this->Obra_Model->atualizar_obra($id_obra, $obra)) {
+                redirect(base_url('Obra_Controller/pesquisar_obra/'.$id_obra));
             }
             else {
                 echo "Houve um erro no sistema";
@@ -388,7 +384,7 @@ class Obra_Controller extends CI_Controller {
         }
 
         //Grava as informações da imagem no banco de dados        
-        $dados['obra_id'] = $id;
+        $dados['id_obra'] = $id;
         $dados['img_padrao'] = 0;
         $dados['caminho_img'] =  "assets/img/obras/";
 

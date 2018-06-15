@@ -18,19 +18,13 @@ class Obra_Model extends CI_Model{
     // Responsável por gerar a pré-visualização de TODAS as obras cadastradas na view
     public function pre_visualizacao(){
         // get_compiled_select() deve ser usado para a pesquisa funcionar corretamente neste join
-    	$this->db->select('id_obra', 'num_atual', 'descricao_objeto', 'nome_objeto', 'titulo',
-            'imagem', 'id_img', 'extensao', 'caminho_img', 'img_padrao')->get_compiled_select();
+    	$this->db->select('id_obra', 'num_atual', 'descricao_objeto', 'nome_objeto', 'titulo')->get_compiled_select();
 
         // Indica em que tabela será realizada a pesquisa pelos atributos
         $this->db->from('obra');
 
-        //Realiza uma busca em duas tabelas
-        $this->db->join('galeria', 'imagem >= 0');
-
-        //$this->db->where('img_padrao', 1);
-
         // Ordena por critério descendente de ID (esperança de ordenar do registro mais recente para o mais antigo)
-        //$this->db->order_by('id_obra','DESC');
+        $this->db->order_by('id_obra','DESC');
 
     	// Retorna o resultado da pesquisa
     	return $this->db->get()->result();
@@ -75,7 +69,7 @@ class Obra_Model extends CI_Model{
         // Indica em que tabela será realizada a pesquisa pelos atributos
         $this->db->from('galeria');
 
-        $this->db->where('obra_id', $id);
+        $this->db->where('id_obra', $id);
 
         // Ordena por critério descendente de ID (esperança de ordenar do registro mais recente para o mais antigo)
         $this->db->order_by('id_img','DESC');
@@ -114,7 +108,7 @@ class Obra_Model extends CI_Model{
     public function tornar_padrao($id_img, $id_obra, $dados){
         //Limpa a imagem padrao anterior
         $this->db->from('galeria');        
-        $this->db->where('obra_id', $id_obra);
+        $this->db->where('id_obra', $id_obra);
         $this->db->where('img_padrao', 1);
         $remove_padrao['img_padrao'] = 0;
         $this->db->set($remove_padrao);
@@ -125,5 +119,15 @@ class Obra_Model extends CI_Model{
         $this->db->where('id_img', $id_img);
         $this->db->set($dados);
         return $this->db->update('galeria');
+    }
+
+    // Seleciona todas as imagens da tabela de galeria que são imagens padrão das obras
+    public function seleciona_img_padrao(){
+        $this->db->select();
+        $this->db->from('galeria');
+        $this->db->where('img_padrao', 1);
+        $this->db->order_by('id_img','DESC');
+
+        return $this->db->get()->result();
     }
 }

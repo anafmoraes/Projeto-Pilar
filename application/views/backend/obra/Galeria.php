@@ -28,12 +28,10 @@
 
     <div class="row">        
         <?php foreach ($imagens as $imagem){ ?>
-        <?php
-            $source = $imagem->caminho_img . $imagem->id_img . '.' . $imagem->extensao;
-        ?>
+            <?php $source = $imagem->caminho_img . $imagem->id_img . '.' . $imagem->extensao; ?>
             <div>
                 <figure>
-                    <img src="<?php echo base_url($source); ?>" alt=" <?php echo $imagem->nome_img ?>" >
+                    <img src="<?php echo base_url($source); ?>" alt=" <?php echo $imagem->nome_img ?>" class="img-fluid" >
                     
                     <figcaption>
                             Nome: <?php echo $imagem->nome_img ?>

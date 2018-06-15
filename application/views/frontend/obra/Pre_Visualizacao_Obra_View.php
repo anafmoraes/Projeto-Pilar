@@ -23,36 +23,38 @@
                     <div class="card-body">
                         <div class="col-sm-6 col-md-6 col-lg-6">
                             <h4 class="card-title"><?php echo $obra->titulo ?></h4>
-                            <p class="card-text">
-                            
+                            <p class="card-text">                            
                                 <b>Número atual: </b><?php echo $obra->num_atual ?><br>
                                 <b>Descrição do objeto: </b><?php echo $obra->descricao_objeto ?><br>
                             </p>                        
                         </div>
 
-
-
-                       <?php if($obra->imagem == 1 && $obra->img_padrao == 1){ ?>
+                        <!-- Verifica qual é a imagem padrão da obra atual -->
                         <?php
-                            echo $source = $obra->caminho_img . $obra->id_img . '.' . $obra->extensao;
-                        ?>
+                        if($obra->imagem == 1){?>
+                            <!-- Pesquisa a imagem padrão desta obra -->
+                            <?php foreach($imgs as $img){
+                                if($obra->id_obra == $img->id_obra && $img->img_padrao == 1){
+                                    $source = $img->caminho_img . $img->id_img . '.' . $img->extensao;
+                                    ?>
+                                    <div class="col-sm-2 col-md-2 col-lg-6">
+                                        <img src="<?php echo base_url($source);?>" alt="imagem_padrao" class="img-fluid" height=300px width="500">
+                                    </div>
+                                <?php
+                                }?>
+                            <?php
+                            }?>
 
+                        <?php
+                        }
+                        else{?>
+                            <!-- Caso a obra nao possua imagens, carrega a imagem padrão -->
                             <div class="col-sm-2 col-md-2 col-lg-6">
                                 <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" width=500px>
                             </div>
-                        <?php}
-                        else {?>                        
-                            <div class="col-sm-2 col-md-2 col-lg-6">
-                                <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" width=500px>
-                            </div>
-                        <?php }?>
+                        <?php
+                        }?>
 
-
-
-
-                        <div class="col-sm-2 col-md-2 col-lg-6">
-                            <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" width=500px>
-                        </div>
                     </div>
                     <div class="card-footer text-muted text-center">
                         <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD
