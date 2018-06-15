@@ -31,6 +31,11 @@
                             <input type="text" id="txt-cpf" name="txt-cpf" class="form-control" value="<?php echo $funcionario->cpf ?>">
                         </div>
 
+                        <div class="form-group col-md-6">
+                            <label id="txt-email">Email</label>
+                            <input type="text" id="txt-email" name="txt-email" class="form-control" value="<?php echo $funcionario->email ?>">
+                        </div>
+
                         <!-- Mudança de senha disponível apenas para administradores -->
                         <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 1){?>
                             
@@ -38,19 +43,13 @@
                                 <label id="txt-senha">Senha</label>
                                 <input type="password" id="txt-senha" name="txt-senha" class="form-control" placeholder="Senha" value="">
                             </div>
-
+                            
                             <div class="form-group col-md-6">
                                 <label id="txt-confirmar-senha">Confirmar senha</label>
                                 <input type="password" id="txt-confirmar-senha" name="txt-confirmar-senha" class="form-control" placeholder="Confirmar senha" value="">
                             </div>
-                            
                         <?php
                         }?>
-
-                        <div class="form-group col-md-6">
-                            <label id="txt-email">Email</label>
-                            <input type="text" id="txt-email" name="txt-email" class="form-control" value="<?php echo $funcionario->email ?>">
-                        </div>
 
                         <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 1) { ?>
                             <div class="form-group col-md-6">

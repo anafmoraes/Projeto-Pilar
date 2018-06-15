@@ -303,56 +303,56 @@ class Obra_Controller extends CI_Controller {
     }
 
     //Realiza a exclusão lógica de uma obra do sistema (Apenas Supervisores)
-    public function exclusao_logica($id) {
-
-        $id_obra = $id;        
+    public function exclusao_logica($id) {       
         $obra['situacao'] = 0;
 
         if($this->Obra_Model->atualizar_obra($id, $obra)) {
-            $dados['resultado'] = $this->Obra_Model->pesquisa_unitaria($id);
-            $this->load->view('frontend/obra/Registro_View', $dados);
+            redirect(base_url('Obra_Controller/pesquisar_obra/'.$id));
         }
         else {
-            echo "Houve um erro no sistema";
+            echo "Erro ao realizar a exclusão lógica";
         }
     }
 
     //Realiza a inclusao lógica de uma obra do sistema (Apenas Supervisores)
-    public function inclusao_logica($id) {
-
-        $id_obra = $id;        
+    public function inclusao_logica($id) {       
         $obra['situacao'] = 1;
         
         if($this->Obra_Model->atualizar_obra($id, $obra)) {
-            $dados['resultado'] = $this->Obra_Model->pesquisa_unitaria($id);
-            $this->load->view('frontend/obra/Registro_View', $dados);
+            redirect(base_url('Obra_Controller/pesquisar_obra/'.$id));
         }
         else {
-            echo "Houve um erro no sistema";
+            echo "Erro ao realizar a inclusão lógica";
         }
     }
 
     // Exclui uma obra e as exposições e restaurações relacionadas a ela (Propagação)
     public function remover_obra($id_obra) {
 
-        /*Acessa o BD para excluir todas as exposições associadas à obra*/
-        if($this->Exposicao_Model->excluir_exposicoes_obras($id_obra)){
-            /*Acessa o BD para excluir todas as restaurações associadas à obra*/
-            if($this->Restauracao_Model->excluir_restauracoes_obras($id_obra)){
-                /*Acessa o BD para excluir todas aobra selecionada*/
-                if($this->Obra_Model->excluir_obra($id_obra)) {
-                    redirect(base_url('Obra_Controller/pre_visualizacao'));
+        /*Acessa o BD para excluir todas as imagens associadas à obra*/
+        if($this->Exposicao_Model->excluir_imagens($id_obra)){
+            /*Acessa o BD para excluir todas as exposições associadas à obra*/
+            if($this->Exposicao_Model->excluir_exposicoes_obras($id_obra)){
+                /*Acessa o BD para excluir todas as restaurações associadas à obra*/
+                if($this->Restauracao_Model->excluir_restauracoes_obras($id_obra)){
+                    /*Acessa o BD para excluir todas aobra selecionada*/
+                    if($this->Obra_Model->excluir_obra($id_obra)) {
+                        redirect(base_url('Obra_Controller/pre_visualizacao'));
+                    }
+                    else{
+                        echo "Houve um erro inesperado na exclusão da obra selecionada";
+                    }
                 }
                 else{
-                    echo "Houve um erro inesperado na exclusão da obra selecionada";
+                    echo "Houve um erro inesperado na exclusão das restaurações ligadas a obra.";
                 }
             }
-            else{
-                echo "Houve um erro inesperado na exclusão das restaurações ligadas a obra.";
+            else {
+                echo "Houve um erro inesperado na exclusão das exposições ligadas a obra.";
             }
         }
-        else {
-            echo "Houve um erro inesperado na exclusão das exposições ligadas a obra.";
+        else{
+            echo "Houve um erro inesperado na exclusão das imagens ligadas a obra.";
         }
     }
 

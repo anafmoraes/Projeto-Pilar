@@ -53,7 +53,7 @@ class Funcionario_Controller extends CI_Controller {
         }
 
             $this->load->library('form_validation');
-            $this->form_validation->set_rules('txt-nome', 'Nome do usuário', 'required|min_length[5]|max_length[80]');
+            $this->form_validation->set_rules('txt-nome', 'Nome do usuário', 'required|min_length[5]|max_length[40]');
             $this->form_validation->set_rules('txt-senha', 'Senha do usuário', 'required|min_length[6]|max_length[20]');
             $this->form_validation->set_rules('txt-confirmar-senha', 'Confirmar senha', 'required|matches[txt-senha]');
             $this->form_validation->set_rules('txt-cpf', 'CPF', 'required|is_unique[funcionario.cpf]');
