@@ -31,10 +31,13 @@
 
                         <!-- Verifica qual é a imagem padrão da obra atual -->
                         <?php
-                        if($obra->imagem == 1){?>
+                        if($obra->imagem == 1){ ?>
+                            <?php $semImgpadrao = 1; ?>
                             <!-- Pesquisa a imagem padrão desta obra -->
                             <?php foreach($imgs as $img){
+
                                 if($obra->id_obra == $img->id_obra && $img->img_padrao == 1){
+                                    $semImgpadrao = 0;
                                     $source = $img->caminho_img . $img->id_img . '.' . $img->extensao;
                                     ?>
                                     <div class="col-sm-2 col-md-2 col-lg-6">
@@ -45,6 +48,14 @@
                             <?php
                             }?>
 
+                            <!-- Se nenhuma das fotos da obra for uma imagem padrão renderiza a imagem default -->
+                            <?php
+                            if($semImgpadrao){?>
+                                <div class="col-sm-2 col-md-2 col-lg-6">
+                                    <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" width=500px>
+                                </div>
+                            <?php
+                            }?>
                         <?php
                         }
                         else{?>
