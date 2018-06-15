@@ -24,11 +24,6 @@ class Obra_Model extends CI_Model{
         // Indica em que tabela será realizada a pesquisa pelos atributos
         $this->db->from('obra');
 
-        //Realiza uma busca em duas tabelas
-        $this->db->join('galeria', 'imagem >= 0');
-
-        $this->db->where('img_padrao', 1);
-
         // Ordena por critério descendente de ID (esperança de ordenar do registro mais recente para o mais antigo)
         $this->db->order_by('id_obra','DESC');
 
@@ -75,7 +70,7 @@ class Obra_Model extends CI_Model{
         // Indica em que tabela será realizada a pesquisa pelos atributos
         $this->db->from('galeria');
 
-        $this->db->where('obra_id', $id);
+        $this->db->where('id_obra', $id);
 
         // Ordena por critério descendente de ID (esperança de ordenar do registro mais recente para o mais antigo)
         $this->db->order_by('id_img','DESC');
@@ -114,7 +109,7 @@ class Obra_Model extends CI_Model{
     public function tornar_padrao($id_img, $id_obra, $dados){
         //Limpa a imagem padrao anterior
         $this->db->from('galeria');        
-        $this->db->where('obra_id', $id_obra);
+        $this->db->where('id_obra', $id_obra);
         $this->db->where('img_padrao', 1);
         $remove_padrao['img_padrao'] = 0;
         $this->db->set($remove_padrao);
@@ -125,5 +120,15 @@ class Obra_Model extends CI_Model{
         $this->db->where('id_img', $id_img);
         $this->db->set($dados);
         return $this->db->update('galeria');
+    }
+
+    public function seleciona_img_padrao(){
+        $this->db->select();
+        $this->db->from('galeria');
+        $this->db->where('img_padrao', 1);
+        $this->db->order_by('id_img','DESC');
+
+        return $this->db->get()->result();
+
     }
 }

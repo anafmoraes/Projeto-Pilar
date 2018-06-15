@@ -388,7 +388,7 @@ class Obra_Controller extends CI_Controller {
         }
 
         //Grava as informações da imagem no banco de dados        
-        $dados['obra_id'] = $id;
+        $dados['id_obra'] = $id;
         $dados['img_padrao'] = 0;
         $dados['caminho_img'] =  "assets/img/obras/";
 
