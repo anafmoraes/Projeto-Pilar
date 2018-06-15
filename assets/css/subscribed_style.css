@@ -23,6 +23,10 @@ hr {
     border-width: 0.8px;
 }
 
+#tamanho_card{
+  width: 75rem;
+}
+
 #corpo{
   background-color: #FAFAFA;
 }
@@ -31,11 +35,60 @@ hr {
   width: 110px;
 }
 
+#botao_exposicao{
+  width: 230px;
+}
+
+#botao_atualizar{
+  width: 200px;
+}
+
+#botao_excluir{
+  width: 200px;
+}
+
+#botao_restauracao{
+  width: 250px;
+}
+
+#cadastrar_obra{
+  width: 200px;
+}
+
+#visualizar_registro{
+  width: 250px;
+}
+
+#botao_230{
+  width: 230px;
+}
+
 #sem_titulo{
   margin-top: -4rem;
 }
 
+#alinhar_direita{
+  float: right;
+}
+
+#botao_115{
+  width: 115px;
+}
+
+#overflow_automatico{
+  overflow:auto;
+}
+
+#passos_cadastro{
+  text-align:center;
+  margin-top:40px;
+}
+
 .footer{
+    color: #FFF;
+}
+
+.sub-footer{
     color: #FFF;
 }
 
@@ -50,8 +103,8 @@ hr {
 
 #caixa {
   border-width: 0.5px;
-  border-style: solid;
-  border-color: #ED502E;
+  background-color: #FAFAFA;
+
 }
 
 #linha_direita {

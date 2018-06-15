@@ -14,3 +14,8 @@ A função de cadastrar um novo funcionario nao está informando os erros origin
 Falta implementar a remoção da imagem que for excluida da pasta do projeto (Ver obra model na funcao remover_registro_imagem())
 
 No formulário de exibição do registro de obra, pode colocar direo o meio de aquisição da obra, nao precisa colocar todas as opções, coloque apenas a que é válida.
+Resposta: Fiz assim para ficar mais parecido com o formulário real. Deixar ou manter? 
+
+
+"Comentei as linhas 30 e 33 do Obra_Model para conseguir ter a pré visualização das obras"
+Ana Luiza
