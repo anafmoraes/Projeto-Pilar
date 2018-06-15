@@ -18,8 +18,7 @@ class Obra_Model extends CI_Model{
     // Responsável por gerar a pré-visualização de TODAS as obras cadastradas na view
     public function pre_visualizacao(){
         // get_compiled_select() deve ser usado para a pesquisa funcionar corretamente neste join
-    	$this->db->select('id_obra', 'num_atual', 'descricao_objeto', 'nome_objeto', 'titulo',
-            'imagem', 'id_img', 'extensao', 'caminho_img', 'img_padrao')->get_compiled_select();
+    	$this->db->select('id_obra', 'num_atual', 'descricao_objeto', 'nome_objeto', 'titulo')->get_compiled_select();
 
         // Indica em que tabela será realizada a pesquisa pelos atributos
         $this->db->from('obra');
@@ -122,6 +121,7 @@ class Obra_Model extends CI_Model{
         return $this->db->update('galeria');
     }
 
+    // Seleciona todas as imagens da tabela de galeria que são imagens padrão das obras
     public function seleciona_img_padrao(){
         $this->db->select();
         $this->db->from('galeria');
@@ -129,6 +129,5 @@ class Obra_Model extends CI_Model{
         $this->db->order_by('id_img','DESC');
 
         return $this->db->get()->result();
-
     }
 }
