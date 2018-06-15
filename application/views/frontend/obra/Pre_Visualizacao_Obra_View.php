@@ -29,16 +29,32 @@
                             </p>                        
                         </div>
 
+                        <!-- Verifica qual é a imagem padrão da obra atual -->
+                        <?php
+                        if($obra->imagem == 1){?>
+                            <!-- Pesquisa a imagem padrão desta obra -->
+                            <?php foreach($imgs as $img){
+                                if($obra->id_obra == $img->id_obra && $img->img_padrao == 1){
+                                    $source = $img->caminho_img . $img->id_img . '.' . $img->extensao;
+                                    ?>
+                                    <div class="col-sm-2 col-md-2 col-lg-6">
+                                        <img src="<?php echo base_url($source);?>" alt="imagem_padrao" class="img-fluid" height=300px width="500">
+                                    </div>
+                                <?php
+                                }?>
+                            <?php
+                            }?>
 
+                        <?php
+                        }
+                        else{?>
+                            <!-- Caso a obra nao possua imagens, carrega a imagem padrão -->
+                            <div class="col-sm-2 col-md-2 col-lg-6">
+                                <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" width=500px>
+                            </div>
+                        <?php
+                        }?>
 
-                       
-
-
-
-
-                        <div class="col-sm-2 col-md-2 col-lg-6">
-                            <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" width=500px>
-                        </div>
                     </div>
                     <div class="card-footer text-muted text-center">
                         <!-- Passa o id_obra para o form que será usado lá no controller para realizar a busca no BD
