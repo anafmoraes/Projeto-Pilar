@@ -108,8 +108,7 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
         </div>
         <div class="form-group">
             <label id="conservacao">Conservação</label>
-            <select id="conservacao" name="conservacao" class="form-control" placeholder="Digite o estado de conservação do objeto" value="<?php echo set_value('conservacao');?>" oninput="this.className = ''">
-                <option value="0">Selecione um estado de conservação</option>
+            <select id="conservacao" name="conservacao" class="form-control" placeholder="Digite o estado de conservação do objeto" value="<?php echo set_value('conservacao');?>" oninput="this.className = ''" required= "required">
                 <option>Bom</option>
                 <option>Regular</option>
                 <option>Ruim</option>
@@ -194,8 +193,7 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
         <div class="row">
             <div class="form-group col-md-8">
                 <label id="modo-aquisicao">Modo de aquisição </label>
-                <select id="modo-aquisicao" name="modo-aquisicao" class="form-control" value="<?php echo set_value('modo-aquisicao');?>" oninput="this.className = ''">
-                    <option value="0">Selecione um modo de aquisição</option>
+                <select id="modo-aquisicao" name="modo-aquisicao" class="form-control" value="<?php echo set_value('modo-aquisicao');?>" oninput="this.className = ''" required="required">
                     <option>Compra</option>
                     <option>Doação</option>
                     <option>Permuta</option>
@@ -213,7 +211,7 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
         <h1>Preenchimento técnico</h1>
         <h6 class="text-center">Insira abaixo as informações <strong> TÉCNICAS </strong> do objeto que deseja registrar</h6>
         <div class="form-group">
-            <label id="responsavel">Responsável pelo preechimento técnico (é o usuário que esta cadastrando?)</label>
+            <label id="responsavel">Responsável pelo preechimento técnico</label>
             <input autofocus type="text" id="responsavel" name="responsavel" class="form-control" placeholder="Digite o responsável pelo preenchimento técnico" value="<?php echo set_value('responsavel');?>" oninput="this.className = ''" maxlength="200">
         </div>
         <div class="form-group">
@@ -227,29 +225,29 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
                 <input type="text" id="responsavel-digitacao" name="responsavel-digitacao" class="form-control" placeholder="Digite o nome do responsável pela digitação" value="<?php echo set_value('responsavel-digitacao');?>" oninput="this.className = ''" maxlength="200">
             </div>
             <div class="form-group col-md-4">
-                <label id="data-digitacao">Data da digitação (automática?)</label>
+                <label id="data-digitacao">Data da digitação</label>
                 <input type="date" id="data-digitacao" name="data-digitacao" class="form-control"  value="<?php echo set_value('data-digitacao');?>" oninput="this.className = ''">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-md-8">
-                <label id="responsavel-revisao">Responsável pela revisão (Vai vir do banco, quando outro usuário analisar)</label>
+                <label id="responsavel-revisao">Responsável pela revisão</label>
                 <input type="text" id="responsavel-revisao" name="responsavel-revisao" class="form-control" placeholder="Digite o nome do responsável pela revisão" value="<?php echo set_value('responsavel-revisao');?>" oninput="this.className = ''" maxlength="200">
             </div>
             <div class="form-group col-md-4">
-                <label id="data-revisao">Data da revisão (automática?)</label>
+                <label id="data-revisao">Data da revisão</label>
                 <input type="date" id="data-revisao" name="data-revisao" class="form-control"  value="<?php echo set_value('data-revisao');?>" oninput="this.className = ''">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-md-8">
-                <label id="responsavel-alteracao">Responsável pela alteracao (Vai vir do banco, quando outro usuário analisar)</label>
+                <label id="responsavel-alteracao">Responsável pela alteracao</label>
                 <input type="text" id="responsavel-alteracao" name="responsavel-alteracao" class="form-control" placeholder="Digite o nome do responsável pela alteracao" value="<?php echo set_value('responsavel-revisao');?>" oninput="this.className = ''" maxlength="200">
             </div>
             <div class="form-group col-md-4">
-                <label id="data-alteracao">Data da alteracao (Data será automática?)</label>
+                <label id="data-alteracao">Data da alteracao</label>
                 <input type="date" id="data-alteracao" name="data-alteracao" class="form-control"  value="<?php echo set_value('data-alteracao');?>" oninput="this.className = ''">
             </div>
         </div>
