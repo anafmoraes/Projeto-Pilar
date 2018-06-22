@@ -63,7 +63,7 @@
                             <!-- Botão de exclusão que chama um modal para verificar se o usuário deseja mesmo excluir a obra-->
                             <button id="botao_excluir" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal"> <span class="oi oi-trash"></span> Excluir</button>
 
-                            <!-- Modal de exclusão de obra -->
+                            <!-- Modal de exclusão de exposicao -->
                             <div class="modal fade" id="myModal" role="dialog">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
