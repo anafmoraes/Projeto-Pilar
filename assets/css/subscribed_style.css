@@ -23,6 +23,38 @@ hr {
     border-width: 0.8px;
 }
 
+a:hover {
+    text-decoration: underline;
+    color: #EC4707;
+}
+
+img.img-galeria {
+    width:20vw !important;
+    height: 32vh !important;
+}
+
+a#botao_excluir {
+    width: 70px;
+    height: 21px;
+    font-size: 11px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+a#botao_tornar_padrao{
+    width: 100px;
+    height: 21px;
+    font-size: 11px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.galeria_figure{
+  float: left;
+  margin-left: 16px;
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
+
 #tamanho_card{
   width: 75rem;
 }
@@ -945,5 +977,5 @@ button.btn.btn-azul{
 }
 
 #add_img {
-    width: 20vw;
+    width: 9vw;
 }

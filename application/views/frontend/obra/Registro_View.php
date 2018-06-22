@@ -73,7 +73,7 @@
 
       <label> IDENTIFICAÇÃO DO BEM</label><br>
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-4 form-group">
           <b>Numero atual: </b>
           <input readonly="true" placeholder="<?php echo $obra->num_atual ?>"><br>
           <!--<b>Número Anterior:</b> <?php echo $obra->num_anterior ?><br>-->

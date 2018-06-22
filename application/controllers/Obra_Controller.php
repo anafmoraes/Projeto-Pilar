@@ -449,6 +449,30 @@ class Obra_Controller extends CI_Controller {
         }
     }
 
+    public function remover_img($id_obra, $id_img){
+        
+        // Localiza os dados do arquivo a ser removido e retorna um array com todos os dados
+        $this->img = $this->Obra_Model->pesquisar_uma_img($id_img);
+
+        //Cria um caminho para o direteório da imagem e guarda em uma variável
+        $caminho = './' . $this->img[0]->caminho_img . $this->img[0]->id_img . '.' . $this->img[0]->extensao;
+
+        //echo $caminho;
+
+        // Função em PHP que vai no diretório e apaga o arquivo selecionado
+        if(unlink($caminho)){
+            if($this->Obra_Model->remover_registro_imagem($id_img)){
+                redirect(base_url('Obra_Controller/galeria/'.$id_obra));
+            }
+            else{
+                echo "Erro ao excluir o registro de imagem do banco de dados";
+            }
+        }
+        else{
+            echo "Erro ao remover o arquivo de imagem do diretório";
+        }
+    }
+
 /*######################################Métodos referentes as exposições#############################################-*/
 
     // Pesquisa e retorna todas as exposiçoes ligadas a uma determinada obra
