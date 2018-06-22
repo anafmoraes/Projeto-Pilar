@@ -59,7 +59,6 @@ class Obra_Model extends CI_Model{
 
     public function excluir_obra($id_obra) {
         $this->db->where('id_obra', $id_obra);
-
         return $this->db->delete('obra');
     }
 
@@ -133,7 +132,18 @@ class Obra_Model extends CI_Model{
 
     public function excluir_imagens($id_obra) {
         $this->db->where('id_obra', $id_obra);
-
         return $this->db->delete('galeria');
+    }
+
+    public function pesquisar_uma_img($id_img){
+        $this->db->select();
+
+        // Indica em que tabela será realizada a pesquisa pelos atributos
+        $this->db->from('galeria');
+
+        $this->db->where('id_img', $id_img);
+
+        // Retorna o resultado da pesquisa
+        return $this->db->get()->result();
     }
 }

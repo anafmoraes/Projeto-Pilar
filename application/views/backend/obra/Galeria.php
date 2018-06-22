@@ -16,7 +16,7 @@
             <!-- Formulário de upload de imagens -->
             <?php echo form_open_multipart('Obra_Controller/add_img_obra/'.$id_obra);?>
                 <input class="form-control" type="file" name="userfile" size="20" />
-                <button id="add_img" class="btn btn-default add_img" type="submit"> Adicionar Nova Imagem </button>
+                <button id="add_img" class="btn btn-default add_img" type="submit"> Adicionar Imagem </button>
             <?php echo form_close();?>
         </div>
     </div>
@@ -35,7 +35,9 @@
                     
                     <figcaption>
                             Nome: <?php echo $imagem->nome_img ?>
-                            <a href="<?php echo base_url('Obra_Controller/img_padrao/'.$id_obra.'/'.$imagem->id_img); ?>"> Tornar Padrão </a>
+                            <a href="<?php echo base_url('Obra_Controller/img_padrao/'.$id_obra.'/'.$imagem->id_img); ?>"> | Tornar Padrão </a>
+
+                            <a href="<?php echo base_url('Obra_Controller/remover_img/'.$id_obra.'/'.$imagem->id_img); ?>"> | Excluir </a>
                     </figcaption>
                 </figure>
             </div>
