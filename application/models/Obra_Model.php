@@ -41,7 +41,14 @@ class Obra_Model extends CI_Model{
 
         $this->db->where('id_obra', $chave);
 
+
         // Retorna o resultado da pesquisa
+        return $this->db->get()->result();
+    }
+    public function pesquisa_nome($id){
+        $this->db->select();
+        $this->db->from('funcionario');
+        $this->db->where('id_tipoFuncionario', $id);
         return $this->db->get()->result();
     }
 

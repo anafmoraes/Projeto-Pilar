@@ -159,8 +159,13 @@ class Obra_Controller extends CI_Controller {
     // Envia para a view uma obra específica de acordo com o id que é passado na view
     public function pesquisar_obra($id) {
         $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
-        $dados['resultado'] = $this->pesquisa_unitaria;
+        foreach ($this->pesquisa_unitaria as $pesquisa ) {
         
+        
+        $this->usuario_cadastro = $this->Obra_Model->pesquisa_nome($pesquisa->id_funcionario);
+        }
+        $dados['resultado'] = $this->pesquisa_unitaria;
+        $dados['usuario_cadastro']=$this->usuario_cadastro;
         //$this->pesquisaTipo = 
 
         //Chama o modelo de cabeçalho

@@ -1,11 +1,14 @@
 <div class="container">
      <!--  Botão para voltar para a pré-visualização  -->
-    <?php echo form_open('pre_visualizacao_funcionario'); ?>
-        <button type="submit"class="btn btn-default"> Voltar </button>
-    <?php echo form_close();?>
+      <?php foreach ($resultado as $funcionario){ ?>
+          <?php echo form_open('pre_visualizacao_funcionario'); ?>
+              <?php if($funcionario->id_tipoFuncionario == 1){  ?>
+                  <button type="submit"class="btn btn-default"> Voltar </button>
+              <?php } ?>  
+          <?php echo form_close();?>
     <br><br>
     <!--  FIM  -->
-      <?php foreach ($resultado as $funcionario){ ?>
+    
             <div class="container-card-edit">
               <div class="img-container-card">
 

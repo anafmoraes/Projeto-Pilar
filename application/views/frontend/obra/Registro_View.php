@@ -203,6 +203,15 @@
           <div class="col-sm-offset-6">
             <b>Data da alteração: </b><input readonly="true" placeholder="<?php echo $obra->data_alteracao ?>">
           </div>
+        
+           <div class="col-sm-6">
+            <?php  foreach ($usuario_cadastro as $cadastrou){?>
+            <b>Usuario que Cadastrou a Obra: </b>
+            <?php  $cadastrou->nome ?>
+            <?php } ?>
+          </div>
+            
+        </div>
       </div>
     <?php } ?>
     </div>

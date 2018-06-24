@@ -3,7 +3,7 @@
     <div class="row">
     <!--  Botão para voltar para a pré-visualização  -->
     <?php echo form_open('pre_visualizacao_funcionario'); ?>
-        <button type="submit"> Voltar </button>
+         <button type="submit" class="btn btn-default"> Voltar </button>
     <?php echo form_close();?>
     <!--  FIM  -->
     </div>
