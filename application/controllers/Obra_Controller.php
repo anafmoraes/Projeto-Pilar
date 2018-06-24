@@ -335,7 +335,7 @@ class Obra_Controller extends CI_Controller {
     public function remover_obra($id_obra) {
 
         /*Acessa o BD para excluir todas as imagens associadas à obra*/
-        if($this->Exposicao_Model->excluir_imagens($id_obra)){
+        if($this->Obra_Model->excluir_imagens($id_obra)){
             /*Acessa o BD para excluir todas as exposições associadas à obra*/
             if($this->Exposicao_Model->excluir_exposicoes_obras($id_obra)){
                 /*Acessa o BD para excluir todas as restaurações associadas à obra*/

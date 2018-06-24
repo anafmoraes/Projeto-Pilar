@@ -22,11 +22,17 @@
                     </div>
                     <div class="card-body">
                         <div class="col-sm-6 col-md-6 col-lg-6">
-                            <h4 class="card-title"><?php echo $obra->titulo ?></h4>
-                            <p class="card-text">                            
-                                <b>Número atual: </b><?php echo $obra->num_atual ?><br>
-                                <b>Descrição do objeto: </b><?php echo $obra->descricao_objeto ?><br>
-                            </p>                        
+                            <p class="card-text">
+                                <b> Título: </b><?php echo $obra->titulo ?>
+                            </p>
+                            <p class="card-text" >                            
+                                <b>Número atual: </b>
+                                <?php echo $obra->num_atual ?><br>
+                            </p>
+                            <p class="card-text" > <b> Descrição do Objeto: </b> </p>
+                            <p class="text-preview" >                            
+                                <?php echo $obra->descricao_objeto ?><br>
+                            </p>  
                         </div>
 
                         <!-- Verifica qual é a imagem padrão da obra atual -->
@@ -41,7 +47,7 @@
                                     $source = $img->caminho_img . $img->id_img . '.' . $img->extensao;
                                     ?>
                                     <div class="col-sm-2 col-md-2 col-lg-6">
-                                        <img src="<?php echo base_url($source);?>" alt="imagem_padrao" class="img-fluid" height=300px width="500">
+                                        <img src="<?php echo base_url($source);?>" alt="imagem_padrao" class="img-fluid" height=250px width="500" class="pre_view_img">
                                     </div>
                                 <?php
                                 }?>
