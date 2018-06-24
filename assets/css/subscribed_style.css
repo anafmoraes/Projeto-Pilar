@@ -979,3 +979,7 @@ button.btn.btn-azul{
 #add_img {
     width: 9vw;
 }
+
+img.img-responsive {
+    height: 565px;
+}
