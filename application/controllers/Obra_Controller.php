@@ -159,7 +159,7 @@ class Obra_Controller extends CI_Controller {
     // Envia para a view uma obra específica de acordo com o id que é passado na view
     public function pesquisar_obra($id) {
         $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
-        foreach ($this->pesquisa_unitaria as $pesquisa ) {
+        foreach ($this->pesquisa_unitaria as $pesquisa) {
         
         
         $this->usuario_cadastro = $this->Obra_Model->pesquisa_nome($pesquisa->id_funcionario);
@@ -334,30 +334,54 @@ class Obra_Controller extends CI_Controller {
     // Exclui uma obra e as exposições e restaurações relacionadas a ela (Propagação)
     public function remover_obra($id_obra) {
 
+
         /*Acessa o BD para excluir todas as imagens associadas à obra*/
-        if($this->Obra_Model->excluir_imagens($id_obra)){
-            /*Acessa o BD para excluir todas as exposições associadas à obra*/
-            if($this->Exposicao_Model->excluir_exposicoes_obras($id_obra)){
-                /*Acessa o BD para excluir todas as restaurações associadas à obra*/
-                if($this->Restauracao_Model->excluir_restauracoes_obras($id_obra)){
-                    /*Acessa o BD para excluir todas aobra selecionada*/
-                    if($this->Obra_Model->excluir_obra($id_obra)) {
-                        redirect(base_url('Obra_Controller/pre_visualizacao'));
-                    }
-                    else{
-                        echo "Houve um erro inesperado na exclusão da obra selecionada";
+        $this->imgs = $this->Obra_Model->imagens_desta_obra($id_obra);
+
+        foreach($this->imgs as $img){
+            //Cria um caminho para o direteório da imagem e guarda em uma variável
+            $caminho = './' . $img->caminho_img . $img->id_img . '.' . $img->extensao;
+            //echo $caminho;
+
+            // Função em PHP que vai no diretório e apaga o arquivo selecionado
+            if(unlink($caminho)){
+                if($this->Obra_Model->remover_registro_imagem($img->id_img)){
+
+                    // Se a obra não possuir nenhuma imagem, atualiza o campo 'imagem' da tabela
+                    if($this->db->count_all('galeria') == 0){
+                        $obra['imagem'] = 0;
+                        if(!$this->Obra_Model->atualizar_obra($id_obra, $obra)) {
+                            echo "Erro ao realizar a atualização do atributo imagem na tabela de obras";
+                        }
                     }
                 }
                 else{
-                    echo "Houve um erro inesperado na exclusão das restaurações ligadas a obra.";
+                    echo "Erro ao excluir o registro de imagem do banco de dados";
                 }
             }
-            else {
-                echo "Houve um erro inesperado na exclusão das exposições ligadas a obra.";
+            else{
+                echo "Erro ao remover o arquivo de imagem do diretório";
+            }
+        }        
+
+        /*Acessa o BD para excluir todas as exposições associadas à obra*/
+        if($this->Exposicao_Model->excluir_exposicoes_obras($id_obra)){
+            /*Acessa o BD para excluir todas as restaurações associadas à obra*/
+            if($this->Restauracao_Model->excluir_restauracoes_obras($id_obra)){
+                /*Acessa o BD para excluir todas aobra selecionada*/
+                if($this->Obra_Model->excluir_obra($id_obra)) {
+                    redirect(base_url('Obra_Controller/pre_visualizacao'));
+                }
+                else{
+                    echo "Houve um erro inesperado na exclusão da obra selecionada";
+                }
+            }
+            else{
+                echo "Houve um erro inesperado na exclusão das restaurações ligadas a obra.";
             }
         }
-        else{
-            echo "Houve um erro inesperado na exclusão das imagens ligadas a obra.";
+        else {
+            echo "Houve um erro inesperado na exclusão das exposições ligadas a obra.";
         }
     }
 
@@ -467,6 +491,16 @@ class Obra_Controller extends CI_Controller {
         // Função em PHP que vai no diretório e apaga o arquivo selecionado
         if(unlink($caminho)){
             if($this->Obra_Model->remover_registro_imagem($id_img)){
+
+                // Se a obra não possuir nenhuma imagem, atualiza o campo 'imagem' da tabela
+                if($this->db->count_all('galeria') == 0){
+                    $obra['imagem'] = 0;
+                    if(!$this->Obra_Model->atualizar_obra($id_obra, $obra)) {
+                        echo "Erro ao realizar a atualização do atributo imagem na tabela de obras";
+                    }
+                }
+
+                //Redireciona para a galeria
                 redirect(base_url('Obra_Controller/galeria/'.$id_obra));
             }
             else{
