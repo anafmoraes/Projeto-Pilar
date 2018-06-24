@@ -31,6 +31,7 @@
                             <input type="text" id="txt-cpf" name="txt-cpf" class="form-control" value="<?php echo $funcionario->cpf ?>">
                         </div>
 
+
                         <div class="form-group col-md-6">
                             <label id="txt-email">Email</label>
                             <input type="text" id="txt-email" name="txt-email" class="form-control" value="<?php echo $funcionario->email ?>">
@@ -51,17 +52,66 @@
                         <?php
                         }?>
 
+
+                        <div class="form-group col-md-6">
+                            <label id="txt-senha">Senha</label>
+                            <input type="password" id="txt-senha" name="txt-senha" class="form-control" placeholder="Senha" value="">
+                        </div>
+                          <div class="form-group col-md-6">
+                                <label id="txt-confirmar-senha">Confirmar senha</label>
+                                <input type="password" id="txt-confirmar-senha" name="txt-confirmar-senha" class="form-control" placeholder="Confirmar senha" value="">
+                            </div>
+
+                          
                         <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 1) { ?>
                             <div class="form-group col-md-6">
                                 <label id="txt-tipo">Tipo de Funcionario</label><br>
                                 <select class="form-control" value="<?php echo $funcionario->id_tipoFuncionario ?>" name="txt-tipo" >
-                                    <option value="0">Escolher Tipo</option>
-                                    <option value="1">Administrador</option>
-                                    <option value="2">Supervisor</option>
-                                    <option value="3">Auxiliar</option>
+                                   
+                                   <?php if  ($funcionario->id_tipoFuncionario == 1) { ?>
+                                        <option selected value="1">Administrador</option>
+                                    <?php }else{ ?>
+                                        <option value="1">Administrador</option>
+                                    <?php } ?>    
+                                    <?php if  ($funcionario->id_tipoFuncionario == 2) { ?>
+                                        <option selected value="2">Supervisor</option>
+                                    <?php }else{ ?>
+                                        <option value="2">Supervisor</option>
+                                    <?php } ?>    
+                                    <?php if  ($funcionario->id_tipoFuncionario == 3) { ?>
+                                        <option selected value="3">Auxiliar</option>
+                                    <?php }else{ ?>
+                                        <option value="3">Auxiliar</option>
+                                    <?php } ?>    
+                                    
+                                    
                                 </select>
                             </div>                        
-                        <?php } ?>
+                        <?php } else { ?>
+                                 <div class="form-group col-md-6" style="visibility:hidden;">
+                                <label id="txt-tipo">Tipo de Funcionario</label><br>
+                                <select class="form-control" value="<?php echo $funcionario->id_tipoFuncionario ?>" name="txt-tipo" >
+                                   
+                                   <?php if  ($funcionario->id_tipoFuncionario == 1) { ?>
+                                        <option selected value="1">Administrador</option>
+                                    <?php }else{ ?>
+                                        <option value="1">Administrador</option>
+                                    <?php } ?>    
+                                    <?php if  ($funcionario->id_tipoFuncionario == 2) { ?>
+                                        <option selected value="2">Supervisor</option>
+                                    <?php }else{ ?>
+                                        <option value="2">Supervisor</option>
+                                    <?php } ?>    
+                                    <?php if  ($funcionario->id_tipoFuncionario == 3) { ?>
+                                        <option selected value="3">Auxiliar</option>
+                                    <?php }else{ ?>
+                                        <option value="3">Auxiliar</option>
+                                    <?php } ?>    
+                                    
+                                    
+                                </select>
+                            </div>  
+                         <?php } ?>     
                         <div class="form-group col-md-12">
                             <input type="hidden" id="txt-situacao" name="txt-situacao" class="form-control" value="<?php echo $funcionario->situacao ?>">
                         </div>   

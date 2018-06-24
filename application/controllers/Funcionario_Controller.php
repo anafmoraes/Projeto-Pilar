@@ -166,7 +166,11 @@ class Funcionario_Controller extends CI_Controller {
             $user['situacao'] = $this->input->post('txt-situacao');
 
             if($this->Funcionario_Model->atualizar_funcionario($chave, $user)){
-                redirect(base_url('pre_visualizacao_funcionario'));
+                if ($this->session->userdata('usuariologado')->id_tipoFuncionario != 1) {
+                       redirect(base_url('inicio'));
+                }else{
+                    redirect(base_url('pre_visualizacao_funcionario'));
+                }
             }
             else{
                 echo "Validação de dados na atualização do perfil falhou.";
