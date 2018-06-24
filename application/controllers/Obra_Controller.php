@@ -82,7 +82,8 @@ class Obra_Controller extends CI_Controller {
         
 
         if($this->form_validation->run() == FALSE) {
-            $this->cadastrar_obra();
+            redirect(base_url('Obra_Controller/cadastrar_obra'));
+            //$this->cadastrar_obra();
         } else {
             $obra['num_atual'] = $this->input->post('numero-atual');
             $obra['num_anterior'] = $this->input->post('numero-anterior');
@@ -128,7 +129,6 @@ class Obra_Controller extends CI_Controller {
             $obra['id_funcionario'] = $this->session->userdata('usuariologado')->id_funcionario;
             $obra['situacao'] = 1;
 
-
             if($dados['obras'] = $this->Obra_Model->cadastrar_obra($obra)) {
                 redirect(base_url('Obra_Controller/pre_visualizacao'));
             } else {
@@ -139,8 +139,11 @@ class Obra_Controller extends CI_Controller {
 
     // Envia, para a view, dados específicos de cada obra cadastrada no sistema
     public function pre_visualizacao() {
-        $this->pre_visualizacao = $this->Obra_Model->pre_visualizacao();        
+        $this->pre_visualizacao = $this->Obra_Model->pre_visualizacao();
+        $this->imgs_padrao = $this->Obra_Model->seleciona_img_padrao();
+        
         $dados['obras'] = $this->pre_visualizacao;
+        $dados['imgs'] = $this->imgs_padrao;
 
         //Chama o modelo de cabeçalho
         $this->load->view('template/html-header');
@@ -150,8 +153,7 @@ class Obra_Controller extends CI_Controller {
 
         //Chama o rodapé da página
         $this->load->view('template/footer');
-        $this->load->view('template/html-footer');
-        
+        $this->load->view('template/html-footer');        
     }
 
     // Envia para a view uma obra específica de acordo com o id que é passado na view
@@ -200,12 +202,9 @@ class Obra_Controller extends CI_Controller {
         $this->load->view('template/html-footer');        
     }
 
-    public function salvar_atualizacao($id) {
+    public function salvar_atualizacao($id_obra) {
 
-        $id_obra = $id;
         $this->load->library('form_validation');
-
-        //Não funciona colocando a variável $id_obra como parametro do metodo na forma de string
         //$this->form_validation->set_rules('$id_obra', 'ID', 'required');
 
         //Realiza a validação dos demais campos do form
@@ -253,7 +252,7 @@ class Obra_Controller extends CI_Controller {
 
         if($this->form_validation->run() == FALSE) {
             // Se a validação falhar chama o método de atualização novamente. '$this' indica que o método pertence a esta classe
-            $this->atualizar_obra($id);
+            redirect(base_url('Obra_Controller/atualizar_obra/'.$id_obra));
         }
         else {
             $obra['num_atual'] = $this->input->post('numero-atual');
@@ -299,9 +298,8 @@ class Obra_Controller extends CI_Controller {
             $obra['data_aquisicao'] = $this->input->post('data-aquisicao');
             $obra['id_funcionario'] = $this->session->userdata('usuariologado')->id_funcionario;
 
-            if($this->Obra_Model->atualizar_obra($id, $obra)) {
-                $dados['resultado'] = $this->Obra_Model->pesquisa_unitaria($id);
-                $this->load->view('frontend/obra/Registro_View', $dados);
+            if($this->Obra_Model->atualizar_obra($id_obra, $obra)) {
+                redirect(base_url('Obra_Controller/pesquisar_obra/'.$id_obra));
             }
             else {
                 echo "Houve um erro no sistema";
@@ -310,56 +308,56 @@ class Obra_Controller extends CI_Controller {
     }
 
     //Realiza a exclusão lógica de uma obra do sistema (Apenas Supervisores)
-    public function exclusao_logica($id) {
-
-        $id_obra = $id;        
+    public function exclusao_logica($id) {       
         $obra['situacao'] = 0;
 
         if($this->Obra_Model->atualizar_obra($id, $obra)) {
-            $dados['resultado'] = $this->Obra_Model->pesquisa_unitaria($id);
-            $this->load->view('frontend/obra/Registro_View', $dados);
+            redirect(base_url('Obra_Controller/pesquisar_obra/'.$id));
         }
         else {
-            echo "Houve um erro no sistema";
+            echo "Erro ao realizar a exclusão lógica";
         }
     }
 
     //Realiza a inclusao lógica de uma obra do sistema (Apenas Supervisores)
-    public function inclusao_logica($id) {
-
-        $id_obra = $id;        
+    public function inclusao_logica($id) {       
         $obra['situacao'] = 1;
         
         if($this->Obra_Model->atualizar_obra($id, $obra)) {
-            $dados['resultado'] = $this->Obra_Model->pesquisa_unitaria($id);
-            $this->load->view('frontend/obra/Registro_View', $dados);
+            redirect(base_url('Obra_Controller/pesquisar_obra/'.$id));
         }
         else {
-            echo "Houve um erro no sistema";
+            echo "Erro ao realizar a inclusão lógica";
         }
     }
 
     // Exclui uma obra e as exposições e restaurações relacionadas a ela (Propagação)
     public function remover_obra($id_obra) {
 
-        /*Acessa o BD para excluir todas as exposições associadas à obra*/
-        if($this->Exposicao_Model->excluir_exposicoes_obras($id_obra)){
-            /*Acessa o BD para excluir todas as restaurações associadas à obra*/
-            if($this->Restauracao_Model->excluir_restauracoes_obras($id_obra)){
-                /*Acessa o BD para excluir todas aobra selecionada*/
-                if($this->Obra_Model->excluir_obra($id_obra)) {
-                    redirect(base_url('Obra_Controller/pre_visualizacao'));
+        /*Acessa o BD para excluir todas as imagens associadas à obra*/
+        if($this->Exposicao_Model->excluir_imagens($id_obra)){
+            /*Acessa o BD para excluir todas as exposições associadas à obra*/
+            if($this->Exposicao_Model->excluir_exposicoes_obras($id_obra)){
+                /*Acessa o BD para excluir todas as restaurações associadas à obra*/
+                if($this->Restauracao_Model->excluir_restauracoes_obras($id_obra)){
+                    /*Acessa o BD para excluir todas aobra selecionada*/
+                    if($this->Obra_Model->excluir_obra($id_obra)) {
+                        redirect(base_url('Obra_Controller/pre_visualizacao'));
+                    }
+                    else{
+                        echo "Houve um erro inesperado na exclusão da obra selecionada";
+                    }
                 }
                 else{
-                    echo "Houve um erro inesperado na exclusão da obra selecionada";
+                    echo "Houve um erro inesperado na exclusão das restaurações ligadas a obra.";
                 }
             }
-            else{
-                echo "Houve um erro inesperado na exclusão das restaurações ligadas a obra.";
+            else {
+                echo "Houve um erro inesperado na exclusão das exposições ligadas a obra.";
             }
         }
-        else {
-            echo "Houve um erro inesperado na exclusão das exposições ligadas a obra.";
+        else{
+            echo "Houve um erro inesperado na exclusão das imagens ligadas a obra.";
         }
     }
 
@@ -386,7 +384,7 @@ class Obra_Controller extends CI_Controller {
     }
 
     public function add_img_obra($id) {
-        if(!$this-> session->userdata('logado')){
+        if(!$this->session->userdata('logado')){
             redirect(base_url('inicio/login'));
         }
 
@@ -396,17 +394,26 @@ class Obra_Controller extends CI_Controller {
         $dados['caminho_img'] =  "assets/img/obras/";
 
         //Realiza pré-cadastro da imagem no BD e retorna o id que acaba de ser gerado para eta imagem
-        $id_img = $this->Obra_Model->cadastrar_registro_imagem($dados);
+        $id_img = $this->Obra_Model->cadastrar_registro_imagem($dados);        
 
         //Usa o id para dar nome a imagem
-        $dados['nome_img'] = $id_img;
+        //$dados['nome_img'] = $id_img;
+
+        // Pega a extensão do arquivo (codigo PHP)
+        $dados['extensao'] = pathinfo($_FILES["userfile"]["name"], PATHINFO_EXTENSION);
+
+        //Pega o nome original da imagem
+        $original_name = $_FILES['userfile']['name'];
+
+        //Trata o nome original da imagem
+        $dados['nome_img'] = ''.strtr(utf8_decode($original_name), utf8_decode(' àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), '_aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
         
-        //Atualiza o registro com todas as informações
+        //Atualiza o registro no banco de dados com todas as informações
         if($this->Obra_Model->atualizar_registro_img($id_img, $dados)){
 
             //Salva a imagem na pasta do projeto
             $config['upload_path'] = './assets/img/obras/';
-            $config['allowed_types'] = 'jpg';
+            $config['allowed_types'] = 'jpg|png|jpeg|gif|bitmap|tiff|psd|raw|exif';
             $config['file_name'] = $id_img;
 
             //Para não sobrescrever a imagem que já estiver na pasta
@@ -419,8 +426,14 @@ class Obra_Controller extends CI_Controller {
                 echo $this->upload->display_errors('<h3>', '</h3>');
             }
             else {
-                //Se o upload deu certochama a funcao galeria novamente
-                $this->galeria($id);
+                //Indica ao banco de dados que a obra possui imagens associadas a ela
+                $obra['imagem'] = 1;
+                if(!$this->Obra_Model->atualizar_obra($id, $obra)) {
+                    echo "Erro ao informar ao banco de dados que a obra atual possui registros de imagem";   
+                }
+
+                //Se o upload deu certo chama a funcao galeria novamente
+                redirect(base_url('Obra_Controller/galeria/'.$id));
             } 
         }
         else{
@@ -429,6 +442,41 @@ class Obra_Controller extends CI_Controller {
         }        
     }
 
+    public function img_padrao($id_obra, $id_img){
+        //Tem que tirar o padrao de outra imagem
+        $dados['img_padrao'] = 1;
+
+        if($this->Obra_Model->tornar_padrao($id_img, $id_obra, $dados)) {
+            redirect(base_url('Obra_Controller/galeria/'.$id_obra));
+        }
+        else{
+            echo "Erro ao acessar Obra_Controller/img_padrao";
+        }
+    }
+
+    public function remover_img($id_obra, $id_img){
+        
+        // Localiza os dados do arquivo a ser removido e retorna um array com todos os dados
+        $this->img = $this->Obra_Model->pesquisar_uma_img($id_img);
+
+        //Cria um caminho para o direteório da imagem e guarda em uma variável
+        $caminho = './' . $this->img[0]->caminho_img . $this->img[0]->id_img . '.' . $this->img[0]->extensao;
+
+        //echo $caminho;
+
+        // Função em PHP que vai no diretório e apaga o arquivo selecionado
+        if(unlink($caminho)){
+            if($this->Obra_Model->remover_registro_imagem($id_img)){
+                redirect(base_url('Obra_Controller/galeria/'.$id_obra));
+            }
+            else{
+                echo "Erro ao excluir o registro de imagem do banco de dados";
+            }
+        }
+        else{
+            echo "Erro ao remover o arquivo de imagem do diretório";
+        }
+    }
 
 /*######################################Métodos referentes as exposições#############################################-*/
 
@@ -479,7 +527,8 @@ class Obra_Controller extends CI_Controller {
         /*Verifica se a validação obteve sucesso*/
         if ($this->form_validation->run() == FALSE) {
             /*Se verificação de dados falhar renderiza o formulario para nov preenchimento*/
-            $this->cadastrar_exposicao($id_obra);
+            redirect(base_url('Obra_Controller/cadastrar_exposicao/'.$id_obra));
+            //$this->cadastrar_exposicao($id_obra);
         }
         else {
             /*Passa os dados do cadastro para uma vaŕiável apenas*/
@@ -491,7 +540,8 @@ class Obra_Controller extends CI_Controller {
             $exposicao['id_obra'] = $id;
 
             if($this->Exposicao_Model->cadastrar_exposicao($exposicao)) {
-                $this->visualizar_exposicoes($id);
+                redirect(base_url('Obra_Controller/visualizar_exposicoes/'.$id));
+                //$this->visualizar_exposicoes($id);
             }
             else{
                 echo "Houve um erro inesperado, as informações não foram salvas.";
@@ -528,7 +578,8 @@ class Obra_Controller extends CI_Controller {
         /*Verifica se a validação obteve sucesso*/
         if ($this->form_validation->run() == FALSE) {
             /*Se verificação de dados falhar renderiza o formulario para novo preenchimento*/
-            $this->atualizar_exposicao($id_obra, $id_exposicao);
+            redirect(base_url('Obra_Controller/visualizar_exposicoes/'.$id_obra.'/'.$id_exposicao));
+            //$this->atualizar_exposicao($id_obra, $id_exposicao);
         }
         else {
             /*Envia os dados para a função do model que irá grava-los no BD*/
@@ -539,7 +590,8 @@ class Obra_Controller extends CI_Controller {
             $exposicao['data_fim'] = $this->input->post('data-fim-exp');
 
             if($this->Exposicao_Model->atualizar($id_exposicao, $exposicao)) {
-                $this->visualizar_exposicoes($id_obra);
+                //$this->visualizar_exposicoes($id_obra);
+                redirect(base_url('Obra_Controller/visualizar_exposicoes/'.$id_obra));
             } else {
                 echo "Houve um erro inesperado, as informações não foram salvas.";
             }
@@ -553,7 +605,8 @@ class Obra_Controller extends CI_Controller {
         if($this->Exposicao_Model->exclusao_unitaria($id_exposicao)){
             //$dados['id_obra'] = $id_obra;
 
-            $this->visualizar_exposicoes($id_obra);
+            //$this->visualizar_exposicoes($id_obra);
+            redirect(base_url('Obra_Controller/visualizar_exposicoes/'.$id_obra));
         }
     }
 
@@ -592,8 +645,6 @@ class Obra_Controller extends CI_Controller {
 
     public function salvar_restauracao($id_obra) {
 
-        $id = $id_obra;
-
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('tipo-intervencao', 'Intervencão', 'required|max_length[60]');
@@ -607,10 +658,11 @@ class Obra_Controller extends CI_Controller {
             $restauracao['intervencao'] = $this->input->post('tipo-intervencao');
             $restauracao['nome_restaurador'] = $this->input->post('nome-restaurador');
             $restauracao['data_restauracao'] = $this->input->post('data-restauracao');
-            $restauracao['id_obra'] = $id;
+            $restauracao['id_obra'] = $id_obra;
 
             if($this->Restauracao_Model->cadastrar_restauracao($restauracao)) {
-                $this->visualizar_restauracoes($id);
+                //$this->visualizar_restauracoes($id);
+                redirect(base_url('Obra_Controller/visualizar_restauracoes/'.$id_obra));
             }
             else{
                 echo "Houve um erro inesperado, as informações não foram salvas.";
@@ -654,7 +706,8 @@ class Obra_Controller extends CI_Controller {
             $restauracao['data_restauracao'] = $this->input->post('data-restauracao');
 
             if($this->Restauracao_Model->atualizar($id_restauracao, $restauracao)) {
-                $this->visualizar_restauracoes($id_obra);
+                //$this->visualizar_restauracoes($id_obra);
+                redirect(base_url('Obra_Controller/visualizar_restauracoes/'.$id_obra.'/'.$id_restauracao));
             }
             else {
                 echo "Houve um erro inesperado, as informações não foram salvas.";

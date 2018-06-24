@@ -34,7 +34,7 @@
 		Author URL: https://bootstrapmade.com
 		=======================================================
 		-->
-		<script src="<?php echo base_url('assets/js/formObras.js')?>"></script>	
+		<!-- <script src="<?php echo base_url('assets/js/formObras.js')?>"></script>	 -->
 	</head>
 
 	<!-- Início do Header (Barra de Menus) -->

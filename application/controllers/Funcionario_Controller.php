@@ -53,7 +53,7 @@ class Funcionario_Controller extends CI_Controller {
         }
 
             $this->load->library('form_validation');
-            $this->form_validation->set_rules('txt-nome', 'Nome do usuário', 'required|min_length[5]|max_length[80]');
+            $this->form_validation->set_rules('txt-nome', 'Nome do usuário', 'required|min_length[5]|max_length[40]');
             $this->form_validation->set_rules('txt-senha', 'Senha do usuário', 'required|min_length[6]|max_length[20]');
             $this->form_validation->set_rules('txt-confirmar-senha', 'Confirmar senha', 'required|matches[txt-senha]');
             $this->form_validation->set_rules('txt-cpf', 'CPF', 'required|is_unique[funcionario.cpf]');
@@ -61,8 +61,9 @@ class Funcionario_Controller extends CI_Controller {
             $this->form_validation->set_rules('txt-tipo-func', 'Tipo de Funcionario', 'required');
             
 
-            if ($this->form_validation->run() == FALSE) {
-                $this->cadastrar_funcionario();
+            if ($this->form_validation->run() == FALSE){
+                redirect(base_url('Funcionario_Controller/cadastrar_funcionario'));
+                //$this->cadastrar_funcionario();
             }
             else{
                 $user['nome'] = $this->input->post('txt-nome');
@@ -153,7 +154,7 @@ class Funcionario_Controller extends CI_Controller {
 
         // Verifica se a validação de dados obteve sucesso
         if ($this->form_validation->run() == FALSE){
-            $this->atualizar_perfil($id);
+            redirect(base_url('Funcionario_Controller/atualizar_perfil/'.$id));
         }
         else{
             $chave = $id;
@@ -187,7 +188,9 @@ class Funcionario_Controller extends CI_Controller {
 
         // Verifica se a validação de dados obteve sucesso
         if ($this->form_validation->run() == FALSE){
-                $this->atualizar_perfil();
+            redirect(base_url('Funcionario_Controller/atualizar_perfil/'.$id));
+            //$this->atualizar_perfil();
+            //redirect(base_url('Funcionario_Controller/'));
         }
         else{
             $chave = $this->input->post('txt-id');
@@ -212,7 +215,9 @@ class Funcionario_Controller extends CI_Controller {
 
         // Verifica se a validação de dados obteve sucesso
         if ($this->form_validation->run() == FALSE){
-                $this->atualizar_perfil();
+                //$this->atualizar_perfil();
+                redirect(base_url('Funcionario_Controller/atualizar_perfil/'.$id));
+
         }
         else{
             $chave = $this->input->post('txt-id');
@@ -256,7 +261,8 @@ class Funcionario_Controller extends CI_Controller {
         $this->form_validation->set_rules('txt-senha', 'Senha do usuário', 'required|min_length[6]');
 
         if($this->form_validation->run() == FALSE) {
-            $this->pagina_login();
+            //$this->pagina_login();
+            redirect(base_url('Funcionario_Controller/pagina_login'));
         }
         else {
             // Recebe as variáveis do form
@@ -294,20 +300,19 @@ class Funcionario_Controller extends CI_Controller {
     public function logout() {
         $this->session->set_userdata('usuariologado', NULL);
         $this->session->set_userdata('logado', FALSE);
-
         redirect(base_url('login'));
     }
 
     // Realiza o upload de imagem
     public function adicionar_foto ($id) {
-        if(!$this-> session->userdata('logado')){
+        if(!$this->session->userdata('logado')){
             redirect(base_url('inicio/login'));
         }
 
         $id = $this->input->post('id_funcionario');
 
         //Define a biblioteca de upload a ser usada
-        $config['image_library'] = 'gd2';
+        //$config['image_library'] = 'gd2';
         //upload_path, aponta para onde vai salvar as fotos do usuario
         $config['upload_path'] ='./assets/img/usuarios/';
         //Define os tipos permitidos
@@ -322,16 +327,17 @@ class Funcionario_Controller extends CI_Controller {
 
         //usa a função de pegar a imagem e gravar na pasta do projeto
         //Verifica se o upload falhou
-        if(!$this->upload->do_upload()){
+        if(!$this->upload->do_upload('userfile')){
             echo $this->upload->display_errors('<h3>', '</h3>');
         }
         else{
             if($this->Funcionario_Model->atualizar_img($id)){
-                $this->pesquisar_funcionario($id);
+                //$this->pesquisar_funcionario($id);
+                redirect(base_url('Funcionario_Controller/pesquisar_funcionario/'.$id));
             }
             else{
                 echo "Erro ao salvar a imagem no banco de dados do sistema";
             }            
         }
-    }    
+    }
 }

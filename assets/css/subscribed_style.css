@@ -23,6 +23,42 @@ hr {
     border-width: 0.8px;
 }
 
+a:hover {
+    text-decoration: underline;
+    color: #EC4707;
+}
+
+img.img-galeria {
+    width:20vw !important;
+    height: 32vh !important;
+}
+
+a#botao_excluir {
+    width: 70px;
+    height: 21px;
+    font-size: 11px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+a#botao_tornar_padrao{
+    width: 100px;
+    height: 21px;
+    font-size: 11px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.galeria_figure{
+  float: left;
+  margin-left: 16px;
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
+
+#tamanho_card{
+  width: 75rem;
+}
+
 #corpo{
   background-color: #FAFAFA;
 }
@@ -31,11 +67,60 @@ hr {
   width: 110px;
 }
 
+#botao_exposicao{
+  width: 230px;
+}
+
+#botao_atualizar{
+  width: 200px;
+}
+
+#botao_excluir{
+  width: 200px;
+}
+
+#botao_restauracao{
+  width: 250px;
+}
+
+#cadastrar_obra{
+  width: 200px;
+}
+
+#visualizar_registro{
+  width: 250px;
+}
+
+#botao_230{
+  width: 230px;
+}
+
 #sem_titulo{
   margin-top: -4rem;
 }
 
+#alinhar_direita{
+  float: right;
+}
+
+#botao_115{
+  width: 115px;
+}
+
+#overflow_automatico{
+  overflow:auto;
+}
+
+#passos_cadastro{
+  text-align:center;
+  margin-top:40px;
+}
+
 .footer{
+    color: #FFF;
+}
+
+.sub-footer{
     color: #FFF;
 }
 
@@ -50,8 +135,11 @@ hr {
 
 #caixa {
   border-width: 0.5px;
-  border-style: solid;
-  border-color: #ED502E;
+  background-color: #ffffff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 60%;
+  color: gray;
 }
 
 #linha_direita {
@@ -886,4 +974,8 @@ span.tipo-aux{
 }
 button.btn.btn-azul{
   background-color: #4c93d0;
+}
+
+#add_img {
+    width: 9vw;
 }

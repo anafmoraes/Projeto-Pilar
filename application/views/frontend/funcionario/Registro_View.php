@@ -74,7 +74,7 @@
                       <?php echo form_open('incluirL'); ?>
                           <input  type="hidden" name="txt-id" value="<?php echo $funcionario->id_funcionario ?>"/>
                           <input  type="hidden" name="txt-situacao" value="1"/>
-                          <button type="submit" class="btn btn-default" style="width: 180px;"> Ativar Usuário</button>
+                          <button type="submit" class="btn btn-default" style="width: 180px;"> Inserir Usuário</button>
                       <?php echo form_close();?>
                   <?php
                   }?>

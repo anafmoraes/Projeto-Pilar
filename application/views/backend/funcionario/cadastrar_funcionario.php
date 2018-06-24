@@ -49,7 +49,6 @@
                         <option value="3">Auxiliar</option>
                         <option value="1">Administrador</option>
                         <option value="2">Supervisor</option>
-                        <!-- <option value="3">Auxiliar</option> -->
                     </select>
                 </div>                               
                 
