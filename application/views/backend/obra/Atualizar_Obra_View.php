@@ -15,7 +15,7 @@
     </div>
 </div>
 
-    <div class="row">
+    <div class="container">
         <h2 class="text-center">  </h2>
         <?php if(isset($error)):?>
             <div><?=$error?></div>
@@ -34,7 +34,7 @@
                     <!--<input type="hidden" id="txt-id" name="id-obra" class="form-control" value="<?php echo $obra->id_obra ?>">-->
 
 
-                    <div class="row" id="caixa">
+                    <div class="row" id="caixa2">
                       <label> LOCALIZAÇÃO NA PLANTA DO BEM IMÓVEL</label><br>
                       <div class="row">
                         <div class="col-sm-12"> 
@@ -196,6 +196,4 @@
             }?>
         </div>
     </div>
-        
-</div>
     

@@ -87,6 +87,10 @@ a#botao_tornar_padrao{
   width: 200px;
 }
 
+#cadastrar{
+  width: 200px;
+}
+
 #visualizar_registro{
   width: 250px;
 }
@@ -142,6 +146,17 @@ a#botao_tornar_padrao{
   color: gray;
 }
 
+#caixa2{
+  border-width: 0.5px;
+  background-color: #ffffff;
+  margin: 20px auto;
+  padding: 40px;
+  width: 85%;
+  color: gray;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+}
+
 #linha_direita {
   border-right: solid;
   border-width: 0.5px;
@@ -186,6 +201,10 @@ input {
 
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
+  background-color: #ffdddd;
+}
+
+textarea.invalid {
   background-color: #ffdddd;
 }
 

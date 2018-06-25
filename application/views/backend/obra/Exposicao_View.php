@@ -1,65 +1,62 @@
-<h1> Exposições </h1>
-
+<body id="corpo">
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            <!--  Botão para voltar para a pré-visualização  -->
+           <!--  Botão para voltar para a pré-visualização  -->
             <?php echo form_open('Obra_Controller/pesquisar_obra/'.$id_obra); ?>
                 <button id="botao_voltar" class="btn btn-default" type="submit"> Voltar </button>
             <?php echo form_close();?>
             <!--  FIM  -->
         </div>
 
-        <div class="col-sm-offset-10">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar de botões" id="alinhar_direita">
+          <div class="btn-group mr-2" role="group">
             <!-- Botão que direciona para a página de cadastro de exposição -->
             <?php echo form_open('Obra_Controller/cadastrar_exposicao/'.$id_obra); ?>
                 <button id="botao_exposicao" class="btn btn-default" type="submit"> Cadastrar Exposição </button>
             <?php echo form_close();?>
             <!-- FIM -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="wow bounceInDown" data-wow-offset="0" data-wow-delay="0.3s"><h1> Exposições </h1></div>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="container text-center">
+
+<div class="container">
     <!-- Lista todas as obras registradas no banco de dados -->
     <?php
         foreach ($exposicoes as $exposicao){ ?>
-    <div class="row">
-        <div class="col-sm-offset-2">
-            <div class="card" id="tamanho_card">
-                <div class="card-header">
-                    <h3><?php echo $exposicao->nome_exposicao?> </h3>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <p class="card-text" id="sem_titulo">
-                            <div class="col-sm-6">
-                                <b>Local da exposição: </b><br>
-                                <?php echo $exposicao->local_realizacao?><br>
-                            </div>
-                            <div class="col-sm-6">
-                               <b>Início: </b><?php echo $exposicao->data_inicio?><br>
-                                <b>Término: </b><?php echo $exposicao->data_fim?><br>
-                            </div> 
-                            <hr>
-                        </p>
-                        <p class="card-text text-justify" id="sem_titulo">
-                            <div class="col-sm-12">
-                                <b>Descrição da exposição: </b><br>
-                                <?php echo $exposicao->descricao?><br>
-                            </div>
-                        </p>
-                    </div>                    
-                </div>
-                <div class="card-footer text-muted">
-                        <div class="col-sm-6">
+    <div class="row" id="caixa2">
+        <h3><?php echo $exposicao->nome_exposicao?> </h3>
+        <div class="col-sm-12">
+            <label>Local da exposição: </label>
+            <input readonly="true" class="form-control" placeholder="<?php echo $exposicao->local_realizacao?>">
+        </div>
+        <div class="col-sm-6">
+            <label>Início: </label>
+            <input readonly="true" class="form-control" placeholder="<?php echo $exposicao->data_inicio?>">
+        </div>
+        <div class="col-sm-6">
+            <label>Término: </label>
+            <input readonly="true" class="form-control" placeholder="<?php echo $exposicao->data_fim?>">
+        </div> 
+        <div class="col-sm-12" align="justify">
+            <label>Descrição da exposição: </label>
+            <textarea rows="5" readonly="true" class="form-control" placeholder="<?php echo $exposicao->descricao?>"></textarea> <br>
+        </div>
+        <div class="col-sm-4">
                             <!-- Botão para atualizar uma exposição -->
                             <?php echo form_open('Obra_Controller/atualizar_exposicao/'.$id_obra.'/'.$exposicao->id_exposicao); ?>
                                 <button id="botao_atualizar" class="btn btn-default" type="submit" name="txt-visualizar" value=""><span class="oi oi-loop-circular"></span> Atualizar </button>
                             <?php echo form_close();?>
                             <!-- FIM -->
-                        </div>
-                        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-4">
                             <!-- Botão de exclusão que chama um modal para verificar se o usuário deseja mesmo excluir a obra-->
                             <button id="botao_excluir" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal"> <span class="oi oi-trash"></span> Excluir</button>
 
@@ -88,12 +85,8 @@
                                 </div>
                             </div>
                             <!-- Fim modal de exclusão de obra -->  
-                        </div>
-                    </div>
-            </div>
         </div>
     </div>
-    <br>
     <?php
     }?>
 </div>

@@ -29,7 +29,7 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
         <h1>Localização</h1>
         <h6 class="text-center">Insira abaixo as informações da <strong> LOCALIZAÇÃO </strong> do objeto que deseja registrar</h6>
         <div class="form-group">
-            <input type="text" id="localizacao" name="localizacao" oninput="this.className = ''" class="form-control" placeholder="Digite a localização do objeto" value="<?php echo set_value('localizacao');?>" maxlength="150" autofocus>
+            <textarea type="text" id="localizacao" name="localizacao" class="form-control" placeholder="Digite a localização do objeto" value="<?php echo set_value('localizacao');?>" oninput="this.className = ''" maxlength="150" rows="4" cols="95"></textarea>
         </div>
     </div>
 
@@ -158,19 +158,19 @@ echo form_open('Obra_Controller/salvar_obra', 'id="regForm"');
         </div>
         <div class="form-group">
             <label id="carac-tecnicas">Caracteristicas técnicas </label><br>
-            <textarea type="text" id="carac-tecnicas" name="carac-tecnicas" class="form-control" placeholder="Insira as características técnicas" value="<?php echo set_value('carac-tecnicas');?>" oninput="this.className = ''" maxlength="1000" rows="3" cols="100"></textarea>
+            <textarea type="text" id="carac-tecnicas" name="carac-tecnicas" class="form-control" placeholder="Insira as características técnicas" value="<?php echo set_value('carac-tecnicas');?>" oninput="this.className = ''" maxlength="1000" rows="3" cols="95"></textarea>
         </div>
         <div class="form-group">
             <label id="carac-inconografica">Caracteristicas inconográficas </label><br>
-            <textarea type="text" id="carac-inconografica" name="carac-inconografica" class="form-control" placeholder="Insira as características inconográficas" value="<?php echo set_value('carac-inconografica');?>" oninput="this.className = ''" maxlength="1000" rows="3" cols="100"></textarea>
+            <textarea type="text" id="carac-inconografica" name="carac-inconografica" class="form-control" placeholder="Insira as características inconográficas" value="<?php echo set_value('carac-inconografica');?>" oninput="this.className = ''" maxlength="1000" rows="3" cols="95"></textarea>
         </div>
         <div class="form-group">
             <label id="carac-estilisticas">Caracteristicas estilísticas </label><br>
-            <textarea type="text" id="carac-estilisticas" name="carac-estilisticas" class="form-control" placeholder="Insira as características estilísticas" value="<?php echo set_value('carac-estilisticas');?>" oninput="this.className = ''" maxlength="1000" rows="3" cols="100"></textarea>
+            <textarea type="text" id="carac-estilisticas" name="carac-estilisticas" class="form-control" placeholder="Insira as características estilísticas" value="<?php echo set_value('carac-estilisticas');?>" oninput="this.className = ''" maxlength="1000" rows="3" cols="95"></textarea>
         </div>
         <div class="form-group">
             <label id="dados-historicos">Dados históricos </label><br>
-            <textarea type="text" id="dados-historicos" name="dados-historicos" class="form-control" placeholder="Insira os dados históricos" value="<?php echo set_value('dados-historicos');?>" oninput="this.className = ''" maxlength="1000" rows="3" cols="100"></textarea>
+            <textarea type="text" id="dados-historicos" name="dados-historicos" class="form-control" placeholder="Insira os dados históricos" value="<?php echo set_value('dados-historicos');?>" oninput="this.className = ''" maxlength="1000" rows="3" cols="95"></textarea>
         </div>
     </div>
 
@@ -324,9 +324,10 @@ echo form_close();
 
     function validateForm() {
       // This function deals with validation of the form fields
-      var x, y, i, valid = true;
+      var x, y, z, i, valid = true;
       x = document.getElementsByClassName("tab");
       y = x[currentTab].getElementsByTagName("input");
+      z = x[currentTab].getElementsByTagName("textarea");
       // A loop that checks every input field in the current tab:
       for (i = 0; i < y.length; i++) {
         // If a field is empty...
@@ -337,6 +338,18 @@ echo form_close();
           valid = false;
         }
       }
+
+      for (i = 0; i < z.length; i++) {
+        // If a field is empty...
+        if (z[i].value == "") {
+          // add an "invalid" class to the field:
+          z[i].className += " invalid";
+          // and set the current valid status to false
+          valid = false;
+        }
+      }
+
+
       // If the valid status is true, mark the step as finished and valid:
       if (valid) {
         document.getElementsByClassName("step")[currentTab].className += " finish";
