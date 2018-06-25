@@ -1,3 +1,4 @@
+<body id="corpo">
   <?php
       foreach ($resultado as $obra){
       ?>
@@ -61,11 +62,11 @@
         </div>
     </div>
 
-    <div class="row" id="caixa">
+    <div class="row" id="caixa2">
       <label> LOCALIZAÇÃO NA PLANTA DO BEM IMÓVEL</label><br>
       <div class="row">
         <div class="col-sm-12"> 
-        <input readonly="true" placeholder="<?php echo $obra->localizacao ?>">
+        <textarea type="text" class="form-control" readonly="true" placeholder="<?php echo $obra->localizacao ?>"></textarea>
         </div>
       </div>
       
@@ -73,21 +74,19 @@
 
       <label> IDENTIFICAÇÃO DO BEM</label><br>
       <div class="row">
-        <div class="col-sm-4 form-group">
+        <div class="col-sm-4">
           <b>Numero atual: </b>
-          <input readonly="true" placeholder="<?php echo $obra->num_atual ?>"><br>
-          <!--<b>Número Anterior:</b> <?php echo $obra->num_anterior ?><br>-->
-          <!-- <b><b>Fichas Relacionadas: </b><?php echo $obra->fichas_relacionadas ?><br> -->
+          <input readonly="true" class="form-control" placeholder="<?php echo $obra->num_atual ?>">
         </div>
 
-        <div class="col-sm-4"><b>Objeto: </b><input readonly="true" placeholder="<?php echo $obra->nome_objeto ?>"></div>
-        <div class="col-sm-4"><b>Título: </b><input readonly="true" placeholder="<?php echo $obra->titulo ?>"></div>
+        <div class="col-sm-4"><b>Objeto: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->nome_objeto ?>"></div>
+        <div class="col-sm-4"><b>Título: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->titulo ?>"></div>
           
-        <div class="col-sm-6"><b>Classe do objeto (thesaurus): </b><input readonly="true" placeholder="<?php echo $obra->classe ?>"></div>
-        <div class="col-sm-6"><b>Sub-classe do objeto (thesaurus): </b><input readonly="true" placeholder="<?php echo $obra->sub_classe ?>"></div>
+        <div class="col-sm-6"><b>Classe do objeto (thesaurus): </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->classe ?>"></div>
+        <div class="col-sm-6"><b>Sub-classe do objeto (thesaurus): </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->sub_classe ?>"></div>
 
-        <div class="col-sm-6"><b>Material (tabela): </b><input readonly="true" placeholder="<?php echo $obra->material ?>"></div>
-        <div class="col-sm-6"><b>Técnica (tabela): </b><input readonly="true" placeholder="<?php echo $obra->tecnica ?>"><br></div>
+        <div class="col-sm-6"><b>Material (tabela): </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->material ?>"></div>
+        <div class="col-sm-6"><b>Técnica (tabela): </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->tecnica ?>"></div>
       </div>
 
     <br><br>
@@ -95,42 +94,42 @@
       <label> DIMENSÕES:</label><br>
       <div class="row">
         <div class="col-sm-3">
-          <b>Altura (cm): </b><input readonly="true" placeholder="<?php echo $obra->altura ?>">
+          <b>Altura (cm): </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->altura ?>">
         </div>
 
         <div class="col-sm-3">
-          <b>Largura (cm): </b><input readonly="true" placeholder="<?php echo $obra->largura ?>">
+          <b>Largura (cm): </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->largura ?>">
         </div>
 
         <div class="col-sm-3">
-          <b>Comprimento (cm): </b><input readonly="true" placeholder="<?php echo $obra->comprimento ?>">
+          <b>Comprimento (cm): </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->comprimento ?>">
         </div>
 
         <div class="col-sm-3">
-          <b>Profundidade (cm): </b><input readonly="true" placeholder="<?php echo $obra->profundidade ?>">
+          <b>Profundidade (cm): </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->profundidade ?>">
         </div>
 
         <div class="col-sm-3">
-          <b>Diâmetro (cm): </b><input readonly="true" placeholder="<?php echo $obra->diametro ?>">
+          <b>Diâmetro (cm): </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->diametro ?>">
         </div>
 
         <div class="col-sm-3">
-          <b>Peso (kg): </b><input readonly="true" placeholder="<?php echo $obra->peso ?>">
+          <b>Peso (kg): </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->peso ?>">
         </div>
 
         <div class="col-sm-3">
-          <b>Circunferência (cm): </b><input readonly="true" placeholder="<?php echo $obra->circunferencia ?>">
+          <b>Circunferência (cm): </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->circunferencia ?>">
         </div>
       </div>
 
     <br><br>
 
       <div class="row">
-        <div class="col-sm-6"><b>Inscrições/marcas: </b><input readonly="true" placeholder="<?php echo $obra->inscricoes_marcas ?>"></div>
-        <div class="col-sm-6"><b>Época: </b><input readonly="true" placeholder="<?php echo $obra->epoca ?>"></div>
-        <div class="col-sm-6"><b>Autoria: </b><input readonly="true" placeholder="<?php echo $obra->autoria ?>"></div>
-        <div class="col-sm-6"><b>Origem: </b><input readonly="true" placeholder="<?php echo $obra->origem ?>"></div>
-        <div class="col-sm-6"><b>Procedência: </b><input readonly="true" placeholder="<?php echo $obra->procedencia ?>"></div>
+        <div class="col-sm-6"><b>Inscrições/marcas: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->inscricoes_marcas ?>"></div>
+        <div class="col-sm-6"><b>Época: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->epoca ?>"></div>
+        <div class="col-sm-6"><b>Autoria: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->autoria ?>"></div>
+        <div class="col-sm-6"><b>Origem: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->origem ?>"></div>
+        <div class="col-sm-6"><b>Procedência: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->procedencia ?>"></div>
       </div>
       
 
@@ -139,10 +138,10 @@
       <label>AQUISIÇÃO DA OBRA</label>
       <div class="row">
         <div class="col-sm-3">
-          <b>Modo de aquisição: </b><input readonly="true" placeholder="<?php echo $obra->modo_aquisicao ?>">
+          <b>Modo de aquisição: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->modo_aquisicao ?>">
         </div>
         <div class="col-sm-3">
-          <b>Data da aquisição: </b><input readonly="true" placeholder="<?php echo $obra->data_aquisicao ?>">
+          <b>Data da aquisição: </b><input readonly="true"class="form-control"  class="form-control" placeholder="<?php echo $obra->data_aquisicao ?>">
         </div>
       </div>
 
@@ -150,7 +149,7 @@
       
       <label> CONSERVAÇÃO DO OBJETO</label>
       <div class="row">
-        <div class="col-sm-3"><b>Estado de conservação: </b> <input readonly="true" placeholder="<?php echo $obra->conservacao ?>"></div>
+        <div class="col-sm-3"><b>Estado de conservação: </b> <input readonly="true" class="form-control" placeholder="<?php echo $obra->conservacao ?>"></div>
        
       </div>
       
@@ -158,11 +157,11 @@
 
       <label> ANÁLISE</label>
       <div class="row">
-        <div class="col-sm-12"><b>Descrição do objeto: </b><input readonly="true" placeholder="<?php echo $obra->descricao_objeto ?>"></div>
-        <div class="col-sm-12"><b>Características técnicas: </b><input readonly="true" placeholder="<?php echo $obra->carac_tecnica ?>"></div>
-        <div class="col-sm-12"><b>Características inconográficas: </b><input readonly="true" placeholder="<?php echo $obra->carac_inconografica ?>"></div>
-        <div class="col-sm-12"><b>Características estilisticas: </b><input readonly="true" placeholder="<?php echo $obra->carac_estilistica ?>"></div>
-        <div class="col-sm-12"><b>Dados históricos: </b><input readonly="true" placeholder="<?php echo $obra->dados_historicos ?>"></div>
+        <div class="col-sm-12"><b>Descrição do objeto: </b><textarea rows="5" readonly="true" class="form-control" placeholder="<?php echo $obra->descricao_objeto ?>"></textarea></div>
+        <div class="col-sm-12"><b>Características técnicas: </b><textarea rows="5" readonly="true" class="form-control" placeholder="<?php echo $obra->carac_tecnica ?>"></textarea></div>
+        <div class="col-sm-12"><b>Características inconográficas: </b><textarea rows="5" readonly="true" class="form-control" placeholder="<?php echo $obra->carac_inconografica ?>"></textarea></div>
+        <div class="col-sm-12"><b>Características estilisticas: </b><textarea rows="5" readonly="true" class="form-control" placeholder="<?php echo $obra->carac_estilistica ?>"></textarea></div>
+        <div class="col-sm-12"><b>Dados históricos: </b><textarea rows="5" readonly="true" class="form-control" placeholder="<?php echo $obra->dados_historicos ?>"></textarea></div>
       </div>
 
     <br><br>
@@ -170,15 +169,15 @@
       <label> OBSERVAÇÕES</label>
       <div class="row">
         <div class="col-sm-12">
-          <b>Publicação:  </b><input readonly="true" placeholder="<?php echo $obra->publicacao ?>">
+          <b>Publicação:  </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->publicacao ?>">
         </div>
 
         <div class="col-sm-12">
-          <b>Fontes primárias:  </b><input readonly="true" placeholder="<?php echo $obra->fontes_primarias ?>">
+          <b>Fontes primárias:  </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->fontes_primarias ?>">
         </div>
 
         <div class="col-sm-12">
-          <b>Fontes bibliográficas: </b><input readonly="true" placeholder="<?php echo $obra->fontes_bib ?>">
+          <b>Fontes bibliográficas: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->fontes_bib ?>">
         </div>
       </div>
 
@@ -186,22 +185,22 @@
 
       <label> PRENCHIMENTO TÉCNICO</label>
       <div class="row">
-        <div class="col-sm-12"><b>Técnico Responsável pelo preenchimento técnico: </b><input readonly="true" placeholder="<?php echo $obra->resp_preenc_tec ?>"></div>
-          <div class="col-sm-12"><b>Nome do fotógrafo: </b><input readonly="true" placeholder="<?php echo $obra->nome_fotografo ?>"></div>
+        <div class="col-sm-12"><b>Técnico Responsável pelo preenchimento técnico: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->resp_preenc_tec ?>"></div>
+          <div class="col-sm-12"><b>Nome do fotógrafo: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->nome_fotografo ?>"></div>
           
-          <div class="col-sm-6"><b>Responsável pela digitação: </b><input readonly="true" placeholder="<?php echo $obra->resp_digitacao ?>"></div>
+          <div class="col-sm-6"><b>Responsável pela digitação: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->resp_digitacao ?>"></div>
           <div class="col-sm-offset-6">
-            <b> Data da digitação: </b><input readonly="true" placeholder="<?php echo $obra->data_digitacao ?>">
+            <b> Data da digitação: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->data_digitacao ?>">
           </div>
           
-          <div class="col-sm-6"><b>Responsável pela revisão: </b> <input readonly="true" placeholder="<?php echo $obra->resp_revisao ?>"></div>
+          <div class="col-sm-6"><b>Responsável pela revisão: </b> <input readonly="true" class="form-control" placeholder="<?php echo $obra->resp_revisao ?>"></div>
           <div class="col-sm-offset-6">
-            <b>Data da revisão:  </b><input readonly="true" placeholder="<?php echo $obra->data_revisao ?>">
+            <b>Data da revisão:  </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->data_revisao ?>">
           </div>
           
-          <div class="col-sm-6"><b>Responsável pela alteração: </b><input readonly="true" placeholder="<?php echo $obra->resp_alteracao ?>"></div>
+          <div class="col-sm-6"><b>Responsável pela alteração: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->resp_alteracao ?>"></div>
           <div class="col-sm-offset-6">
-            <b>Data da alteração: </b><input readonly="true" placeholder="<?php echo $obra->data_alteracao ?>">
+            <b>Data da alteração: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->data_alteracao ?>">
           </div>
         
            <div class="col-sm-6">
