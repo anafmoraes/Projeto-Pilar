@@ -346,14 +346,6 @@ class Obra_Controller extends CI_Controller {
             // Função em PHP que vai no diretório e apaga o arquivo selecionado
             if(unlink($caminho)){
                 if($this->Obra_Model->remover_registro_imagem($img->id_img)){
-
-                    // Se a obra não possuir nenhuma imagem, atualiza o campo 'imagem' da tabela
-                    if($this->db->count_all('galeria') == 0){
-                        $obra['imagem'] = 0;
-                        if(!$this->Obra_Model->atualizar_obra($id_obra, $obra)) {
-                            echo "Erro ao realizar a atualização do atributo imagem na tabela de obras";
-                        }
-                    }
                 }
                 else{
                     echo "Erro ao excluir o registro de imagem do banco de dados";
