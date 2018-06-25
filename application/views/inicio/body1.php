@@ -2,6 +2,6 @@
 
 <div class="slider">
 	<div class="img-responsive">
-		<img class="img-responsive" src="<?php echo base_url('assets/img/backgrounds/pilar.jpg') ?>" />
+		<img id="front_page" class="img-responsive" src="<?php echo base_url('assets/img/backgrounds/pilar.jpg') ?>" />
 	</div>
 </div>
