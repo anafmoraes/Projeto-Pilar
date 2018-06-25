@@ -141,7 +141,7 @@
           <b>Modo de aquisição: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->modo_aquisicao ?>">
         </div>
         <div class="col-sm-3">
-          <b>Data da aquisição: </b><input readonly="true"class="form-control"  class="form-control" placeholder="<?php echo $obra->data_aquisicao ?>">
+          <b>Data da aquisição: </b><input readonly="true"class="form-control"  class="form-control" placeholder="<?php echo date('d/m/Y',  strtotime($obra->data_aquisicao)) ?>">
         </div>
       </div>
 
@@ -190,17 +190,17 @@
           
           <div class="col-sm-6"><b>Responsável pela digitação: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->resp_digitacao ?>"></div>
           <div class="col-sm-offset-6">
-            <b> Data da digitação: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->data_digitacao ?>">
+            <b> Data da digitação: </b><input readonly="true" class="form-control" placeholder="<?php echo date('d/m/Y',  strtotime($obra->data_digitacao)) ?>">
           </div>
           
           <div class="col-sm-6"><b>Responsável pela revisão: </b> <input readonly="true" class="form-control" placeholder="<?php echo $obra->resp_revisao ?>"></div>
           <div class="col-sm-offset-6">
-            <b>Data da revisão:  </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->data_revisao ?>">
+            <b>Data da revisão:  </b><input readonly="true" class="form-control" placeholder="<?php echo date('d/m/Y',  strtotime($obra->data_revisao)) ?>">
           </div>
           
           <div class="col-sm-6"><b>Responsável pela alteração: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->resp_alteracao ?>"></div>
           <div class="col-sm-offset-6">
-            <b>Data da alteração: </b><input readonly="true" class="form-control" placeholder="<?php echo $obra->data_alteracao ?>">
+            <b>Data da alteração: </b><input readonly="true" class="form-control" placeholder="<?php echo date('d/m/Y',  strtotime($obra->data_alteracao)) ?>">
           </div>
         
            <div class="col-sm-6">
