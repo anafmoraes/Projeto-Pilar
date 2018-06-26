@@ -110,12 +110,6 @@ class Obra_Controller extends CI_Controller {
             $obra['circunferencia'] = $this->input->post('circunferencia');
             $obra['resp_preenc_tec'] =$this->input->post('responsavel') ;
             $obra['nome_fotografo'] = $this->input->post('nome-fotografo');
-            $obra['resp_digitacao'] = $this->input->post('responsavel-digitacao');
-            $obra['data_digitacao'] = $this->input->post('data-digitacao');
-            $obra['resp_revisao'] = $this->input->post('responsavel-revisao');
-            $obra['data_revisao'] = $this->input->post('data-revisao');
-            $obra['resp_alteracao'] = $this->input->post('responsavel-alteracao');
-            $obra['data_alteracao'] = $this->input->post('data-alteracao');
             $obra['descricao_objeto'] = $this->input->post('descricao-objeto');
             $obra['carac_tecnica'] = $this->input->post('carac-tecnicas');
             $obra['carac_inconografica'] = $this->input->post('carac-inconografica');
@@ -126,7 +120,15 @@ class Obra_Controller extends CI_Controller {
             $obra['fontes_bib'] = $this->input->post('fontes-bibliograficas');
             $obra['modo_aquisicao'] = $this->input->post('modo-aquisicao');
             $obra['data_aquisicao'] = $this->input->post('data-aquisicao');
+            //Inicio de Usuarios
+            $obra['resp_digitacao'] = $this->input->post('responsavel-digitacao');
+            $obra['data_digitacao'] = $this->input->post('data-digitacao');
+            $obra['resp_revisao'] = $this->input->post('responsavel-revisao');
+            $obra['data_revisao'] = $this->input->post('data-revisao');
+            $obra['resp_alteracao'] = $this->input->post('responsavel-alteracao');
+            $obra['data_alteracao'] = $this->input->post('data-alteracao');
             $obra['id_funcionario'] = $this->session->userdata('usuariologado')->id_funcionario;
+            //Fim de Relação sobre Usuarios
             $obra['situacao'] = 1;
 
             if($dados['obras'] = $this->Obra_Model->cadastrar_obra($obra)) {
@@ -159,25 +161,24 @@ class Obra_Controller extends CI_Controller {
     // Envia para a view uma obra específica de acordo com o id que é passado na view
     public function pesquisar_obra($id) {
         $this->pesquisa_unitaria = $this->Obra_Model->pesquisa_unitaria($id);
-        foreach ($this->pesquisa_unitaria as $pesquisa) {
-        
-        
-        $this->usuario_cadastro = $this->Obra_Model->pesquisa_nome($pesquisa->id_funcionario);
+        foreach ($this->pesquisa_unitaria as $this->informacoes){
+            $id_func = $this->informacoes->id_funcionario;
         }
         $dados['resultado'] = $this->pesquisa_unitaria;
-        $dados['usuario_cadastro']=$this->usuario_cadastro;
-        //$this->pesquisaTipo = 
+        $dados['usuario_cadastro']=$this->Obra_Model->pesquisa_nome($id_func);
+        
 
         //Chama o modelo de cabeçalho
         $this->load->view('template/html-header');
         $this->load->view('template/header');
-
+ 
         $this->load->view('frontend/obra/Registro_View', $dados);
 
         //Chama o rodapé da página
         $this->load->view('template/footer');
         $this->load->view('template/html-footer');
     }
+
 
     // Valida e atualiza os dados de uma determinada obra
     public function atualizar_obra($id) {
