@@ -110,8 +110,8 @@
             </div>
 
             <!-- Coluna da direita -->
-            <div class="col-md-6">
-                <div class="form-group col-md-12">
+            <div class="col-md-6" id="div-foto">
+                <div class="form-group col-md-12" >
                     <div class="img-container-card">
                         <label class="form-group"> Imagem do Perfil (.jpg) </label>
                         <div class="row" style="padding-bottom: 14vh; margin-top: 0px;">
@@ -130,7 +130,7 @@
                     </div>
                     <?php
                         //Cria variaveis para estilizar o form de imagem
-                        $div_open = '<div class="form-group">';
+                        $div_open = '<div class="form-group" >';
                         $div_close = '</div>';
 
                         // Chama o form de imagem
@@ -151,7 +151,9 @@
                         echo$div_close;
                         //Fecha o form
                         echo form_close();
-                    ?>                        
+
+                    ?>      
+
                 </div>
             </div>
         <?php }?>

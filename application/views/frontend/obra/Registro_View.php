@@ -204,9 +204,13 @@
           </div>
         
            <div class="col-sm-6">
-            <?php  foreach ($usuario_cadastro as $cadastrou){?>
+            
+
             <b>Usuario que Cadastrou a Obra: </b>
-            <?php  $cadastrou->nome ?>
+            <?php  foreach ($usuario_cadastro as $cadastrou){ ?>
+              
+            <input readonly="true" class="form-control" placeholder="<?php  echo $cadastrou->nome ?>">
+            
             <?php } ?>
           </div>
             

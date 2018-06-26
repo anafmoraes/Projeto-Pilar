@@ -46,9 +46,9 @@ class Obra_Model extends CI_Model{
         return $this->db->get()->result();
     }
     public function pesquisa_nome($id){
-        $this->db->select();
+        $this->db->select('nome');
         $this->db->from('funcionario');
-        $this->db->where('id_tipoFuncionario', $id);
+        $this->db->where('id_funcionario', $id);
         return $this->db->get()->result();
     }
 
