@@ -70,7 +70,7 @@
                                 </select>
                             </div>                        
                         <?php } else { ?>
-                                 <div class="form-group col-md-6" style="visibility:hidden;">
+                                 <div class="form-group col-md-6 esconder" >
                                 <label id="txt-tipo">Tipo de Funcionario</label><br>
                                 <select class="form-control" value="<?php echo $funcionario->id_tipoFuncionario ?>" name="txt-tipo" >
                                    
@@ -101,7 +101,7 @@
                     
                     <div class="row">
                          <div class="form-group col-md-12">
-                            <button type="submit" style="width: 19vw;" class="btn btn-default"> Atualizar Informações </button>
+                            <button type="submit" class="btn btn-default tam-atualizar-btn"> Atualizar Informações </button>
                         </div>  
                      </div>                              
                 <?php
@@ -114,7 +114,7 @@
                 <div class="form-group col-md-12" >
                     <div class="img-container-card">
                         <label class="form-group"> Imagem do Perfil (.jpg) </label>
-                        <div class="row" style="padding-bottom: 14vh; margin-top: 0px;">
+                        <div class="row" class="img-perfil-div">
                             <div class="col-lg-12 col-lg-offset-3">
                                 <?php
                                     if($funcionario->img == 1){

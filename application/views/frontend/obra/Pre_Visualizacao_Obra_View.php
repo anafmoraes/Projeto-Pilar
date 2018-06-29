@@ -14,6 +14,7 @@
     <!-- Lista todas as obras registradas no banco de dados -->
     <?php
     foreach ($obras as $obra){ ?>
+        <?php if ($obra->situacao == 1){ ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -89,6 +90,6 @@
         </div>
         <br>
     <?php
-    }?>
+    }}?>
 </div>        
 <br>   

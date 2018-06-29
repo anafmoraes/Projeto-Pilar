@@ -232,7 +232,7 @@
                 <div class="modal-footer">
                     
                     <div class="col-md-2">
-                        <?php echo form_open('Obra_Controller/remover_obra/'.$obra->id_obra); ?>
+                        <?php echo form_open('Obra_Controller/exclusao_logica/'.$obra->id_obra); ?>
                             <button type="submit" class="btn btn-default"> Sim </button>
                         <?php echo form_close();?>
                     </div>
