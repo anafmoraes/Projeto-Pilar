@@ -19,7 +19,7 @@
     <div><?=$error?></div>
 <?php endif;?>
 
-<div class="container" id="caixa2">
+<div class="container" id="caixarestauracao">
     <?php
     foreach ($restauracoes as $restauracao) {?>
 
@@ -40,7 +40,7 @@
 
         <div class="form-group col-md-12">
             <label id="tipo-intervencao">Tipo de Intervenção</label>
-            <textarea cols="100" rows="5" type="text" id="tipo-intervencao" name="tipo-intervencao" class="form-control" placeholder="Insira o tipo de intervenção" value="<?php echo $restauracao->intervencao?>"></textarea>
+            <textarea cols="100" rows="5" type="text" id="tipo-intervencao" name="tipo-intervencao" class="form-control" placeholder="Insira o tipo de intervenção"><?php echo $restauracao->intervencao?></textarea>
         </div>
 
         <button type="submit" class="btn btn-default" id="botao_atualizar">Atualizar </button>

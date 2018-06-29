@@ -145,6 +145,9 @@ a#botao_tornar_padrao{
   padding: 40px;
   width: 60%;
   color: gray;
+  border: 2px;
+  border-color: #cccccc;
+  border-radius: 10px
 }
 
 #caixa2{
@@ -156,6 +159,37 @@ a#botao_tornar_padrao{
   color: gray;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 14px;
+  border: 2px;
+  border-color: #cccccc;
+  border-radius: 10px
+}
+
+#caixaexposicao{
+  border-width: 0.5px;
+  background-color: #ffffff;
+  margin: 20px auto;
+  padding: 40px;
+  width: 85%;
+  color: gray;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  border: 2px;
+  border-color: #cccccc;
+  border-radius: 10px
+}
+
+#caixarestauracao{
+  border-width: 0.5px;
+  background-color: #ffffff;
+  margin: 20px auto;
+  padding: 40px;
+  width: 85%;
+  color: gray;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  border: 2px;
+  border-color: #cccccc;
+  border-radius: 10px
 }
 
 #linha_direita {

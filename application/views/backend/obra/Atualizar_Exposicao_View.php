@@ -19,7 +19,7 @@
     <div><?=$error?></div>
 <?php endif;?>
 
-<div class="container" id="caixa2">
+<div class="container" id="caixaexposicao">
     <?php
     foreach ($exposicoes as $exposicao) {?>
 
@@ -33,7 +33,7 @@
         </div>
         <div class="form-group col-md-12">
             <label id="descricao-exposicao">Descrição</label>
-            <textarea type="text" id="descricao-exposicao" name="descricao-exposicao" class="form-control" placeholder="Descreva o evento" value="<?php echo $exposicao->descricao ?>" cols="100" rows="5"></textarea>
+            <textarea type="text" id="descricao-exposicao" name="descricao-exposicao" class="form-control" placeholder="Descreva o evento" cols="100" rows="5"><?php echo $exposicao->descricao ?></textarea>
         </div>
         <div class="form-group col-md-12">
             <label id="local-realizacao">Local de Realização</label>

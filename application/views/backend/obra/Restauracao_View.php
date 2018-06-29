@@ -30,7 +30,7 @@
     <!-- Lista todas as obras registradas no banco de dados -->
     <?php
         foreach ($restauracoes as $restauracao){ ?>
-        <div class="row" id="caixa2">
+        <div class="row" id="caixarestauracao">
             <div class="col-sm-6">
                 <label>Nome do restaurador: </label>
                 <input readonly="true" class="form-control" placeholder="<?php echo $restauracao->nome_restaurador?>">

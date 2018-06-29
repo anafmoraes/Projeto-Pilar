@@ -15,7 +15,7 @@
     </div>
 </div>
 
-<div class="container" id="caixa2">
+<div class="container" id="caixarestauracao">
         <div class="container-backend">
             <?php if(isset($error)):?>
                 <div><?=$error?></div>

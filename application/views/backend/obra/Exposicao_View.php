@@ -31,11 +31,11 @@
     <!-- Lista todas as obras registradas no banco de dados -->
     <?php
         foreach ($exposicoes as $exposicao){ ?>
-    <div class="row" id="caixa2">
+    <div class="row" id="caixaexposicao">
         <h3><?php echo $exposicao->nome_exposicao?> </h3>
         <div class="col-sm-12">
             <label>Local da exposição: </label>
-            <input readonly="true" class="form-control" placeholder="<?php echo $exposicao->local_realizacao?>">
+            <input readonly="readonly" class="form-control" placeholder="<?php echo $exposicao->local_realizacao?>">
         </div>
         <div class="col-sm-6">
             <label>Início: </label>
