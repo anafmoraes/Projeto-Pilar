@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="row text-center">
-        <h1> Obras registradas </h1>
+        <h1> Obras Registradas </h1>
     </div>
 </div><br>
 
@@ -23,18 +23,19 @@
                     <div class="card-body">
 
                         <div class="col-md-8">                            
-                            <div class="col-md-6">
-                                <p class="card-text"> <b> Título: </b><?php echo $obra->titulo ?> </p>
+                            <div class="col-md-8">
+                                <p class="card-text font-destaque"> <b> Título: </b><?php echo $obra->titulo ?> </p>
+                                <hr>
                             </div>
-                            <div class="col-md-6">
-                                <p class="card-text"> <b>Número atual: </b> <?php echo $obra->num_atual ?><br></p>
+                            <div class="col-md-4">
+                                <p class="card-text font-destaque"> <b>Número atual: </b> <?php echo $obra->num_atual ?><br></p>
+                                <hr>
                             </div>                                
                             <div class="col-md-12">
-                                <p class="card-text" > <b> Descrição do Objeto: </b> </p>
+                                <p class="card-text font-destaque" > <b> Descrição do Objeto: </b> </p>
                                 <p class=" card-text text-preview">  <?php echo $obra->descricao_objeto ?><br> </p>
                             </div>
                         </div>
-
 
                         <div class="col-md-4">
                             <!-- Verifica qual é a imagem padrão da obra atual -->
@@ -49,7 +50,7 @@
                                         $source = $img->caminho_img . $img->id_img . '.' . $img->extensao;
                                         ?>
                                         <div class="col-sm-2 col-md-2 col-lg-6">
-                                            <img src="<?php echo base_url($source);?>" alt="imagem_padrao" class="img-fluid" height=200px width="350" class="pre_view_img">
+                                            <img src="<?php echo base_url($source);?>" alt="imagem_padrao" class="img-fluid" height=210px width="335" class="pre_view_img">
                                         </div>
                                     <?php
                                     }?>
@@ -60,7 +61,7 @@
                                 <?php
                                 if($semImgpadrao){?>
                                     <div class="col-sm-2 col-md-2 col-lg-6">
-                                        <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" height=250px width="500">
+                                        <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" height=210px width="335">
                                     </div>
                                 <?php
                                 }?>
@@ -69,7 +70,7 @@
                             else{?>
                                 <!-- Caso a obra nao possua imagens, carrega a imagem padrão -->
                                 <div class="col-sm-2 col-md-2 col-lg-6">
-                                    <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" width=500px>
+                                    <img src="<?php echo base_url('/assets/img/obra_default.jpg');?>" class="img-fluid" height=210px width="335">
                                 </div>
                             <?php
                             }?>
