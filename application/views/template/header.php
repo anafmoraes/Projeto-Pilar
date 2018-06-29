@@ -56,20 +56,18 @@
 									</li>
 								<?php }?>
 
-								<?php if($this->session->userdata('logado') && $this->session->userdata('usuariologado')->id_tipoFuncionario == 1){ ?>
-									<li role="presentation">
-										<!-- Gostaria que esse link levasse ao perfil do usuário logado -->
-										<a href="<?php echo base_url('pre_visualizacao_funcionario') ?>">Funcionarios</a>
-									</li>
-								<?php }?>
-
 								<!-- Esse link deve mandar para a parte administrativa do sistema
 									 onde o administrador ou supervisor possa gerenciar funcionarios e obras (a definir) -->
 								<?php if($this->session->userdata('logado') && $this->session->userdata('usuariologado')->id_tipoFuncionario == 1){ ?>
+										<li role="presentation">
+										<!-- Gostaria que esse link levasse ao perfil do usuário logado -->
+										<a href="<?php echo base_url('pre_visualizacao_funcionario') ?>">Administrar</a>
+									</li>
+								<?php }elseif ($this->session->userdata('logado') && $this->session->userdata('usuariologado')->id_tipoFuncionario == 2){?>
 										<li role="presentation">									
-											<a href="<?php echo base_url('admin') ?>">Administrar</a>
+											<a href="<?php echo base_url('supervisor') ?>">Administrar</a>
 										</li>
-								<?php }?>
+								<?php } ?>	
 
 								<?php if($this->session->userdata('logado')){ ?>
 									<li role="presentation">									

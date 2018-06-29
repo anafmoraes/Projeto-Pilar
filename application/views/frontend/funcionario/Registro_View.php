@@ -2,7 +2,8 @@
      <!--  Botão para voltar para a pré-visualização  -->
       <?php foreach ($resultado as $funcionario){ ?>
           <?php echo form_open('pre_visualizacao_funcionario'); ?>
-              <?php if($funcionario->id_tipoFuncionario == 1){  ?>
+              <?php if($this->session->userdata('usuariologado')->id_tipoFuncionario == 1){  ?>
+               
                   <button type="submit"class="btn btn-default"> Voltar </button>
               <?php } ?>  
           <?php echo form_close();?>

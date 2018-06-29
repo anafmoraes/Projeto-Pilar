@@ -55,11 +55,12 @@
             </div>
             
             <!-- Botão de submeter o formulário -->
-            <button type="submit" style="width: 12vw;" class="btn btn-default">Cadastrar</button>
-                        
+            <button type="submit" class="btn btn-default btn-cad-func">Cadastrar</button>
+               <br><br>         
             <?php
                 echo form_close();
             ?>
+              <br><br>    
         </div>
     </div>        
 </div>

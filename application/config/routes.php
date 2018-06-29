@@ -57,6 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['operacao_realizada_sucesso'] = 'Wellcome/operacao_bem_sucedida';
 $route['inicio'] = 'Inicio_Controller/index';
 $route['admin'] = 'Inicio_Controller/admin';
+$route['supervisor'] = 'Inicio_Controller/supervisor';
 
 /*Rotas relacionadas às obras*/
 $route['cadastrar_obra'] = 'Obra_Controller/cadastrar_obra';

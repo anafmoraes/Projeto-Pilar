@@ -309,6 +309,7 @@ class Obra_Controller extends CI_Controller {
     }
 
     //Realiza a exclusão lógica de uma obra do sistema (Apenas Supervisores)
+    // Situação 0 = Obra Excluida
     public function exclusao_logica($id) {       
         $obra['situacao'] = 0;
 

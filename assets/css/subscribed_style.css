@@ -1020,3 +1020,57 @@ img.img-fluid {
   font-size: 17px;
   color: #333;
 }
+.listagem-supervisor.voltar{
+    float: right;
+    color: red;
+    margin-left: 10px;
+    height: 25px;
+    width: 60px;
+}
+.listagem-supervisor.confirmar {
+    float: right;
+    color: green;
+    margin-left: 10px;
+    height: 25px;
+    width: 60px;
+}
+.listagem-supervisor.editar {
+    float: right;
+    color: gray;
+    margin-left: 10px;
+    height: 25px;
+    width: 60px;
+}
+.icone-botao{
+  position: absolute;   
+  top: 13px;
+  margin-left: -6px;
+}
+.esconder{
+  visibility: hidden;
+}
+.tam-atualizar-btn{
+  width: 19vw;
+}
+.img-perfil-div{
+  padding-bottom: 14vh;
+  margin-top: 0px;
+}
+.btn-cad-func{
+  width: 12vw;
+}
+.btn-cad{
+  width: 19vw;
+  margin-left: 90%
+}
+.btn-visualizar{
+  width: 250px;
+}
+.btn-excluir{
+  width: 180px;
+  margin-left: 35px;
+}
+.btn-alterar{
+  margin-left: 30px;
+    width: 165px;
+}
